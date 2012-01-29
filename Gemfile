@@ -22,6 +22,7 @@ end
 
 # To use debugger
 # gem 'ruby-debug'
+gem "bcrypt-ruby", :require => "bcrypt"
 
 # Bundle the extra gems:
 # gem 'bj'
