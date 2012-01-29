@@ -36,3 +36,5 @@ end
 #   gem 'webrat'
 # end
 gem 'activeadmin'
+
+#gem "sprockets_rails3_backport"

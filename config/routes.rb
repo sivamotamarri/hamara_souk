@@ -1,4 +1,10 @@
 HamaraSouk::Application.routes.draw do
+  
+#  if (app = Rails.application).config.assets.compile
+#     puts app.assets
+#    mount app.assets => app.config.assets.prefix
+# end
+  
   devise_for :users
 
   ActiveAdmin.routes(self)
