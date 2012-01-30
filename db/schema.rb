@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120128104946) do
+ActiveRecord::Schema.define(:version => 20120130182645) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(:version => 20120128104946) do
     t.boolean  "allow_adv",                             :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "unconfirmed_email"
   end
 
   add_index "users", ["authentication_token"], :name => "index_users_on_authentication_token", :unique => true
