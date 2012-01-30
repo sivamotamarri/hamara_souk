@@ -13,6 +13,7 @@ group :production do
 end
 group :development, :test do
   gem 'sqlite3'
+  gem "bcrypt-ruby", :require => "bcrypt"
 end
 # Use unicorn as the web server
 # gem 'unicorn'
@@ -22,7 +23,7 @@ end
 
 # To use debugger
 # gem 'ruby-debug'
-gem "bcrypt-ruby", :require => "bcrypt"
+
 
 # Bundle the extra gems:
 # gem 'bj'
