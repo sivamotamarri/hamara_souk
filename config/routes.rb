@@ -5,8 +5,8 @@ HamaraSouk::Application.routes.draw do
 #    mount app.assets => app.config.assets.prefix
 # end
   
-  devise_for :users
-
+  devise_for :users,:controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config
