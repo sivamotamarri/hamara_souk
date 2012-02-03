@@ -18,10 +18,34 @@
   <%= f.text_field :last_name %></div>
 
 
-<div><%= f.label :gender , "My Mother Calls Me"%><br />
-  <%= f.text_field :gender %></div>
+<div><%= f.label :gender , "My Mother Calls Me"%><br />  
+<%= f.select(:gender, [['Habibi(M)', 'M'], ['Habibti(F)', 'F']],{:prompt => "- Select One -"}) %></div>
 
-  <div><%= f.submit "Sign up" %></div>
+<div><%= f.label :dob, "The world became a better place on (d.o.b)" %><br/>
+
+<%= f.date_select  :dob, :order => [:day, :month, :year], :start_year => 1921,:prompt => { :day => 'Day', :month => 'Month', :year => 'Year' } %>
+</div>
+
+<div><%= f.label :country , "My Passport tells me I am from" %><br/>
+<%= f.country_select(:country, {},:prompt => "- Select One -") %>
+</div>
+
+<div><%=f.label :professional , "My friends call me often, but my company calls me"%><br/>
+  
+<%= f.select(:professional, User::PROFESSIONALS,{:prompt => "- Select One -"}) %></div>
+
+<div>
+  <%= f.check_box :hamara_souk_updates %><%=f.label :hamara_souk_updates , "Allow Hamara Souk to send me occasional updates about the site."%>
+</div>
+<div>
+ <%= f.check_box :allow_adv %> <%=f.label :allow_adv , "Send me amazing offers and bargains from our advertising partners."%>
+</div>
+  <div>
+    <div>
+      By clicking on Register, you agree to the Hamara Souk Terms and Conditions and the Hamara Souk Privacy Policy.
+    </div>
+  
+  <%= f.submit "Register" %></div>
 <% end %>
 
-<%= render "links" %>
+<%#= render "links" %>

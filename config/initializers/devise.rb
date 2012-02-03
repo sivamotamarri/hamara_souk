@@ -1,5 +1,6 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
+require "omniauth-facebook"
 Devise.setup do |config|
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
@@ -28,6 +29,7 @@ Devise.setup do |config|
   # or not authentication should be aborted when the value is not present.
   # config.authentication_keys = [ :email ]
 
+config.omniauth :facebook, "175185975877514", "e895eb2fb4a29feeabdb07733a78afec", :strategy_class => OmniAuth::Strategies::Facebook, :scope => 'email,offline_access,read_stream', :display => 'popup'
   # Configure parameters from the request object used for authentication. Each entry
   # given should be a request method and it will automatically be passed to the
   # find_for_authentication method and considered in your model lookup. For instance,
