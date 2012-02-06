@@ -45,3 +45,4 @@ gem 'meta_search',    '>= 1.1.0.pre'
 
 gem "omniauth-facebook"
 gem 'faraday'
+gem "breadcrumbs_on_rails"

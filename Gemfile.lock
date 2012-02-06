@@ -42,6 +42,7 @@ GEM
     addressable (2.2.6)
     arel (2.2.1)
     bcrypt-ruby (3.0.1-x86-mingw32)
+    breadcrumbs_on_rails (2.2.0)
     builder (3.0.0)
     devise (2.0.0)
       bcrypt-ruby (~> 3.0)
@@ -153,6 +154,7 @@ PLATFORMS
 DEPENDENCIES
   activeadmin
   bcrypt-ruby
+  breadcrumbs_on_rails
   faraday
   meta_search (>= 1.1.0.pre)
   omniauth-facebook
