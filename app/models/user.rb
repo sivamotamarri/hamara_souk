@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me,:first_name,:allow_adv, :hamara_souk_updates, :last_name ,:gender,:country,:dob,:professional
   validates :first_name, :last_name ,:gender,:country,:dob,:professional,  :presence => true
   
+  has_many :ads
   
   PROFESSIONALS = {
 "Student" => "ST",

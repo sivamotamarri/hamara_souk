@@ -4,11 +4,12 @@ HamaraSouk::Application.routes.draw do
 #     puts app.assets
 #    mount app.assets => app.config.assets.prefix
 # end
-  
+  resources :ads
   devise_for :users,:controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   
   ActiveAdmin.routes(self)
 
+  
   devise_for :admin_users, ActiveAdmin::Devise.config
 
   # The priority is based upon order of creation:
@@ -24,7 +25,7 @@ HamaraSouk::Application.routes.draw do
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-
+      
   # Sample resource route with options:
   #   resources :products do
   #     member do

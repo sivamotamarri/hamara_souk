@@ -383,7 +383,43 @@ return this.each(function(){typeof a=="string"?d.datepicker["_"+a+"Datepicker"].
 
 /* Active Admin JS */
 
+$(document).ready(function(){
+
+if($("#amenity_section_id").val()!=""){
+  $.ajax({
+    dataType: "script",
+    url: "/admin/amenities/"+$("#amenity_section_id").val()+"/category_selection" ,
+    success: function(res){
+        $("#amenity_category_id").removeAttr('disabled');
+        $('#amenity_category_id').html(res);
+    }
+   });
+}
+   
+  $("#amenity_section_id").live('change', function(event){
+        event.preventDefault();
+    
+  if($(this).val() == ""){
+        $("#amenity_category_id").attr("disabled", true);
+    }
+    else{
+    $("#amenity_category_id").removeAttr('disabled');
+    }
+  
+  $.ajax({
+    dataType: "script",
+    url: "/admin/amenities/"+$(this).val()+"/category_selection" ,
+    success: function(res){
+        $('#amenity_category_id').html(res)
+    }
+   });
+    
+   
+ })
+});
 $(function(){
+
+  
     $(".datepicker").datepicker({dateFormat: 'yy-mm-dd'});
 
     $(".clear_filters_btn").click(function(){

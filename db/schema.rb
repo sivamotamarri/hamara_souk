@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120206100011) do
+ActiveRecord::Schema.define(:version => 20120212083100) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -47,18 +47,18 @@ ActiveRecord::Schema.define(:version => 20120206100011) do
 
   create_table "ads", :force => true do |t|
     t.string   "title"
-    t.decimal  "size"
-    t.decimal  "fee"
+    t.decimal  "size",                   :precision => 10, :scale => 0
+    t.decimal  "fee",                    :precision => 10, :scale => 0
     t.integer  "bed_rooms"
     t.integer  "bath_rooms"
     t.string   "developer"
     t.date     "ready_date"
-    t.decimal  "annual_comm_fee"
+    t.decimal  "annual_comm_fee",        :precision => 10, :scale => 0
     t.string   "amenities"
     t.integer  "section_id"
     t.integer  "category_id"
     t.integer  "sub_category_id"
-    t.decimal  "price"
+    t.decimal  "price",                  :precision => 10, :scale => 0
     t.string   "property_refer"
     t.integer  "phone_number"
     t.text     "desc"
@@ -72,6 +72,16 @@ ActiveRecord::Schema.define(:version => 20120206100011) do
     t.string   "location"
     t.float    "longitude"
     t.float    "latitude"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.string   "tags"
+  end
+
+  create_table "amenities", :force => true do |t|
+    t.string   "title"
+    t.integer  "section_id"
+    t.integer  "category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
