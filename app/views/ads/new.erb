@@ -19,10 +19,10 @@
 <div><%=f.label :sub_category_id , "Select a Subcategory" %><br/>
 <%= f.select(:category_id, Category.parent_cat.collect {|s| [ s.name, s.id ] },{:prompt => "- Select One -"}) %></div> 
 
-
+<h1>Title</h1>
 <div><%= f.label :title %><br />
   <%= f.email_field :title %></div>
-
+<h1>Details</h1>
   <div><%= f.label :size %><br />
   <%= f.text_field :size %></div>
 
@@ -46,19 +46,42 @@
   <%= f.text_field :annual_comm_fee %></div>
 
 <div>
-  <%= f.label :amenities ,"Amenities" %><br />
-
-
+  <%= f.label :amenities ,"Amenities" %><br />  
   
-  
-  
-    
-    
-    
+  <% @amenities.each do |amen| %>
    
+  <input id="ad_amenities" type="checkbox" value="<%=  amen.id %>" name="ad[amenities][]">
+    <%=f.label :amenities , "#{amen.title}"%>
 
-</div>
+  <% end %>
+</div>    
+    
+  <h1>Description</h1>
+   
+ <div><%= f.label :price ,"price" %><br />
+  <%= f.text_field :price %><%= f.label :price ,"AED" %></div>
 
+
+ <div><%= f.label :property_refer ,"Property Reference" %><br />
+  <%= f.text_field :property_refer %><%= f.label :property_refer ,"(optional)" %></div>
+
+   <div><%= f.label :phone_number ,"Phone Number" %><br />
+  <%= f.text_field :phone_number %><%= f.label :phone_number ,"(optional)" %></div>
+  
+   <div><%= f.label :desc ,"Description" %><br />
+  <%= f.text_area :desc, :rows => 10, :cols => 20 %></div>
+  
+  <h1>Lister Details</h1>
+    
+  <div style="width:90%">
+  
+    <div style="width:50%; float: left;">
+<%= f.radio_button :agent_or_landlord , :value => 1 %><%=f.label :agent_or_landlord , "I'm an Agent"%>
+    </div>
+    <div style="width:50%;float: left;">
+  <%= f.radio_button :agent_or_landlord , :value => 0 %><%=f.label :agent_or_landlord , "I'm a Landlord"%>
+  </div></div>
+  <br/>
   <%= f.submit "Register" %></div>
 <% end %>
 
