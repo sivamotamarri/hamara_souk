@@ -40,6 +40,6 @@ production:
   encoding: utf8
   database: hamara_production
   pool: 5
-  username: root
-  password: root
+  username: admin
+  password: nSnR65dCBUSsn461bvYKSQ==
  # socket: /tmp/mysql.sock
