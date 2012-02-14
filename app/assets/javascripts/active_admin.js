@@ -385,8 +385,8 @@ return this.each(function(){typeof a=="string"?d.datepicker["_"+a+"Datepicker"].
 
 $(document).ready(function(){
 
-if($("#amenity_section_id").val()!=""){
-  $.ajax({
+if($("#amenity_section_id").val()!="" && !isNaN($("#amenity_section_id").val())){  
+$.ajax({
     dataType: "script",
     url: "/admin/amenities/"+$("#amenity_section_id").val()+"/category_selection" ,
     success: function(res){

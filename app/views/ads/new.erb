@@ -13,9 +13,12 @@
  
 <div><%=f.label :section_id , "Select a Section" %><br/>
 <%= f.select(:section_id, Section.all.collect {|s| [ s.name, s.id ] },{:prompt => "- Select One -"}) %></div>
+<div style="display: none;" id="cat_section">
+
+
 <div><%=f.label :category_id , "Select a Category" %><br/>
 <%= f.select(:category_id, Category.parent_cat.collect {|s| [ s.name, s.id ] },{:prompt => "- Select One -"}) %></div> 
-
+</div>
 <div><%=f.label :sub_category_id , "Select a Subcategory" %><br/>
 <%= f.select(:category_id, Category.parent_cat.collect {|s| [ s.name, s.id ] },{:prompt => "- Select One -"}) %></div> 
 
@@ -50,7 +53,7 @@
   
   <% @amenities.each do |amen| %>
    
-  <input id="ad_amenities" type="checkbox" value="<%=  amen.id %>" name="ad[amenities][]">
+  <input id="ad_amenities" type="checkbox" value="<%=  amen.id %>" name="ad[amenities][]"/>
     <%=f.label :amenities , "#{amen.title}"%>
 
   <% end %>
@@ -80,9 +83,12 @@
     </div>
     <div style="width:50%;float: left;">
   <%= f.radio_button :agent_or_landlord , :value => 0 %><%=f.label :agent_or_landlord , "I'm a Landlord"%>
-  </div></div>
+  </div>
+  </div>
   <br/>
-  <%= f.submit "Register" %></div>
+  <div>
+  <%= f.submit "Register" %>
+</div>
 <% end %>
 
 <%#= render "links" %>

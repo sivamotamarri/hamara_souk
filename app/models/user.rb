@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me,:first_name,:allow_adv, :hamara_souk_updates, :last_name ,:gender,:country,:dob,:professional
-  validates :first_name, :last_name ,:gender,:country,:dob,:professional,  :presence => true
+  validates :first_name, :last_name ,:gender,:country,:dob,:professional,  :presence => {:if => :not_facebook?}
   
   has_many :ads
   
@@ -20,7 +20,12 @@ class User < ActiveRecord::Base
 "G.M/Chief Officer/Proprietor" => "GM"    
   }
   
-  def self.find_for_facebook_oauth(access_token, signed_in_resource=nil)
+  def self.find_for_facebook_oauth(access_token, action, signed_in_resource=nil)
+    @allow = true
+    if action == "facebook"
+      @allow = false
+    end
+
     data = access_token.extra.raw_info
     if user = User.where(:email => data.email).first
       user
@@ -35,6 +40,10 @@ class User < ActiveRecord::Base
         user.email = data["email"]
       end
     end
+  end
+
+  def not_facebook?
+    return @allow
   end
   
 end
