@@ -4,7 +4,15 @@ HamaraSouk::Application.routes.draw do
 #     puts app.assets
 #    mount app.assets => app.config.assets.prefix
 # end
-  resources :ads
+  resources :ads do
+    member do
+      get :selection_cat , :sub_categories
+    end
+    collection do
+      get :details
+      post :step1_create
+    end
+  end
   devise_for :users,:controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   
   ActiveAdmin.routes(self)

@@ -12,6 +12,6 @@ class Category < ActiveRecord::Base
     where("categories.parent_id = ? AND categories.status = 1 ", cat_id)
   }
   scope :section_categories , lambda {|sec_id|
-    where("categories.parent_id IS NULL AND categories.section_id = ?",sec_id)
+    where("categories.parent_id IS NULL AND categories.status = 1 AND categories.section_id = ?",sec_id)
   }
 end

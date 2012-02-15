@@ -1,0 +1,20 @@
+<h2>Choose Categories</h2>
+<div>
+<%=f.label :section_id , "Select a Section" %><br/>
+<%= f.select(:section_id, Section.all.collect {|s| [ s.name, s.id ] },{:prompt => "- Select One -"}) %>
+</div>
+<div style="display: none;" id="cat_section">
+ <div>
+  <%=f.label :category_id , "Select a Category" %><br/>
+  <span id="categories_list" >
+
+  </span>
+ </div>
+</div>
+<div id="sub_categories" style="display:none;">
+<div><%=f.label :sub_category_id , "Select a Subcategory" %><br/>
+  <span id="sub_categories_list">
+    <%= f.select(:sub_category_id, Category.parent_cat.collect {|s| [ s.name, s.id ] },{:prompt => "- Select One -"}) %>
+  </span>
+</div>
+</div> 

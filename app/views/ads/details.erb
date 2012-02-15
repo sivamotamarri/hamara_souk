@@ -1,0 +1,101 @@
+<script type="text/javascript">
+
+  	$(function() {
+		$( "#ad_ready_date" ).datepicker();
+
+	});
+</script>
+
+
+<h2>Ad</h2>
+
+<%= form_for(@ad, :url => ads_path) do |f| %>
+
+<div><%=f.label :section_id , "Select a Section" %><br/>
+<%= f.select(:section_id, Section.all.collect {|s| [ s.name, s.id ] },{:prompt => "- Select One -"}) %></div>
+<div style="display: none;" id="cat_section">
+ <div>
+  <%=f.label :category_id , "Select a Category" %><br/>
+  <span id="categories_list" >
+
+  </span>
+ </div>
+</div>
+<div id="sub_categories" style="display:none;">
+<div><%=f.label :sub_category_id , "Select a Subcategory" %><br/>
+  <span id="sub_categories_list">
+    <%= f.select(:sub_category_id, Category.parent_cat.collect {|s| [ s.name, s.id ] },{:prompt => "- Select One -"}) %>
+  </span>
+</div>
+</div>
+<h1>Title</h1>
+<div><%= f.label :title %><br />
+  <%= f.email_field :title %></div>
+<h1>Details</h1>
+  <div><%= f.label :size %><br />
+  <%= f.text_field :size %></div>
+
+  <div><%= f.label :fee , "Total Closine Fee" %><br />
+  <%= f.password_field :fee %></div>
+<div><%= f.label :bed_rooms %><br />
+  <%= f.select(:bed_rooms, Ad::NUMBER.collect {|s| [ s ] },{:prompt => "- Select One -"}) %></div>
+
+<div><%= f.label :bath_rooms %><br />
+  <%= f.select(:bath_rooms, Ad::NUMBER.collect {|s| [ s ] },{:prompt => "- Select One -"}) %></div>
+
+
+<div><%= f.label :developer , "Develper"%><br />
+<%= f.text_field :developer %></div>
+
+<div><%= f.label :ready_date, "Date (Ready By)" %><br/>
+
+<%= f.text_field :ready_date %>
+</div>
+ <div><%= f.label :annual_comm_fee ,"Annual Community Fee" %><br />
+  <%= f.text_field :annual_comm_fee %></div>
+
+<div>
+  <%= f.label :amenities ,"Amenities" %><br />
+
+  <% @amenities.each do |amen| %>
+
+  <input id="ad_amenities" type="checkbox" value="<%=  amen.id %>" name="ad[amenities][]"/>
+    <%=f.label :amenities , "#{amen.title}"%>
+
+  <% end %>
+</div>
+
+  <h1>Description</h1>
+
+ <div><%= f.label :price ,"price" %><br />
+  <%= f.text_field :price %><%= f.label :price ,"AED" %></div>
+
+
+ <div><%= f.label :property_refer ,"Property Reference" %><br />
+  <%= f.text_field :property_refer %><%= f.label :property_refer ,"(optional)" %></div>
+
+   <div><%= f.label :phone_number ,"Phone Number" %><br />
+  <%= f.text_field :phone_number %><%= f.label :phone_number ,"(optional)" %></div>
+
+   <div><%= f.label :desc ,"Description" %><br />
+  <%= f.text_area :desc, :rows => 10, :cols => 20 %></div>
+
+  <h1>Lister Details</h1>
+
+  <div style="width:90%">
+
+    <div style="width:50%; float: left;">
+<%= f.radio_button :agent_or_landlord , :value => 1 %><%=f.label :agent_or_landlord , "I'm an Agent"%>
+    </div>
+    <div style="width:50%;float: left;">
+  <%= f.radio_button :agent_or_landlord , :value => 0 %><%=f.label :agent_or_landlord , "I'm a Landlord"%>
+  </div>
+  </div>
+  <br/>
+  <div>
+  <%= f.submit "Next" %>
+</div>
+<% end %>
+
+
+

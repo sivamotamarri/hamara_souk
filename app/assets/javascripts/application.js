@@ -11,4 +11,42 @@
 
 $(document).ready(function(){
 
+ //section selection categories
+ $("#ad_section_id").live('change', function(event){
+        event.preventDefault();
+        if($(this).val() == ""){
+            $("#cat_section").hide();
+          }
+        else{
+      $.ajax({
+        dataType: "html",
+        url: "/ads/"+$(this).val()+"/selection_cat" ,
+        success: function(res){
+            $('#categories_list').html(res)
+          }
+       });
+
+          $("#cat_section").show();
+          }
+  });
+//category selection sub-categories
+  $("#ad_category_id").live('change', function(event){
+        event.preventDefault();
+        if($(this).val() == ""){
+            $("#sub_categories").hide();
+          }
+        else{
+      $.ajax({
+        dataType: "html",
+        url: "/ads/"+$(this).val()+"/sub_categories" ,
+        success: function(res){
+            $('#sub_categories_list').html(res)
+          }
+       });
+          $("#sub_categories").show();
+          }
+  });
+
+
+
 });
