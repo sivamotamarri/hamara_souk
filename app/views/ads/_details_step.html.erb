@@ -7,36 +7,18 @@
 </script>
 
 
-<h2>Ad</h2>
+<h2>Details</h2>
 
-<%= form_for(@ad, :url => ads_path) do |f| %>
 
-<div><%=f.label :section_id , "Select a Section" %><br/>
-<%= f.select(:section_id, Section.all.collect {|s| [ s.name, s.id ] },{:prompt => "- Select One -"}) %></div>
-<div style="display: none;" id="cat_section">
- <div>
-  <%=f.label :category_id , "Select a Category" %><br/>
-  <span id="categories_list" >
-
-  </span>
- </div>
-</div>
-<div id="sub_categories" style="display:none;">
-<div><%=f.label :sub_category_id , "Select a Subcategory" %><br/>
-  <span id="sub_categories_list">
-    <%= f.select(:sub_category_id, Category.parent_cat.collect {|s| [ s.name, s.id ] },{:prompt => "- Select One -"}) %>
-  </span>
-</div>
-</div>
 <h1>Title</h1>
 <div><%= f.label :title %><br />
-  <%= f.email_field :title %></div>
+  <%= f.text_field :title %></div>
 <h1>Details</h1>
   <div><%= f.label :size %><br />
   <%= f.text_field :size %></div>
 
   <div><%= f.label :fee , "Total Closine Fee" %><br />
-  <%= f.password_field :fee %></div>
+  <%= f.text_field :fee %></div>
 <div><%= f.label :bed_rooms %><br />
   <%= f.select(:bed_rooms, Ad::NUMBER.collect {|s| [ s ] },{:prompt => "- Select One -"}) %></div>
 
@@ -91,11 +73,7 @@
   <%= f.radio_button :agent_or_landlord , :value => 0 %><%=f.label :agent_or_landlord , "I'm a Landlord"%>
   </div>
   </div>
-  <br/>
-  <div>
-  <%= f.submit "Next" %>
-</div>
-<% end %>
+ 
 
 
 

@@ -22,39 +22,30 @@ class AdsController < ApplicationController
     session[:ad_params].deep_merge!(params[:ad]) if params[:ad]
     @ad = Ad.new(session[:ad_params])
     @ad.current_step = session[:ad_step]
-    if @ad.valid?
+     if !@ad.first_step?
+       @amenities = Amenity.all
+     end
+     puts @ad.section_id
+    if @ad.valid?    
       if params[:back_button]
         @ad.previous_step
-      elsif @ad.last_step?
+      elsif @ad.last_step?      
         @ad.save if @ad.all_valid?
-      else
+      else  
         @ad.next_step
       end
       session[:ad_step] = @ad.current_step
     end
-    if @ad.new_record?
+    if @ad.new_record?     
       render "new"
-    else
+    else   
       session[:ad_step] = session[:ad_params] = nil
       flash[:notice] = "Ad saved!"
       redirect_to @ad
     end
   end
 
-  def details
-    @amenities = Amenity.all
-  end
-  
-  def step3
-     
-  end
-  def step4
-    
-  end
-  
-  def create
-    render :text => params.inspect
-  end
+
   def show
     render :text => "heell"
   end

@@ -8,14 +8,17 @@ class Ad < ActiveRecord::Base
   NUMBER = ['1','2','3','4','5','6','7','8','9','10','11','12+']
 
   validates :section_id,:category_id, :presence => true , :if => lambda { |o| o.current_step == "categories" }
- 
+  validates :section_id,:category_id, :presence => true , :if => lambda { |o| o.current_step == "categories" }
+  validates :title , :size , :fee ,:bed_rooms, :bath_rooms , :developer ,:ready_date, :annual_comm_fee, :amenities, :price ,
+     :desc , :full_name, :company_name,  :agent_or_landlord , :presence => true , :if => lambda { |o| o.current_step == "details" }
+  validates :address , :location, :longitude, :latitude, :presence => true , :if => lambda { |o| o.current_step == "find_on_map" }
   
   def current_step
     @current_step || steps.first
   end
   
   def steps
-    %w[categories agree_to_terms enter_details find_on_map preview_Ad activate_ad]
+    %w[categories agree_to_terms details find_on_map preview_Ad]
   end
 
   def next_step
