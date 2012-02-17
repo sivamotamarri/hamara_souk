@@ -13,6 +13,7 @@ gem 'rails', '3.1.0'
 #end
 group :development, :test do
   #gem 'sqlite3'
+  gem 'letter_opener'
   gem 'mysql'
   gem "bcrypt-ruby", :require => "bcrypt"
 end
