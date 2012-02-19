@@ -47,6 +47,6 @@ class AdsController < ApplicationController
 
 
   def show
-    render :text => "heell"
+    @ad = Ad.find_by_id(params[:id])
   end
 end

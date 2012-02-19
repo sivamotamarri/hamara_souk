@@ -6,10 +6,19 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable, :lockable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me,:first_name,:allow_adv, :hamara_souk_updates, :last_name ,:gender,:country,:dob,:professional
+  attr_accessible :email, :password, :password_confirmation, :remember_me,:first_name,:allow_adv, :hamara_souk_updates, :last_name ,:gender,:country,:dob,:professional, :avatar, :avatar_content_type, :avatar_file_size
   validates :first_name, :last_name ,:gender,:country,:dob,:professional,  :presence => {:if => :not_facebook?}
   
   has_many :ads
+  
+  has_attached_file :avatar, 
+                    :styles => { :medium => "300x300>",
+                                 :thumb => "100x100>" }
+                               
+  validates_attachment_content_type :avatar, :content_type => %w(image/jpeg image/jpg image/png image/gif), :message => 'must be of type jpeg, png or gif', :if => :photo_attached?
+  validates_attachment_size :avatar, :less_than => 3.megabytes, :message => 'cannot be greater than 3 MB', :if => :photo_attached?
+
+  
   
   PROFESSIONALS = {
 "Student" => "ST",
@@ -42,6 +51,10 @@ class User < ActiveRecord::Base
     end
   end
 
+  def photo_attached?
+    self.avatar.file?
+  end
+  
   def not_facebook?
     return @allow
   end

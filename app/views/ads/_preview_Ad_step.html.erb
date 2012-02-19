@@ -7,7 +7,7 @@
 <div><%= f.label :developer %> :   <%= @ad.developer %></div> <br />
 <div><%= f.label :ready_date %> :   <%= @ad.ready_date %></div> <br />
 <div><%= f.label :annual_comm_fee %> :   <%= @ad.annual_comm_fee %></div> <br />
-<div><%= f.label :amenities %> :   <%= @ad.amenities %></div> <br />
+<div><%= f.label :amenities %> :   <%= Amenity.where("id in #{@ad.amenities.split(',')}").collect{|t| t.title } %></div> <br />
 <div><%= f.label :price %> :   <%= @ad.price %></div> <br />
 <div><%= f.label :property_refer %> :   <%= @ad.property_refer %></div> <br />
 <div><%= f.label :phone_number %> :   <%= @ad.phone_number %></div> <br />

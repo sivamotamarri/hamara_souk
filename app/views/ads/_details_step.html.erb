@@ -41,7 +41,7 @@
 
   <% @amenities.each do |amen| %>
 
-  <input id="ad_amenities" type="checkbox" value="<%=  amen.id %>" name="ad[amenities][]"/>
+  <input id="ad_amenities" type="checkbox" value=<%=  amen.id %> name="ad[amenities][]"/>
     <%=f.label :amenities , "#{amen.title}"%>
 
   <% end %>
