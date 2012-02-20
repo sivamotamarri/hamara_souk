@@ -17,5 +17,8 @@
 <div><%= label :ad,:street %> :   <%= @ad.street %></div> <br />
 <div><%= label :ad,:city %> :   <%= @ad.city %></div> <br />
 <div><%= label :ad,:country %> :   <%= @ad.country %></div> <br />
+<%- @ad.images.each do |image| %>
+  <%= image_tag image.url(:small) %>
+<% end %>
 
 <%= gmaps4rails(@json) %>

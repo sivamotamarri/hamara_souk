@@ -7,6 +7,9 @@ class Ad < ActiveRecord::Base
 
   acts_as_gmappable :validation => lambda { |u| u.current_step == "find_on_map" }
 
+  has_many :images, :as => :assetable, :class_name => "Ad::Image", :dependent => :destroy
+
+  accepts_nested_attributes_for :images
 
   
   NUMBER = ['1','2','3','4','5','6','7','8','9','10','11','12+']
@@ -31,7 +34,7 @@ class Ad < ActiveRecord::Base
   end
   
   def steps
-    %w[categories agree_to_terms details find_on_map preview_Ad]
+    %w[categories agree_to_terms details find_on_map images preview_Ad]
   end
 
   def next_step
@@ -59,4 +62,5 @@ class Ad < ActiveRecord::Base
   def published?
     false
   end
+
 end
