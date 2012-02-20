@@ -49,3 +49,8 @@ gem "omniauth-facebook"
 gem 'faraday'
 gem "breadcrumbs_on_rails"
 gem "paperclip", "~> 2.0"
+gem 'gmaps4rails'
+
+gem 'coffee-rails', "~> 3.1.0"
+gem 'uglifier'
+gem 'therubyracer'

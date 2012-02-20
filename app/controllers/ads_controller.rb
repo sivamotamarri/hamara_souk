@@ -48,5 +48,6 @@ class AdsController < ApplicationController
 
   def show
     @ad = Ad.find_by_id(params[:id])
+    @json = @ad.to_gmaps4rails
   end
 end

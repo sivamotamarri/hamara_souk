@@ -1,2 +1,12 @@
 <p>Find a Location</p>
+<div><%= f.label :street %><br />
+<%= f.text_field :street %></div>
+
+<div><%= f.label :city %><br/>
+
+<%= f.text_field :city %>
+</div>
+<div><%= f.label :country %><br/>
+<%= f.country_select(:country, {},:prompt => "- Select One -") %>
+</div>
 

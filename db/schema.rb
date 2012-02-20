@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120218053425) do
+ActiveRecord::Schema.define(:version => 20120220065317) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -68,14 +68,16 @@ ActiveRecord::Schema.define(:version => 20120218053425) do
     t.boolean  "agent_or_landlord"
     t.boolean  "complete_or_incomplete"
     t.boolean  "active_status"
-    t.string   "address"
-    t.string   "location"
+    t.string   "street"
+    t.string   "city"
     t.float    "longitude"
     t.float    "latitude"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
     t.string   "tags"
+    t.boolean  "gmaps"
+    t.string   "country"
   end
 
   create_table "amenities", :force => true do |t|

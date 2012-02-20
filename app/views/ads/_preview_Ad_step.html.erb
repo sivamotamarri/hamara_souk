@@ -7,7 +7,7 @@
 <div><%= f.label :developer %> :   <%= @ad.developer %></div> <br />
 <div><%= f.label :ready_date %> :   <%= @ad.ready_date %></div> <br />
 <div><%= f.label :annual_comm_fee %> :   <%= @ad.annual_comm_fee %></div> <br />
-<div><%= f.label :amenities %> :   <%= Amenity.where("id in #{@ad.amenities.split(',')}").collect{|t| t.title } %></div> <br />
+<div><%= f.label :amenities %> :   <%#= Amenity.where("id in #{@ad.amenities.split(',')}").collect{|t| t.title } %></div> <br />
 <div><%= f.label :price %> :   <%= @ad.price %></div> <br />
 <div><%= f.label :property_refer %> :   <%= @ad.property_refer %></div> <br />
 <div><%= f.label :phone_number %> :   <%= @ad.phone_number %></div> <br />
@@ -15,8 +15,8 @@
 <div><%= f.label :full_name %> :   <%= @ad.full_name %></div> <br />
 <div><%= f.label :company_name %> :   <%= @ad.company_name %></div> <br />
 <div><%= f.label :agent_or_landlord %> :   <%= @ad.agent_or_landlord %></div> <br />
-<div><%= f.label :address %> :   <%= @ad.address %></div> <br />
-<div><%= f.label :location %> :   <%= @ad.location %></div> <br />
-<div><%= f.label :longitude %> :   <%= @ad.longitude %></div> <br />
-<div><%= f.label :latitude %> :   <%= @ad.latitude %></div> <br />
+<div><%= f.label :street %> :   <%= @ad.street %></div> <br />
+<div><%= f.label :city %> :   <%= @ad.city %></div> <br />
+<div><%= f.label :country %> :   <%= @ad.country %></div> <br />
+
 
