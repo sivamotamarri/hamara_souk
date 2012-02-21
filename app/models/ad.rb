@@ -34,7 +34,7 @@ class Ad < ActiveRecord::Base
   end
   
   def steps
-    %w[categories agree_to_terms details find_on_map images preview_Ad]
+    %w[categories agree_to_terms details find_on_map images]
   end
 
   def next_step
