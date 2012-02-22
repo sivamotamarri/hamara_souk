@@ -1,30 +1,29 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>HamaraSouk</title>
-  <%= stylesheet_link_tag "application.css" %>
-  <%= stylesheet_link_tag "jquery.ui.base.css" %>
-  <%= stylesheet_link_tag "jquery.ui.theme.css" %>
-  <%= stylesheet_link_tag "jquery.ui.datepicker.css" %>
-  
-  <%#= javascript_include_tag :defaults %>
- <%= javascript_include_tag "jquery-1.7.1.js" %>
-  <%= javascript_include_tag "jquery.ui.core.js" %>
-   <%= javascript_include_tag "jquery.ui.widget.js" %>
-  <%= javascript_include_tag "jquery.ui.datepicker.js" %>
+  <head>
+    <title>WELCOME TO HAMARA SOUK</title>
+    <%= stylesheet_link_tag "application.css" %>
+    <%= stylesheet_link_tag "style.css" %>
+    <%= stylesheet_link_tag "jquery.ui.base.css" %>
+    <%= stylesheet_link_tag "jquery.ui.theme.css" %>
+    <%= stylesheet_link_tag "jquery.ui.datepicker.css" %>
+    <%= javascript_include_tag "jquery-1.7.1.js" %>
+    <%= javascript_include_tag "jquery.ui.core.js" %>
+    <%= javascript_include_tag "jquery.ui.widget.js" %>
+    <%= javascript_include_tag "jquery.ui.datepicker.js" %>
     <%= javascript_include_tag "application.js" %>
-  <%= csrf_meta_tag %>
-  
-</head>
-<body>
- <p class="notice"><%= notice %></p>
- <p class="alert"><%= alert %></p>
- <% if user_signed_in? %>
-  <%= link_to "Sign out", destroy_user_session_path %>
- <% else %>
- <%= render :partial => "devise/links" %>
- <% end %>
-<%= yield %>
-<%= yield :scripts %>
-</body>
+    <%= csrf_meta_tag %>
+  </head>
+  <body>
+    <div id="mainwrapper">
+      <div id="maincontainer">
+        <%= render :partial => "shared/header" %>
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+        <%= yield %>
+        <%= yield :scripts %>
+        <%= render :partial => "shared/footer" %>
+      </div>
+    </div>
+  </body>
 </html>

@@ -1,0 +1,34 @@
+<div class="top-block">
+
+  <span class="login-links">
+    <% if user_signed_in? %>
+      <%= link_to "Sign out", destroy_user_session_path %>
+    <% else %>
+        <%- if devise_mapping.omniauthable? %>
+          <a href="<%=  omniauth_authorize_path(:user, :facebook) %>"><img src="/assets/fb.png" alt="Facebook" border="none" /></a>
+       <% end -%>
+       <%- if controller_name != 'sessions' %>
+          <%= link_to "Sign in", new_session_path(resource_name) %>
+      <% end -%> |
+      <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+        <%= link_to "Register", new_registration_path(resource_name) %>
+      <% end -%>
+    <% end %>
+  </span>
+  <span class="cities"><a href="#">Cities (INDIA)</a></span>
+</div>
+<div class="header-sec"> <span class="logo"></span> <img src="/assets/post-req.jpg" alt="" border="none" /> <img src="/assets/post-property.jpg" alt="" border="none" /> </div>
+<div class="pri-menu">
+  <ul>
+    <li class="home-tab"><a href="#"></a></li>
+    <li><a href="#">Classifieds</a></li>
+    <li><a href="#">Property for Sale</a></li>
+    <li><a href="#">Property for Rent</a></li>
+    <li><a href="#">Jobs</a></li>
+    <li><a href="#">Community</a></li>
+    <li class="last"><a href="#">Contact Us</a></li>
+  </ul>
+  <span class="Place-ad">Place an ad</span>
+</div>
+<div class="latest-news"><span>JANAPRIYA’S:</span> <a href="#">Hoarding of Splendour County 12 Bungalows in Madhapur, on Nagar Road, Hyderabad..........</a></div>
+<div class="fb-block"><%- if devise_mapping.omniauthable? %> <a href="<%=  omniauth_authorize_path(:user, :facebook) %>"><img src="/assets/fb-connect.jpg" alt="FACEBOOK" border="none" /></a><% end -%></div>
