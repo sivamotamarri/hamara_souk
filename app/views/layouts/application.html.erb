@@ -20,7 +20,12 @@
         <%= render :partial => "shared/header" %>
         <p class="notice"><%= notice %></p>
         <p class="alert"><%= alert %></p>
-        <%= yield %>
+        <div class="content-sec">
+          <%= render :partial => "shared/left_content" %>
+          <div class="cont-right">
+            <%= yield %>
+          </div>
+        </div>
         <%= yield :scripts %>
         <%= render :partial => "shared/footer" %>
       </div>
