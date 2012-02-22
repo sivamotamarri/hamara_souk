@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   validates :first_name, :last_name ,:gender,:country,:dob,:professional,  :presence => {:if => :not_facebook?}
   
   has_many :ads
-  
+  has_many :watchings
   has_attached_file :avatar, 
                     :styles => { :medium => "300x300>",
                                  :thumb => "100x100>" }
