@@ -6,6 +6,7 @@ class UserActionsController < ApplicationController
   end
   
   def create_watching
-    @watch = Watch.create(:user => current_user , :ad_id => params[:id] , :title => Ad.find(params[:id]).title)
+    @watch = Watching.create(:user => current_user , :ad_id => params[:id] , :ad_title => Ad.find(params[:id]).title)
+    render :json => "ok"
   end
 end

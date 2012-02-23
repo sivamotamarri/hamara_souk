@@ -1,0 +1,10 @@
+<table>
+ 
+  <th></th><th>sno</th><th>title</th>
+   <%= form_for "watchings" , :url => "" do |f| %>
+  <% @watchings.each_with_index do |watch , i| %>
+  <tr><td></td><td><%= i+1 %></td><td><%= watch.ad_title %></td></tr>
+  <% end  %>
+  <tr><td><%= f.submit "Unwatch" %></td></tr>
+  <% end %>
+</table>

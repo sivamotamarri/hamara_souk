@@ -56,6 +56,19 @@ $(document).ready(function(){
           }
   });
 
+  
+  $(".watch").live('click', function(event){
+        event.preventDefault();
+
+      $.ajax({
+        dataType: "script",
+        url: "/users/create_watching/"+$(this).attr("id") ,
+        success: function(res){
+            $('.watch').html("Watching");
+          }
+       });
+        
+  });
 
 
 });
