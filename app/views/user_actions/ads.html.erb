@@ -1,0 +1,14 @@
+<% if @ads.blank? %>
+<div>Currently no ads from you</div>
+<% else %>
+<table>
+  <thead>
+    <tr><td>Sno</td><td>Title</td><td>Created At</td></tr>
+  </thead>
+  <tbody>
+    <% @ads.each_with_index do |ad,i|  %>
+    <tr><td><%= i+1 %></td><td><%= ad.title %></td><td><%= ad.created_at.strftime("%d %b %Y")  %></td></tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>

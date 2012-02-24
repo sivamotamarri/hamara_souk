@@ -30,8 +30,13 @@ HamaraSouk::Application.routes.draw do
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
+    # user watchings
     match 'users/watchings' => 'user_actions#watchings'
     match 'users/create_watching/:id' => 'user_actions#create_watching'
+    match 'users/unwatch' => 'user_actions#unwatch' , :via => :post
+
+    # user ads
+    match 'users/ads' => 'user_actions#ads'
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
       
@@ -68,10 +73,15 @@ HamaraSouk::Application.routes.draw do
   #     resources :products
   #   end
 
+   match "search" => "home#search"
+   match "about" => "home#about"
+   match "termsandcond" => "home#termsandcond"
+  
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   # root :to => "welcome#index"
    root :to => "home#index"
+
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.

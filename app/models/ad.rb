@@ -5,6 +5,7 @@ class Ad < ActiveRecord::Base
   belongs_to :user
   belongs_to :category
 
+
   acts_as_gmappable :validation => lambda { |u| u.current_step == "find_on_map" }
 
   has_many :images, :as => :assetable, :class_name => "Ad::Image", :dependent => :destroy
@@ -20,6 +21,27 @@ class Ad < ActiveRecord::Base
      :desc  , :presence => true , :if => lambda { |o| o.current_step == "details" }
   validates :street , :city, :country, :presence => true , :if => lambda { |o| o.current_step == "find_on_map" }
 
+
+
+  scope :classifieds, lambda {
+    where("ads.section_id = 1")
+  }
+  scope :properties_for_sale, lambda {
+    where("ads.section_id = 2")
+  }
+  scope :properties_for_rent, lambda {
+    where("ads.section_id = 3")
+  }
+  scope :jobs, lambda {
+    where("ads.section_id = 4")
+  }
+  scope :communities, lambda {
+    where("ads.section_id = 5")
+  }
+
+#  searchable do
+#    text :title
+#  end
 
   def gmaps4rails_address
 #describe how to retrieve the address from your model, if you use directly a db column, you can dry your code, see wiki

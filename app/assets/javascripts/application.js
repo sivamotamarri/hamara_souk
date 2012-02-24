@@ -18,6 +18,12 @@
 //= require_tree .
 
 
+function toggleChecked(status) {
+   $("#checkboxes input").each( function() {
+   $(this).attr("checked",status);
+  })
+}
+
 $(document).ready(function(){
 
  //section selection categories
@@ -69,6 +75,11 @@ $(document).ready(function(){
        });
         
   });
+
+
+ 
+
+
 
 
 });

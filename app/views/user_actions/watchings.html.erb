@@ -1,10 +1,15 @@
-<table>
- 
-  <th></th><th>sno</th><th>title</th>
-   <%= form_for "watchings" , :url => "" do |f| %>
+
+<% if @watchings.blank? %>
+<div>Currently no watchings from you</div>
+<% else %>
+<table style="width:80%;" id="checkboxes"> 
+ <th style="width: 10%"><%= check_box_tag "all_watch" , {},false, {:onclick=>"toggleChecked(this.checked)"}%></th><th style="width:20%">sno</th><th>title</th>
+ <%= form_for "watchings" , :url => users_unwatch_path do |f| %>
+
   <% @watchings.each_with_index do |watch , i| %>
-  <tr><td></td><td><%= i+1 %></td><td><%= watch.ad_title %></td></tr>
+  <tr><td><%= check_box_tag "id[]" ,"#{watch.id}" %></td><td><%= i+1 %></td><td><%= watch.ad_title %></td></tr>
   <% end  %>
   <tr><td><%= f.submit "Unwatch" %></td></tr>
   <% end %>
 </table>
+<% end %>

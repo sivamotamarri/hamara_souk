@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120222104242) do
+ActiveRecord::Schema.define(:version => 20120224094004) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -79,6 +79,11 @@ ActiveRecord::Schema.define(:version => 20120222104242) do
     t.boolean  "gmaps"
     t.string   "country"
   end
+
+  add_index "ads", ["category_id"], :name => "index_ads_on_category_id"
+  add_index "ads", ["section_id"], :name => "index_ads_on_section_id"
+  add_index "ads", ["title"], :name => "index_ads_on_title"
+  add_index "ads", ["user_id"], :name => "index_ads_on_user_id"
 
   create_table "amenities", :force => true do |t|
     t.string   "title"
