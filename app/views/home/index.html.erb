@@ -2,86 +2,37 @@
   <div class="ad-list-info">
     <div class="ad-list-block mr-29 ht-600"> <span class="ad-title classifieds">Classifieds</span>
       <ul>
-        <li><a href="#">Autos/4x4s</a> <span>(24890)</span></li>
-        <li><a href="#">Auto Accessories & Parts</a><span>(2164)</span></li>
-        <li><a href="#">Baby Items</a> <span>(2477)</span></li>
-        <li><a href="#"> Boats</a> <span>(637)</span></li>
-        <li><a href="#">Books </a><span>(712)</span></li>
-        <li><a href="#">Business & Industrial </a><span>(1432)</span></li>
-        <li><a href="#">Cameras & Imaging </a><span>(1419)</span></li>
-        <li><a href="#">Clothing & Accessories</a> <span>(4306)</span></li>
-        <li><a href="#">Collectibles </a><span>(555)</span></li>
-        <li><a href="#">Computers & Networking </a><span>(3729)</span></li>
-        <li><a href="#">DVDs & Movies</a><span> (195)</span></li>
-        <li><a href="#">Electronics </a><span>(3432)</span></li>
-        <li><a href="#">Free Stuff</a> <span>(30)</span></li>
-        <li><a href="#">Furniture, Home & Garden </a><span>(13580)</span></li>
-        <li><a href="#">Gaming</a><span> (1359)</span></li>
-        <li><a href="#">Home Appliances </a><span>(3346)</span></li>
-        <li><a href="#">Jewelry & Watches</a><span> (1755)</span></li>
-        <li><a href="#">Lost/Found</a><span> (67)</span></li>
-        <li><a href="#">Misc </a><span>(443)</span></li>
-        <li><a href="#">Mobile Phones & PDAs </a><span>(4621)</span></li>
-        <li><a href="#">Motorcycles </a><span>(1176)</span></li>
-        <li><a href="#">Music</a><span> (71)</span></li>
-        <li><a href="#">Musical Instruments</a><span> (554)</span></li>
-        <li><a href="#">Pets </a><span>(491)</span></li>
+        <% @classifieds.each do |cat| %>
+        <li><a href="#"><%= cat.name %></a> <span>(<%=  ads_count(cat.section_id,cat.id) %>)</span></li>
+        <% end %>
       </ul>
       <span class="post-ad">Post An Ad</span> </div>
     <div class="ad-list-block mr-29 ht-248"> <span class="ad-title pro-f-rent">Property for Sale</span>
       <ul>
-        <li><a href="#">Residential for Sale</a> <span>(24890)</span></li>
-        <li><a href="#">Commercial for Sale</a> <span>(2164)</span></li>
-        <li><a href="#">Multiple Units for Sale</a> <span>(2477)</span></li>
-        <li><a href="#">Land for Sale</a> <span>(637)</span></li>
-        <li><a href="#">Residential for Sale</a> <span>(712)</span></li>
-        <li><a href="#">Commercial for Sale</a> <span>(1432)</span></li>
-        <li><a href="#">Multiple Units for Sale</a> <span>(1419)</span></li>
-        <li><a href="#">Land for Sale</a> <span>(4306)</span></li>
+        <% @properties_for_sale.each do |cat| %>
+        <li><a href="#"><%= cat.name %></a> <span>(<%=  ads_count(cat.section_id,cat.id) %>)</span></li>
+        <% end %>
       </ul>
       <span class="post-ad">Post An Ad</span> </div>
     <div class="ad-list-block"> <span class="ad-title jobs ht-248">Job Vacancies</span>
       <ul>
-        <li><a href="#">Consulting</a> <span>(24890)</span></li>
-        <li><a href="#">Education</a> <span>(2164)</span></li>
-        <li><a href="#">Executive</a> <span>(2477)</span></li>
-        <li><a href="#">Hospitality</a> <span>(637)</span></li>
-        <li><a href="#">HR/Recruiting</a> <span>(712)</span></li>
-        <li><a href="#">IT/Telecom</a> <span>(1432)</span></li>
-        <li><a href="#">Marketing/PR</a> <span>(1419)</span></li>
-        <li><a href="#">Media</a> <span>(4306)</span></li>
+        <% @jobs.each do |cat| %>
+        <li><a href="#"><%= cat.name %></a> <span>(<%=  ads_count(cat.section_id,cat.id) %>)</span></li>
+        <% end %>        
       </ul>
       <span class="post-ad">Post An Ad</span> </div>
     <div class="ad-list-block mr-29"> <span class="ad-title pro-f-rent ht-336">Property for Rent</span>
       <ul>
-        <li><a href="#">Residential for Sale</a> <span>(24890)</span></li>
-        <li><a href="#">Commercial for Sale</a> <span>(2164)</span></li>
-        <li><a href="#">Multiple Units for Sale</a> <span>(2477)</span></li>
-        <li><a href="#">Land for Sale</a> <span>(637)</span></li>
-        <li><a href="#">Residential for Sale</a> <span>(712)</span></li>
-        <li><a href="#">Commercial for Sale</a> <span>(1432)</span></li>
-        <li><a href="#">Multiple Units for Sale</a> <span>(1419)</span></li>
-        <li><a href="#">Land for Sale</a> <span>(4306)</span></li>
-        <li><a href="#">Residential for Sale</a> <span>(712)</span></li>
-        <li><a href="#">Commercial for Sale</a> <span>(1432)</span></li>
-        <li><a href="#">Multiple Units for Sale</a> <span>(1419)</span></li>
-        <li><a href="#">Land for Sale</a> <span>(4306)</span></li>
+         <% @properties_for_rent.each do |cat| %>
+        <li><a href="#"><%= cat.name %></a> <span>(<%=  ads_count(cat.section_id,cat.id) %>)</span></li>
+        <% end %>       
       </ul>
       <span class="post-ad">Post An Ad</span> </div>
     <div class="ad-list-block "> <span class="ad-title commu ht-336">Community</span>
       <ul>
-        <li><a href="#">Activities</a> <span>(24890)</span></li>
-        <li><a href="#">Artists</a> <span>(2164)</span></li>
-        <li><a href="#">Car Lift</a> <span>(2477)</span></li>
-        <li><a href="#">Charities</a> <span>(637)</span></li>
-        <li><a href="#">Childcare</a> <span>(712)</span></li>
-        <li><a href="#">Classes</a> <span>(1432)</span></li>
-        <li><a href="#">Clubs</a> <span>(1419)</span></li>
-        <li><a href="#">Education</a> <span>(4306)</span></li>
-        <li><a href="#">Freelancers</a> <span>(712)</span></li>
-        <li><a href="#">Misc</a> <span>(1432)</span></li>
-        <li><a href="#"> Music</a> <span>(1419)</span></li>
-        <li><a href="#"> News</a> <span>(4306)</span></li>
+        <% @communities.each do |cat| %>
+        <li><a href="#"><%= cat.name %></a> <span>(<%=  ads_count(cat.section_id,cat.id) %>)</span></li>
+        <% end %>        
       </ul>
       <span class="post-ad">Post An Ad</span> </div>
   </div>

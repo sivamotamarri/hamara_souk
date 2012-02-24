@@ -23,21 +23,10 @@ class Ad < ActiveRecord::Base
 
 
 
-  scope :classifieds, lambda {
-    where("ads.section_id = 1")
+  scope :category_ads, lambda {|sec_id,cat_id|
+    where("ads.section_id = ? && ads.category_id = ?", sec_id ,cat_id)
   }
-  scope :properties_for_sale, lambda {
-    where("ads.section_id = 2")
-  }
-  scope :properties_for_rent, lambda {
-    where("ads.section_id = 3")
-  }
-  scope :jobs, lambda {
-    where("ads.section_id = 4")
-  }
-  scope :communities, lambda {
-    where("ads.section_id = 5")
-  }
+  
 
 #  searchable do
 #    text :title

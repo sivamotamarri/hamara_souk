@@ -20,4 +20,8 @@ module ApplicationHelper
    res
   end
 
+  def ads_count(sec_id,cat_id)
+    Ad.category_ads(sec_id,cat_id).count
+  end
+
 end
