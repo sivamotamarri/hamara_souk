@@ -55,3 +55,4 @@ gem 'coffee-rails', "~> 3.1.0"
 gem 'uglifier'
 gem 'therubyracer'
 gem 'fastercsv'
+gem 'friendly_id'

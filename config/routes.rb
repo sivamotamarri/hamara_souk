@@ -7,11 +7,7 @@ HamaraSouk::Application.routes.draw do
   resources :ads do
     member do
       get :selection_cat , :sub_categories
-    end
-    collection do
-      get :details
-      post :step1_create
-    end
+    end 
   end
   devise_for :users,:controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   
@@ -39,7 +35,9 @@ HamaraSouk::Application.routes.draw do
     match 'users/ads' => 'user_actions#ads'
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-      
+   match '*section/*category/*sub_cat' => 'ads#index' 
+   match '*section/*category' => 'ads#index' 
+   match '*section/' => 'ads#index'   
   # Sample resource route with options:
   #   resources :products do
   #     member do

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120225112201) do
+ActiveRecord::Schema.define(:version => 20120226064940) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -78,10 +78,12 @@ ActiveRecord::Schema.define(:version => 20120225112201) do
     t.string   "tags"
     t.boolean  "gmaps"
     t.string   "country"
+    t.string   "slug"
   end
 
   add_index "ads", ["category_id"], :name => "index_ads_on_category_id"
   add_index "ads", ["section_id"], :name => "index_ads_on_section_id"
+  add_index "ads", ["slug"], :name => "index_ads_on_slug", :unique => true
   add_index "ads", ["title"], :name => "index_ads_on_title"
   add_index "ads", ["user_id"], :name => "index_ads_on_user_id"
 
@@ -111,7 +113,10 @@ ActiveRecord::Schema.define(:version => 20120225112201) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "section_id"
+    t.string   "slug"
   end
+
+  add_index "categories", ["slug"], :name => "index_categories_on_slug", :unique => true
 
   create_table "cities", :force => true do |t|
     t.string "name"
@@ -122,7 +127,10 @@ ActiveRecord::Schema.define(:version => 20120225112201) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "slug"
   end
+
+  add_index "sections", ["slug"], :name => "index_sections_on_slug", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "email",                                 :default => "",    :null => false

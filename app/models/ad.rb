@@ -4,7 +4,10 @@ class Ad < ActiveRecord::Base
   belongs_to :section
   belongs_to :user
   belongs_to :category
+  belongs_to :sub_category , :class_name => "Category", :foreign_key => :sub_category_id
 
+  extend FriendlyId
+  friendly_id :title, :use => :slugged
 
   acts_as_gmappable :validation => lambda { |u| u.current_step == "find_on_map" }
 

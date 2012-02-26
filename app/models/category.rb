@@ -5,6 +5,9 @@ class Category < ActiveRecord::Base
   has_many :amenities
   validates :name,:section,:desc,  :presence => true
   
+  extend FriendlyId
+  friendly_id :name, :use => :slugged
+  
   scope :parent_cat, lambda { 
     where("categories.parent_id IS NULL AND categories.status = 1 ")
   }
