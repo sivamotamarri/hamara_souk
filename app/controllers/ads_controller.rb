@@ -83,4 +83,13 @@ class AdsController < ApplicationController
     @ad = Ad.find_by_slug(params[:id])
     @json = @ad.to_gmaps4rails
   end
+  
+  def search
+    @search = Ad.search(params[:search])
+    @ads = @search.all
+    respond_to do |format|
+      format.html { render :action => "index" }
+      format.xml  { render :xml => @search }
+    end
+  end
 end

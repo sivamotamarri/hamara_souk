@@ -1,7 +1,7 @@
 <div id="footer">
   <img src="/assets/fb-icon.png" alt="FACEBOOK" border="none" /><img src="/assets/tweet.png" alt="TWITTER" border="none" /><img src="/assets/g-plus.png" alt="GOOGLE PLUS" border="none" /><img src="/assets/flicker.png" alt="FLICKER" border="none" /><span class="foot-nav"><a href="<%=about_path%>">About Us</a> | 
     <% if !user_signed_in? %>        
-        <%#= link_to "Register", new_registration_path(resource_name) %>   | 
+        <%= link_to "Register", new_registration_path(resource_name) %>   | 
     <% end %>
     <a href="#">Advertise</a> | 
     <a href="<%=termsandcond_path%>">Terms & Conditions </a>| 

@@ -1,9 +1,12 @@
 <div class="cont-left">
   <div class="search-block">
+    <%= form_for @search , :url => search_path, :html => {:method => :get} do |f| %>
     <div class="activity-info">
-      <span class="label-info"> <span class="selected3" id="select6">All Cities</span>
-        <select class="styled3" name="6">
-          <option value="8" selected="selected3">Hyderabad</option>
+      <%= f.select(:city_equals, City.all.collect {|p| [ p.name, p.name ] }, {:prompt => "All Cities", :class => "label-info"}) %>
+      <!--<span class="label-info"> <span class="selected3" id="select6">All Cities</span>
+        <select class="styled3" name="search_city_equals">
+          <option value="" >All Cities</option>
+          <option value="8" selected="selected">Hyderabad</option>
           <option value="6">Visakapatnam</option>
           <option value="7">Vijayawada</option>
           <option value="9">Tirupathi</option>
@@ -12,28 +15,33 @@
           <option value="10">Kakinada</option>
           <option value="10">Rajamundry</option>
         </select>
-      </span>
+      </span>-->
     </div>
     <div class="activity-info">
-      <span class="label-info"> <span class="selected3" id="select6">All of Hamara Souk</span>
-        <select class="styled3" name="6">
-          <option value="8" selected="selected3"> Classifieds</option>
+      <%= f.select(:section_id_equals, Section.all.collect {|p| [ p.name, p.id ] }, {:prompt => "All of Hamara Souk", :class => "label-info"}) %>
+      <!--<span class="label-info"> <span class="selected3" id="select6">All of Hamara Souk</span>
+        <select class="styled3" name="search_section_name_equals">
+          <option value="8" selected="selected"> Classifieds</option>
           <option value="6">Property for Rent</option>
           <option value="7">Property For Sale</option>
           <option value="9">Jobs</option>
           <option value="10">Community</option>
         </select>
-      </span> </div>
+      </span> -->
+    </div>
     <h2>Keywords</h2>
-    <input name="" type="text" />
-    <span><input name="" type="button" /></span>
+     <%= f.text_field :title_contains %>
+    <span><input name="" type="submit" value="" /></span>
+    <% end %>
   </div>
   <div class="left-info-block"> <span class="left-info-title">Quick Links</span> <span class="left-info-mid">
       <ul>
         <li><a href="#">Sell</a></li>
         <li><a href="#"> Rent</a></li>
         <li><a href="#"> Place an Ad</a></li>
-        <li><a href="#"> Register</a></li>
+        <li>  <% if !user_signed_in? %>        
+        <%= link_to "Register", new_registration_path(resource_name) %>   
+    <% end %></li>
         <li><a href="#">New features</a></li>
       </ul>
     </span> </div>
