@@ -103,4 +103,6 @@ input.styled3 { display: none; } select.styled3 { position: relative; top:9px; o
 .foot-nav a:hover{ text-decoration:underline;}
 .cp{ float:left; margin:31px 0px 0px 75px; color:#c7c7c7;}
 .cp label{ padding-left:80px;}
-.gallery{ background:url(gallery.jpg) left top no-repeat; width:749px; height:128px; float:left;}
+.gallery{ 
+    /*background:url(gallery.jpg) left top no-repeat;*/
+         width:749px; height:128px; float:left;}

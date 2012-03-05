@@ -79,7 +79,38 @@ $(document).ready(function(){
 
  
 
-
+initGallery();
 
 
 });
+
+function initGallery() {
+	jQuery('.gallery-block').each(function() {
+		var list = jQuery('.gallery > ul', this),
+			next = jQuery('.link-next', this),
+			prev = jQuery('.link-prev', this);
+
+		list.carouFredSel({
+                        responsive: true,
+			width: 749,
+			height: 'auto',
+			prev: prev,
+			next: next,
+                        items: {
+						width: 50,
+					//	height: '30%',	//	optionally resize item-height
+						visible: {
+							min: 2,
+							max: 4
+						}
+					},
+			scroll: { duration: 800 },
+			auto: {
+				delay: 3000,
+				pauseOnHover: true
+			}
+		})
+	});
+
+
+}

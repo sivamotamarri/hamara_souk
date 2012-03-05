@@ -4,6 +4,7 @@ class Category < ActiveRecord::Base
   belongs_to :section
   has_many :amenities
   validates :name,:section,:desc,  :presence => true
+  has_many :ads
   
   extend FriendlyId
   friendly_id :name, :use => :slugged

@@ -1,4 +1,37 @@
-
+<style type="text/css">
+  .link-prev { background:url(../images/cat-slide-arrows.png) left top no-repeat; width:21px; height:31px; float:left; text-indent:-9999px;  margin-top:60px;}
+.link-next { background:url(../images/cat-slide-arrows.png) right top no-repeat; width:21px; height:31px; float:left; text-indent:-9999px; margin-top:60px;}
+  .gallery {
+				/*background-color: #ccc;*/
+				/*margin: 0 0 30px 60px;*/
+				
+			}
+			.gallery ul {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				display: block;
+			}
+			.gallery li {
+				font-size: 40px;
+				color: #999;
+				text-align: center;
+				/*background-color: #eee;
+				border: 5px solid #999;
+                                height: 50px;
+                                */
+				width: 50px;
+				
+				padding: 0;
+				/*margin: 6px;*/
+				display: block;
+				float: left;
+			}
+			.gallery.responsive {
+				width: auto;
+				margin-left: 0;
+			}
+</style>
   <div class="ad-list-info">
     <div class="ad-list-block mr-29 ht-600"> <span class="ad-title classifieds">Classifieds</span>
       <ul>
@@ -36,7 +69,29 @@
       </ul>
       <span class="post-ad">Post An Ad</span> </div>
   </div>
-  <div class="gallery"></div>
+
+
+     <div class="gallery-block">
+            <a href="#" class="link-prev">prev</a>
+            <div class="gallery">
+              <ul>
+                <% @properties_for_sale.each do |prty| %>
+                <% if prty.id == 3 %>
+                   <% prty.ads.each do |p| %>
+                      <li><span><img border="none" height="105px" width="150px" alt="Hand bag" src="/assets/rails.png"/></span></li>
+                      <li>
+                      <span class="product-cat"><img src="<%= p.images.first.url(:thumb) %>" alt="Hand bag" border="none" width="150px" height="105px"/>
+                                           </span>
+                      </li>
+                      <li><span><img border="none" height="105px" width="150px" alt="Hand bag" src="/assets/rails.png"/></span></li>
+                   <% end %>
+                <% end %>
+                <% end %>         
+            </ul>
+      </div>
+      <a href="#" class="link-next">next</a>
+  </div>
+  <!--<div class="gallery"></div>-->
 
 
 
