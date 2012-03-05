@@ -1,24 +1,27 @@
 class AdsController < ApplicationController
-
+ add_breadcrumb "Home", :root_path
  before_filter :authenticate_user!
   
   def index
     section = Section.find_by_slug(params[:section])
-    if !section.nil?
-      options = {}
-      if params[:category]
-        cat = Category.find_by_slug(params[:category]) 
-        options.deep_merge!(:category_id => cat.id)        
-      end
-      if params[:sub_cat]
-        sub_cat = Category.find_by_slug(params[:sub_cat]) 
-        options.deep_merge!(:sub_category_id => sub_cat.id)   
-      end      
+    category = Category.find_by_slug(params[:category]) 
+    sub_cat = Category.find_by_slug(params[:sub_category]) 
+    if !section.nil? && !category.nil? && !sub_cat.nil?
+      options = {}        
+      options.deep_merge!(:category_id => category.id)        
+      options.deep_merge!(:sub_category_id => sub_cat.id)
       @ads = section.ads.where(options)        
     else
       render :error
-    end
+    end    
+    if section && category && sub_cat
+      add_breadcrumb "#{section.name}", section_ad_path
+      add_breadcrumb "#{category.name}", category_ad_path
+      add_breadcrumb "#{sub_cat.name}" , sub_cat_ad_path  
+    end   
   end
+  
+  
   def new
     session[:ad_step] = session[:ad_params] = nil
     session[:ad_params] ||= {}
@@ -79,9 +82,22 @@ class AdsController < ApplicationController
   end
 
 
-  def show
-    @ad = Ad.find_by_slug(params[:id])
-    @json = @ad.to_gmaps4rails
+  def show   
+      section = Section.find_by_slug(params[:section])     
+      if !section.nil?
+       @ad = Ad.find_by_slug_and_section_id(params[:ad],section.id)
+       if !@ad.nil? 
+        add_breadcrumb "#{section.name}", section_ad_path(section.slug)
+        add_breadcrumb "#{@ad.category.name}", category_ad_path(section.slug,@ad.category.slug)
+        add_breadcrumb "#{@ad.sub_category.name}" , sub_cat_ad_path(section.slug,@ad.category.slug,@ad.sub_category.slug)  if !@ad.sub_category_id.nil?
+        @json = @ad.to_gmaps4rails
+       else
+         render :error
+       end
+       add_breadcrumb "details" , ad_details_path(section.slug,@ad.slug)
+     else
+      render :error
+     end 
   end
   
   def search

@@ -35,9 +35,12 @@ HamaraSouk::Application.routes.draw do
     match 'users/ads' => 'user_actions#ads'
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-   match 'sections/*section/*category/*sub_cat' => 'ads#index' 
-   match 'sections/*section/*category' => 'ads#index' 
-   match 'sections/*section/' => 'ads#index'   
+    
+   match ':section/:category/:sub_categories' => 'ads#index' , :as => :sub_cat_ad  
+   match ':section/:category' => 'sections#show' , :as => :category_ad    
+   match ':section/' => 'sections#index' , :as => :section_ad
+   
+   match 'sections/:section/ad/:ad' => 'ads#show' , :as => :ad_details
   # Sample resource route with options:
   #   resources :products do
   #     member do
