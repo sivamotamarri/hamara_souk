@@ -1,0 +1,22 @@
+<div id="featured-listings">
+  <div id="featured-header"> </div>
+  <div id="featured-content">
+<div id="featured-item-1" class="item">    
+  <h3><a href="<%=  ad_path(ad.slug) %>"><%= ad.title %></a></h3>
+  <h4 class="price">AED <%= ad.price %></h4>
+  <div class="thumb">
+    <a href="<%=  ad_path(ad.slug) %>"><img src="<%= ad.images.first.url(:thumb) %>" alt="Hand bag" border="none" width="150px" height="105px"/></a>
+    <span class="image-count"><%= ad.images.count %> image</span>
+  </div>
+  <div class="description">        
+    <p class="date"><%=ad.created_at.strftime("%d %B %Y")%></p>
+    <ul>
+      <li>Size: <strong><%= ad.size %> SqFt</strong></li> 
+      <li>Bedrooms: <strong><%= ad.bed_rooms %></strong></li>
+      <li>Bathrooms: <strong><%= ad.bath_rooms %></strong></li> 
+    </ul>  
+  </div>   
+  <div class="location"><strong>Located :</strong> <%= ad.gmaps4rails_address %>  <br/></div>    
+</div>
+</div>
+</div>

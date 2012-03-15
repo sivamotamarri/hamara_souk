@@ -37,38 +37,38 @@
     <div class="ad-list-block mr-29 ht-600"> <span class="ad-title classifieds">Classifieds</span>
       <ul>
         <% @classifieds.each do |cat| %>
-        <li><a href="#"><%= cat.name %></a> <span>(<%=  ads_count(cat.section_id,cat.id) %>)</span></li>
+        <li><a href="/<%=cat.section.slug%>/<%=cat.slug%>"><%= cat.name %></a> <span>(<%=  ads_count(cat.section_id,cat.id) %>)</span></li>
         <% end %>
       </ul>
-      <span class="post-ad">Post An Ad</span> </div>
+      <a href="<%= new_ad_path %>"><span class="post-ad">Post An Ad</span> </a></div>
     <div class="ad-list-block mr-29 ht-248"> <span class="ad-title pro-f-rent">Property for Sale</span>
       <ul>
         <% @properties_for_sale.each do |cat| %>
-        <li><a href="#"><%= cat.name %></a> <span>(<%=  ads_count(cat.section_id,cat.id) %>)</span></li>
+        <li><a href="/<%=cat.section.slug%>/<%=cat.slug%>"><%= cat.name %></a> <span>(<%=  ads_count(cat.section_id,cat.id) %>)</span></li>
         <% end %>
       </ul>
-      <span class="post-ad">Post An Ad</span> </div>
+     <a href="<%= new_ad_path %>"><span class="post-ad">Post An Ad</span> </a> </div>
     <div class="ad-list-block"> <span class="ad-title jobs ht-248">Job Vacancies</span>
       <ul>
         <% @jobs.each do |cat| %>
-        <li><a href="#"><%= cat.name %></a> <span>(<%=  ads_count(cat.section_id,cat.id) %>)</span></li>
+        <li><a href="/<%=cat.section.slug%>/<%=cat.slug%>"><%= cat.name %></a> <span>(<%=  ads_count(cat.section_id,cat.id) %>)</span></li>
         <% end %>        
       </ul>
-      <span class="post-ad">Post An Ad</span> </div>
+      <a href="<%= new_ad_path %>"><span class="post-ad">Post An Ad</span> </a> </div>
     <div class="ad-list-block mr-29"> <span class="ad-title pro-f-rent ht-336">Property for Rent</span>
       <ul>
          <% @properties_for_rent.each do |cat| %>
-        <li><a href="#"><%= cat.name %></a> <span>(<%=  ads_count(cat.section_id,cat.id) %>)</span></li>
+        <li><a href="/<%=cat.section.slug%>/<%=cat.slug%>"><%= cat.name %></a> <span>(<%=  ads_count(cat.section_id,cat.id) %>)</span></li>
         <% end %>       
       </ul>
-      <span class="post-ad">Post An Ad</span> </div>
+      <a href="<%= new_ad_path %>"><span class="post-ad">Post An Ad</span> </a></div>
     <div class="ad-list-block "> <span class="ad-title commu ht-336">Community</span>
       <ul>
         <% @communities.each do |cat| %>
-        <li><a href="#"><%= cat.name %></a> <span>(<%=  ads_count(cat.section_id,cat.id) %>)</span></li>
+        <li><a href="/<%=cat.section.slug%>/<%=cat.slug%>"><%= cat.name %></a> <span>(<%=  ads_count(cat.section_id,cat.id) %>)</span></li>
         <% end %>        
       </ul>
-      <span class="post-ad">Post An Ad</span> </div>
+      <a href="<%= new_ad_path %>"><span class="post-ad">Post An Ad</span> </a> </div>
   </div>
 
 

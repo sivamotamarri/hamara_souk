@@ -1,6 +1,6 @@
 <div class="cont-left">
   <div class="search-block">
-    <%= form_for @search , :url => search_path, :html => {:method => :get} do |f| %>
+    <%= form_for @search , :url => search_ads_path, :html => {:method => :get} do |f| %>
     <div class="activity-info">
       <%= f.select(:city_equals, City.all.collect {|p| [ p.name, p.name ] }, {:prompt => "All Cities", :class => "label-info"}) %>
       <!--<span class="label-info"> <span class="selected3" id="select6">All Cities</span>

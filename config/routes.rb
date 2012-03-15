@@ -8,6 +8,9 @@ HamaraSouk::Application.routes.draw do
     member do
       get :selection_cat , :sub_categories
     end 
+    collection do
+      get :search
+    end
   end
   devise_for :users,:controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   
@@ -37,7 +40,7 @@ HamaraSouk::Application.routes.draw do
   #   resources :products
     
    match ':section/:category/:sub_categories' => 'ads#index' , :as => :sub_cat_ad  
-   match ':section/:category' => 'sections#show' , :as => :category_ad    
+   match ':section/:category' => 'sections#details' , :as => :category_ad    
    match ':section/' => 'sections#index' , :as => :section_ad
    
    match 'sections/:section/ad/:ad' => 'ads#show' , :as => :ad_details
@@ -74,7 +77,7 @@ HamaraSouk::Application.routes.draw do
   #     resources :products
   #   end
 
-   match "search" => "ads#search"
+   
    match "about" => "home#about"
    match "termsandcond" => "home#termsandcond"
   

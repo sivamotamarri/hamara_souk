@@ -9,6 +9,14 @@ class HomeController < ApplicationController
     @communities = Category.section_categories(5)    
   end
 
+  
+  def help
+    
+  end
+  
+  def how_to
+    
+  end
   # GET /ads/search
   # GET /ads/search.xml
   

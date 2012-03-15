@@ -83,20 +83,19 @@ class AdsController < ApplicationController
 
 
   def show   
-      section = Section.find_by_slug(params[:section])     
-      if !section.nil?
-       @ad = Ad.find_by_slug_and_section_id(params[:ad],section.id)
-       if !@ad.nil? 
-        add_breadcrumb "#{section.name}", section_ad_path(section.slug)
-        add_breadcrumb "#{@ad.category.name}", category_ad_path(section.slug,@ad.category.slug)
-        add_breadcrumb "#{@ad.sub_category.name}" , sub_cat_ad_path(section.slug,@ad.category.slug,@ad.sub_category.slug)  if !@ad.sub_category_id.nil?
+      @ad = Ad.find_by_slug(params[:id] || params[:ad])     
+      if !@ad.nil?     
+        add_breadcrumb "#{@ad.section.name}", section_ad_path(@ad.section.slug)
+        add_breadcrumb "#{@ad.category.name}", category_ad_path(@ad.section.slug,@ad.category.slug)
+        add_breadcrumb "#{@ad.sub_category.name}" , sub_cat_ad_path(@ad.section.slug,@ad.category.slug,@ad.sub_category.slug)  if !@ad.sub_category_id.nil?
         @json = @ad.to_gmaps4rails
+        if !params[:ad].nil?
+          add_breadcrumb "details" , ad_details_path(@ad.section.slug,@ad.slug)
+        else
+          add_breadcrumb "details" , ad_path(@ad.slug)
+        end
        else
          render :error
-       end
-       add_breadcrumb "details" , ad_details_path(section.slug,@ad.slug)
-     else
-      render :error
      end 
   end
   
@@ -104,7 +103,7 @@ class AdsController < ApplicationController
     @search = Ad.search(params[:search])
     @ads = @search.all
     respond_to do |format|
-      format.html { render :action => "index" }
+      format.html { }
       format.xml  { render :xml => @search }
     end
   end
