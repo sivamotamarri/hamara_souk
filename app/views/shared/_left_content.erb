@@ -1,33 +1,20 @@
 <div class="cont-left">
   <div class="search-block">
     <%= form_for @search , :url => search_ads_path, :html => {:method => :get} do |f| %>
-    <div class="activity-info">
-      <%= f.select(:city_equals, City.all.collect {|p| [ p.name, p.name ] }, {:prompt => "All Cities", :class => "label-info"}) %>
-      <!--<span class="label-info"> <span class="selected3" id="select6">All Cities</span>
-        <select class="styled3" name="search_city_equals">
-          <option value="" >All Cities</option>
-          <option value="8" selected="selected">Hyderabad</option>
-          <option value="6">Visakapatnam</option>
-          <option value="7">Vijayawada</option>
-          <option value="9">Tirupathi</option>
-          <option value="10">Karnool</option>
-          <option value="10">Warangal</option>
-          <option value="10">Kakinada</option>
-          <option value="10">Rajamundry</option>
-        </select>
-      </span>-->
+    <div class="activity-info">      
+      <span class="label-info"> <span class="selected3" id="selectsearch_city_equals">All Cities</span>        
+        <%= f.select(:city_equals, City.all.collect {|p| [ p.name, p.name ] }, {:prompt => "All Cities"} , { :class => "styled3", :onchange => "selectBox(this,this.id)" }) %>
+      </span>
     </div>
-    <div class="activity-info">
-      <%= f.select(:section_id_equals, Section.all.collect {|p| [ p.name, p.id ] }, {:prompt => "All of Hamara Souk", :class => "label-info"}) %>
-      <!--<span class="label-info"> <span class="selected3" id="select6">All of Hamara Souk</span>
-        <select class="styled3" name="search_section_name_equals">
-          <option value="8" selected="selected"> Classifieds</option>
-          <option value="6">Property for Rent</option>
-          <option value="7">Property For Sale</option>
-          <option value="9">Jobs</option>
-          <option value="10">Community</option>
-        </select>
-      </span> -->
+    <div class="activity-info">      
+      <span class="label-info"> <span class="selected3" id="selectsearch_section_id_equals">All of Hamara Souk</span>
+        <%= f.select(:section_id_equals, Section.all.collect {|p| [ p.name, p.id ] }, {:prompt => "All of Hamara Souk"},{:class => "styled3" ,  :onchange => "selectBox(this,this.id)" }) %>
+      </span>
+    </div>    
+    <div class="activity-info">      
+      <span class="label-info"> <span class="selected3" id="selectsearch_section_id_equals"> > All Categories</span>
+        <%= f.select(:category_id_equals, Section.all.collect {|p| [ p.name, p.id ] }, {:prompt => "All of Hamara Souk"},{:class => "styled3" ,  :onchange => "selectBox(this,this.id)" }) %>
+      </span>
     </div>
     <h2>Keywords</h2>
      <%= f.text_field :title_contains %>

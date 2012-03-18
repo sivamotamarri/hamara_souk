@@ -3,10 +3,10 @@
 <%= f.text_field :street %></div>
 
 <div><%= f.label :city %><br/>
-
-<%= f.text_field :city %>
+<%= f.select(:city, City.all.collect {|s| [ s.name, s.name ] },{:prompt => "- Select One -"}) %>
 </div>
-<div><%= f.label :country %><br/>
-<%= f.country_select(:country, {},:prompt => "- Select One -") %>
+<div>
+<%= f.hidden_field :country, "India" %>
+
 </div>
 

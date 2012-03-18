@@ -3,6 +3,8 @@ class SectionsController < ApplicationController
   def index
     section = Section.find_by_slug(params[:section])
     add_breadcrumb "#{section.name}", section_ad_path
+    @categories = Category.section_categories(section.id)
+    @ads = section.ads
   end
   
   def details

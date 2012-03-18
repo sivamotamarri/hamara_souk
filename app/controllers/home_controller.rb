@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
 
 
-  def index
+  def index    
     @classifieds = Category.section_categories(1)
     @properties_for_sale = Category.section_categories(2)
     @properties_for_rent =Category.section_categories(3)
@@ -15,6 +15,10 @@ class HomeController < ApplicationController
   end
   
   def how_to
+    
+  end
+  
+  def contact_us
     
   end
   # GET /ads/search

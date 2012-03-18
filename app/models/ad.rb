@@ -17,6 +17,24 @@ class Ad < ActiveRecord::Base
 
   
   NUMBER = ['1','2','3','4','5','6','7','8','9','10','11','12+']
+  
+  WORK_EXPERIENCE = {"UN" => "Unspecified",
+"00" => "0-1 Years" ,
+"01" => "1-2 Years",
+"02" => "2-5 Years",
+"05" => "5-10 Years",
+"10" => "10-15 Years",
+"15" => "15+ Years"}
+
+  EDUCATION_LEVEL = {"UN" => "Unspecified",
+"HS"=>"High-School / Secondary School",
+"BD"=>"Bachelors Degree",
+"MD"=>"Masters Degree",
+"PH" =>"PhD"
+  }
+
+
+
 
   validates :section_id,:category_id, :presence => true , :if => lambda { |o| o.current_step == "categories" }
   validates :section_id,:category_id, :presence => true , :if => lambda { |o| o.current_step == "categories" }

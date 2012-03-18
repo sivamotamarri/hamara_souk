@@ -23,5 +23,15 @@ module ApplicationHelper
   def ads_count(sec_id,cat_id)
     Ad.category_ads(sec_id,cat_id).count
   end
+  
+  def sections
+    @sections = Section.all
+    res = content_tag(:li,content_tag(:a ,"",:href=> "/") ,:class => "home-tab")
+    @sections.each do |sec|
+      res = res + content_tag(:li , content_tag(:a , sec.name, :href => "/#{sec.slug}"))
+    end
+    res = res + content_tag(:li,content_tag(:a ,"Contact Us",:href=> contact_us_path) ,:class => "last")
+    res
+  end
 
 end

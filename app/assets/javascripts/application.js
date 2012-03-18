@@ -84,6 +84,23 @@ initGallery();
 
 });
 
+
+function selectBox(obj,name){    
+   $("#select"+name).html(obj.options[obj.selectedIndex].text);     
+}
+function selected(selectOption)
+{
+$.ajax({
+  url: '/groups/select_category',
+  dataType: "script",
+  cache: false,
+  data: "category="+selectOption,
+  success: function(message){
+  }
+});
+
+}  
+
 function initGallery() {
 	jQuery('.gallery-block').each(function() {
 		var list = jQuery('.gallery > ul', this),

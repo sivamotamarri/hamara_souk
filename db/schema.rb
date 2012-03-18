@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120226064940) do
+ActiveRecord::Schema.define(:version => 20120317165759) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -79,13 +79,39 @@ ActiveRecord::Schema.define(:version => 20120226064940) do
     t.boolean  "gmaps"
     t.string   "country"
     t.string   "slug"
+    t.string   "listed_by"
+    t.string   "ad_condition"
+    t.decimal  "compensation",           :precision => 10, :scale => 0
+    t.string   "ad_usage"
+    t.string   "ad_age"
+    t.text     "ad_description"
+    t.string   "work_experience"
+    t.string   "education_level"
+    t.string   "commitment"
+    t.string   "brand"
+    t.string   "warranty"
+    t.string   "type"
+    t.string   "length"
   end
 
+  add_index "ads", ["ad_age"], :name => "index_ads_on_ad_age", :unique => true
+  add_index "ads", ["ad_condition"], :name => "index_ads_on_ad_condition", :unique => true
+  add_index "ads", ["ad_usage"], :name => "index_ads_on_ad_usage", :unique => true
+  add_index "ads", ["brand"], :name => "index_ads_on_brand", :unique => true
   add_index "ads", ["category_id"], :name => "index_ads_on_category_id"
+  add_index "ads", ["commitment"], :name => "index_ads_on_commitment", :unique => true
+  add_index "ads", ["company_name"], :name => "index_ads_on_company_name", :unique => true
+  add_index "ads", ["compensation"], :name => "index_ads_on_compensation", :unique => true
+  add_index "ads", ["education_level"], :name => "index_ads_on_education_level", :unique => true
+  add_index "ads", ["length"], :name => "index_ads_on_length", :unique => true
+  add_index "ads", ["listed_by"], :name => "index_ads_on_listed_by", :unique => true
   add_index "ads", ["section_id"], :name => "index_ads_on_section_id"
   add_index "ads", ["slug"], :name => "index_ads_on_slug", :unique => true
   add_index "ads", ["title"], :name => "index_ads_on_title"
+  add_index "ads", ["type"], :name => "index_ads_on_type", :unique => true
   add_index "ads", ["user_id"], :name => "index_ads_on_user_id"
+  add_index "ads", ["warranty"], :name => "index_ads_on_warranty", :unique => true
+  add_index "ads", ["work_experience"], :name => "index_ads_on_work_experience", :unique => true
 
   create_table "amenities", :force => true do |t|
     t.string   "title"
