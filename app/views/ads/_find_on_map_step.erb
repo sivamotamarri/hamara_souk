@@ -6,7 +6,7 @@
 <%= f.select(:city, City.all.collect {|s| [ s.name, s.name ] },{:prompt => "- Select One -"}) %>
 </div>
 <div>
-<%= f.hidden_field :country, "India" %>
+<%= f.hidden_field :country, :value => "India" %>
 
 </div>
 

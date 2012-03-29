@@ -53,7 +53,7 @@ h3{font-size:13px;}
 .search-block{ background:url(search-bg.jpg) left top no-repeat; width:233px; height:198px; float:left; margin-bottom:12px; padding:61px 0px 0px 2px;}
 .search-block h2{ font-size:14px; color:#a0282a; width:100%; text-indent:4px; padding-top:10px; float:left; margin:0px;}
 .search-block input{ background:url(input-bg.jpg) left top no-repeat; width:209px !important; float:left; height:27px; padding:0px 5px !important; border:none !important; margin-left:5px; line-height:25px; color:#444444;}
-.search-block span input{  background:url(search-btn.jpg) left top no-repeat; width:102px; float:right; height:34px; margin:10px 9px 0px 0px; cursor:pointer; border:none;}
+
 .left-info-block{ background:url(subtitle-btmbg.jpg) left bottom no-repeat; float:left; padding:0px 0px 4px 0px; margin-bottom:12px;}
 .left-info-title{ background:url(sub-title-bg.jpg) left top no-repeat; width:220px; height:31px; float:left; padding:0px 0px 0px 14px; color:#fff; font-size:16px; line-height:30px;}
 .left-info-mid{ background-color:#f2f0f1; border-left:1px solid #d9d9d9; border-right:1px solid #d9d9d9; width:214px; float:left; padding:9px 9px 20px 9px; text-align:justify;}
@@ -142,3 +142,13 @@ input.styled3 { display: none; } select.styled3 { position: relative; top:9px; o
  #results-top #featured-listings .descriptionjob{float:left; margin:6px 0px 0px 16px; clear:both;}
 
 /* mine */
+
+.search-block span input{  
+    background:url(search-btn.jpg) left top no-repeat; 
+    width:102px !important; 
+    float:right !important; 
+    height:34px !important; 
+    margin:10px 9px 0px 0px !important; 
+    cursor:pointer; 
+    border:none;
+}

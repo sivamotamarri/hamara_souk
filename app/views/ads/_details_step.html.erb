@@ -26,6 +26,12 @@
    <%= f.select(:commitment, {'Full Time' => 'FT', 'Part Time' => 'PT'},{:prompt => "- Select One -"}) %></div>
    
 </div>
+ <h3>Description</h3>
+   <div><%= f.label :phone_number ,"Phone Number" %><br />
+  <%= f.text_field :phone_number %><%= f.label :phone_number ,"(optional)" %></div>
+
+   <div><%= f.label :desc ,"Description" %><br />
+  <%= f.text_area :desc, :rows => 10, :cols => 20 %></div>
 <% else %>
 <div id="details">
   
@@ -62,21 +68,8 @@
   <% end %>
 </div>
 </div>
-<% end %>
-  <h3>Description</h3>
 
- <div><%= f.label :price ,"price" %><br />
-  <%= f.text_field :price %><%= f.label :price ,"AED" %></div>
-
-
- <div><%= f.label :property_refer ,"Property Reference" %><br />
-  <%= f.text_field :property_refer %><%= f.label :property_refer ,"(optional)" %></div>
-
-   <div><%= f.label :phone_number ,"Phone Number" %><br />
-  <%= f.text_field :phone_number %><%= f.label :phone_number ,"(optional)" %></div>
-
-   <div><%= f.label :desc ,"Description" %><br />
-  <%= f.text_area :desc, :rows => 10, :cols => 20 %></div>
+ 
 
   <h1>Lister Details</h1>
 
@@ -91,5 +84,5 @@
   </div>
  
 
-
+<% end %>
 

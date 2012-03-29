@@ -38,8 +38,8 @@ class Ad < ActiveRecord::Base
 
   validates :section_id,:category_id, :presence => true , :if => lambda { |o| o.current_step == "categories" }
   validates :section_id,:category_id, :presence => true , :if => lambda { |o| o.current_step == "categories" }
-  validates :title , :size , :fee ,:bed_rooms, :bath_rooms , :developer ,:ready_date, :annual_comm_fee, :amenities, :price ,
-     :desc  , :presence => true , :if => lambda { |o| o.current_step == "details" }
+  validates :title , :size , :fee ,:bed_rooms, :bath_rooms , :developer ,:ready_date, :annual_comm_fee, :amenities, :presence => true , :if => lambda { |o| o.current_step == "details"  && o.section_id != 4 }
+  validates :title , :compensation, :work_experience ,:education_level, :commitment , :desc, :presence => true , :if => lambda { |o| o.current_step == "details"  && o.section_id == 4 }
   validates :street , :city, :country, :presence => true , :if => lambda { |o| o.current_step == "find_on_map" }
 
 

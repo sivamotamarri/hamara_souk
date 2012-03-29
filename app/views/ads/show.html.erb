@@ -5,6 +5,7 @@
 
 <p>Ad details</p>
 <div><%= label :ad,:title %> :   <%= @ad.title %></div> <br />
+<% if @ad.section_id != 4 %>
 <div><%= label :ad,:size %> :   <%= @ad.size %></div> <br />
 <div><%= label :ad,:fee %> :   <%= @ad.fee%></div> <br />
 <div><%= label :ad,:bed_rooms %> :   <%= @ad.bed_rooms %></div> <br />
@@ -19,6 +20,13 @@
 <div><%= label :ad,:desc %> :   <%= @ad.desc %></div> <br />
 
 <div><%= label :ad,:agent_or_landlord %> :   <%= @ad.agent_or_landlord %></div> <br />
+<% else %>
+<div><%= label :ad,:compensation %> :   <%= @ad.compensation %></div> <br />
+<div><%= label :ad,:work_experience %> :   <%= @ad.work_experience%></div> <br />
+<div><%= label :ad,:education_level %> :   <%= @ad.education_level %></div> <br />
+<div><%= label :ad,:commitment %> :   <%= @ad.commitment %></div> <br />
+<div><%= label :ad,:desc %> :   <%= @ad.desc %></div> <br />
+<% end %>
 <div><%= label :ad,:street %> :   <%= @ad.street %></div> <br />
 <div><%= label :ad,:city %> :   <%= @ad.city %></div> <br />
 <div><%= label :ad,:country %> :   <%= @ad.country %></div> <br />

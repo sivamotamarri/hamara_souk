@@ -11,11 +11,11 @@
         <%= f.select(:section_id_equals, Section.all.collect {|p| [ p.name, p.id ] }, {:prompt => "All of Hamara Souk"},{:class => "styled3" ,  :onchange => "selectBox(this,this.id)" }) %>
       </span>
     </div>    
-    <div class="activity-info">      
+    <!--<div class="activity-info">      
       <span class="label-info"> <span class="selected3" id="selectsearch_section_id_equals"> > All Categories</span>
-        <%= f.select(:category_id_equals, Section.all.collect {|p| [ p.name, p.id ] }, {:prompt => "All of Hamara Souk"},{:class => "styled3" ,  :onchange => "selectBox(this,this.id)" }) %>
+        <%#= f.select(:category_id_equals, Section.all.collect {|p| [ p.name, p.id ] }, {:prompt => "All of Hamara Souk"},{:class => "styled3" ,  :onchange => "selectBox(this,this.id)" }) %>
       </span>
-    </div>
+    </div>-->
     <h2>Keywords</h2>
      <%= f.text_field :title_contains %>
     <span><input name="" type="submit" value="" /></span>
