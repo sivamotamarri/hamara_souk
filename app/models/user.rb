@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :avatar, :content_type => %w(image/jpeg image/jpg image/png image/gif), :message => 'must be of type jpeg, png or gif', :if => :photo_attached?
   validates_attachment_size :avatar, :less_than => 3.megabytes, :message => 'cannot be greater than 3 MB', :if => :photo_attached?
 
-  
+  @@allow = true
   
   PROFESSIONALS = {
 "Student" => "ST",
@@ -30,9 +30,9 @@ class User < ActiveRecord::Base
   }
   
   def self.find_for_facebook_oauth(access_token, action, signed_in_resource=nil)
-    @allow = true
+   
     if action == "facebook"
-      @allow = false
+      @@allow = false
     end
 
     data = access_token.extra.raw_info
@@ -56,7 +56,7 @@ class User < ActiveRecord::Base
   end
   
   def not_facebook?
-    return @allow
+    return @@allow
   end
   
 end

@@ -152,3 +152,44 @@ input.styled3 { display: none; } select.styled3 { position: relative; top:9px; o
     cursor:pointer; 
     border:none;
 }
+
+
+/*SIGN IN*/
+.sign-popup{background:url(sign-popup.jpg) left top no-repeat; width:235px; height:177px; float:left; padding:33px 0px 0px 23px;}
+.sign-popup input{ background:url(login-id.jpg) left top no-repeat; width:201px; height:30px; float:left; padding:0px 5px; border:none; margin-bottom:10px;}
+.sign-in input{  background:url(sub-btn.jpg) left top no-repeat!important; width:71px!important; height:33px!important; float:left!important; border:none; cursor:pointer; outline:none;}
+.remember input{ float:left; width:10px; margin:0px 7px 0px 0px; padding:0px; height:10px;}
+.remember{ width:141px; float:left; padding-top:7px;}
+.cr-acc{ float:left; width:100%; padding-top:12px; text-indent:46px;}
+.cr-acc a, .cr-acc a:hover{ text-decoration:none; font-size:13px; color:#359ef4;}
+
+/*FORGOT PASSWORD*/
+.fg-pass{ float:left;}
+.fg-pass h2{ font-size:22px;/* float:left;*/ color:#424241; background:url(fp-pass.jpg) left top no-repeat; text-indent:40px; font-weight:normal; margin:15px 0px;}
+.fg-pass input{ width:478px; background:url(input-signin.jpg) left top no-repeat; padding:0px 10px; float:left; border:none; height:36px; margin-top:2px;}
+.fp-submit{ width:100%; float:left;}
+.fp-submit input{ width:86px; background:url(submit-btn.jpg) left top no-repeat; border:none; height:34px; margin-top:5px; cursor:pointer; float:right; margin-left:40px;}
+
+/*SIGNIN*/
+.signin-block{ float:left; width:357px;}
+.signin-block h1, .register-block h1{ font-size:20px; font-weight:normal; width:200px; float:left; margin:0px;}
+.switch-acc{ float:right; font-size:14px; padding-top:7px; color:#424241;}
+.switch-acc a, .fg-pass a{ color:#2D95DE; text-decoration:none;}
+.signin-block input{ width:337px; background:url(email-tb.jpg) left top no-repeat; padding:0px 10px; float:left; border:none; height:36px; margin-top:10px; line-height:33px; font-size:14px;}
+.rem-me{ float:left; margin-top:20px; width:286px;}
+.rem-me input{ float:left; margin:0px 5px 0px 0px; width:13px; line-height:25px; height:13px; background:none;}
+.fg-pass{ float:left; width:498px; padding-top:20px;}
+.signin-block img, .register-block img{ float:right; margin-top:7px;}
+.register-block{ width:675px; float:left; padding-top:20px;}
+.fb-register{ width:675px; float:right;}
+.reg-info label{ float:left; width:317px; line-height:40px; font-size:14px;}
+.reg-info{ float:left; width:675px; padding-top:7px;}
+.reg-info select.select1{ width:357px; float:left; height:33px;}
+.register-block input{ width:337px; background:url(email-tb.jpg) left top no-repeat; padding:0px 10px; float:left; border:none; height:36px; line-height:33px; font-size:14px;}
+.reg-info select.dd{ width:100px; float:left; height:28px; padding-top:5px; margin-right:28px;}
+.reg-info select.mm{ width:100px; float:left; height:28px; padding-top:5px; margin-right:28px;}
+.reg-info select.yy{ width:100px; float:left; height:28px;  padding-top:5px;}
+.agree{ width:65%; float:left; padding-top:20px;}
+.agree input{ float:left; width:13px; height:13px; background:none; margin-right:8px;}
+.tc a{ color:#2D95DE; text-decoration:none;}
+.register input{ width:146px; background:url(register.jpg) left top no-repeat; border:none; height:34px; margin-top:5px; cursor:pointer; float:right;}

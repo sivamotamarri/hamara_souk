@@ -1,12 +1,11 @@
-<h2>Forgot your password?</h2>
+<div class="fg-pass">
+  <h2>Forgot Your Password ?</h2>
+  <p>Enter your email address below, and we'll reset your password and email you the new one. </p>
 
-<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
-  <%= devise_error_messages! %>
+  <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
+    <%= devise_error_messages! %>
+    <p><input id="user_email" type="email"  name="user[email]" value="Email" onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;" /></p>
+    <p class="fp-submit"><%= f.submit "" %></p>
+  <% end %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
-
-  <div><%= f.submit "Send me reset password instructions" %></div>
-<% end %>
-
-<%#= render "links" %>
+</div>

@@ -1,51 +1,34 @@
-<h2>Sign up</h2>
-
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
-
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
-
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
-<div><%= f.label :first_name %><br />
-  <%= f.text_field :first_name %></div>
-
-<div><%= f.label :last_name %><br />
-  <%= f.text_field :last_name %></div>
+<div class="register-block">
+  <h1>Register</h1>
+  <div class="switch-acc">(or  <%- if controller_name != 'sessions' %>
+      <%= link_to "Sign in", new_session_path(resource_name) %>
+    <% end -%> )</div>
+  <p class="fb-register"><a href="#"><img src="/assets/register.png" alt="fb" border="none" /></a></p>
+  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
 
 
-<div><%= f.label :gender , "My Mother Calls Me"%><br />  
-<%= f.select(:gender, [['Habibi(M)', 'M'], ['Habibti(F)', 'F']],{:prompt => "- Select One -"}) %></div>
+    <span class="reg-info"><label>Email Address</label><input id="user_email" name="user[email]" type="email" /></span>
 
-<div><%= f.label :dob, "The world became a better place on (d.o.b)" %><br/>
+    <span class="reg-info"><label>Password </label><input id="user_password" name="user[password]" type="password"  /></span>
+    <span class="reg-info"><label>Confirmation Password </label><input id="user_password_confirmation" name="user[password_confirmation]" type="password"  /></span>
 
-<%= f.date_select  :dob, :order => [:day, :month, :year], :start_year => 1921,:prompt => { :day => 'Day', :month => 'Month', :year => 'Year' } %>
+    <span class="reg-info"><label>First Name </label><input id="user_first_name" name="user[first_name]" type="text"  /></span>
+    <span class="reg-info"><label>Last Name</label><input id="user_last_name" name="user[last_name]" type="text"   /></span>
+
+    <span class="reg-info"><label>My Mother Calls Me </label>       
+      <%= f.select(:gender, [['Habibi(M)', 'M'], ['Habibti(F)', 'F']],{:prompt => "- Select One -"}, :class => "select1") %>
+    </span>
+
+    <span class="reg-info"><label>The world became a better place on (DOB)</label>
+      <%= f.date_select  :dob, :order => [:day, :month, :year], :start_year => 1921,:prompt => { :day => 'Day', :month => 'Month', :year => 'Year' } , :class => "dd" %>
+    </span>
+
+    <span class="reg-info"><label>My Passport tells me I am from </label><%= f.country_select(:country, {},{:prompt => "- Select One -"} ,{ :class => "select1"}) %></span>
+    <span class="reg-info"><label>My Company calls me </label><%= f.select(:professional, User::PROFESSIONALS,{:prompt => "- Select One -"},{ :class => "select1"}) %></span>
+
+    <p class="agree">By clicking on Register, you agree to the <span class="tc"><a href="#">HS Terms and Conditions</a></span>.</p>
+    <span class="register"><%= f.submit "" %></span>
+  <% end %>
+
 </div>
-
-<div><%= f.label :country , "My Passport tells me I am from" %><br/>
-<%= f.country_select(:country, {},:prompt => "- Select One -") %>
-</div>
-
-<div><%=f.label :professional , "My friends call me often, but my company calls me"%><br/>
-  
-<%= f.select(:professional, User::PROFESSIONALS,{:prompt => "- Select One -"}) %></div>
-
-<div>
-  <%= f.check_box :hamara_souk_updates %><%=f.label :hamara_souk_updates , "Allow Hamara Souk to send me occasional updates about the site."%>
-</div>
-<div>
- <%= f.check_box :allow_adv %> <%=f.label :allow_adv , "Send me amazing offers and bargains from our advertising partners."%>
-</div>
-  <div>
-    <div>
-      By clicking on Register, you agree to the Hamara Souk Terms and Conditions and the Hamara Souk Privacy Policy.
-    </div>
-  
-  <%= f.submit "Register" %></div>
-<% end %>
-
-<%#= render "links" %>

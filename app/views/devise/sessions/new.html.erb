@@ -1,22 +1,21 @@
-<h2>Sign in</h2>
+<div class="signin-block">
+  <h1>Sign In</h1>
+  <div class="switch-acc">(or <a href="#">create an account</a> )</div>
+  <p><a href="#"><img src="/assets/fb-signin.png" alt="fb" border="none" /></a></p>
+  <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+    <p><input id="user_email" type="email"  name="user[email]" value="Email" onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;" /></p>
+    <p><input name="user[password]" id="user_password" type="password"  value="Password" onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;" /></p>
+    <% if devise_mapping.rememberable? -%>
+      <p class="rem-me"><%= f.check_box :remember_me %> <%= f.label :remember_me %></p>
+    <% end -%>
+    <span class="sign-in"><%= f.submit "" %></span>
+  <% end %>
 
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
+  <%- if devise_mapping.recoverable? && controller_name != 'passwords' %>
+    <span  class="fg-pass"> <%= link_to "Forgot your password?", new_password_path(resource_name) %></span><br/>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
   <% end -%>
-
-  <div><%= f.submit "Sign in" %></div>
-<% end %>
-
-<%- if devise_mapping.recoverable? && controller_name != 'passwords' %>
-  <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
-<% end -%>
-<%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
-  <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %><br />
-<% end -%>
+  <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+    <span  class="fg-pass"> <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %></span>
+  <% end -%>
+</div>
