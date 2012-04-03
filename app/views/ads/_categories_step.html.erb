@@ -12,9 +12,9 @@
  </div>
 </div>
 <div id="sub_categories" style="display:none;">
-<div><%=f.label :sub_category_id , "Select a Subcategory" %><br/>
+<div>
   <span id="sub_categories_list">
-    <%= f.select(:sub_category_id, Category.parent_cat.collect {|s| [ s.name, s.id ] },{:prompt => "- Select One -"}) %>
+    
   </span>
 </div>
 </div> 

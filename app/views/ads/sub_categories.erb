@@ -1,1 +1,4 @@
+<% if !@sub_categories.empty? %>
+<%=  label :ad, :sub_category_id , "Select a Subcategory" %><br/>
 <%= select(:ad , :sub_category_id, @sub_categories.collect {|s| [ s.name, s.id ] },{:prompt => "- Select One -"}) %> 
+<% end %>
