@@ -1,5 +1,5 @@
-class AddTestData < ActiveRecord::Migration
-  def up
+class Addsampledata < ActiveRecord::Migration
+def up
     Section.create(:name => 'Classifieds',
     :created_at => Time.now,
     :updated_at => Time.now )
