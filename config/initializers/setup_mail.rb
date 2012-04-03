@@ -2,8 +2,8 @@
       :address              => "smtp.gmail.com",  
       :port                 => 587,  
       :domain               => "gmail.com",  
-      :user_name            => "hamarasouk",  
-      :password             => "anilhamara",  
+      :user_name            => "hamarasouk@gmail.com",  
+      :password             => "rubyonrails",  
       :authentication       => "plain",  
       :enable_starttls_auto => true  
     }  

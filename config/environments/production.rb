@@ -44,10 +44,12 @@ HamaraSouk::Application.configure do
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
   # config.assets.precompile += %w( search.js )
+  #config.assets.precompile += %w[application.css application.js]
+
   config.assets.precompile += %w[active_admin.css active_admin.js]
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
-
+ config.serve_static_assets = true
   # Enable threaded mode
   # config.threadsafe!
 
@@ -58,4 +60,15 @@ HamaraSouk::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
   config.action_mailer.default_url_options = { :host => 'hamarasouk.com' }
+  
+  
+      ActionMailer::Base.smtp_settings = {  
+      :address              => "smtp.gmail.com",  
+      :port                 => 587,  
+      :domain               => "gmail.com",  
+      :user_name            => "hamarasouk@gmail.com",  
+      :password             => "rubyonrails",  
+      :authentication       => "plain",  
+      :enable_starttls_auto => true  
+    }  
 end
