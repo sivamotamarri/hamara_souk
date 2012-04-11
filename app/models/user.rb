@@ -38,7 +38,7 @@ class User < ActiveRecord::Base
   end
   
   def full_name
-    "#{self.first_name.capitalize} #{self.last_name.capitalize}"
+    "#{self.first_name.try(:capitalize)} #{self.last_name.try(:capitalize)}"
   end
   
   def self.find_for_facebook_oauth(access_token, action, signed_in_resource=nil)
