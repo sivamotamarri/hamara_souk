@@ -1,6 +1,4 @@
 <style type="text/css">
-  .link-prev { background:url(/assets/cat-slide-arrows.png) left top no-repeat; width:21px; height:31px; float:left; text-indent:-9999px;  margin-top:60px;}
-.link-next { background:url(/assets/cat-slide-arrows.png) right top no-repeat; width:21px; height:31px; float:left; text-indent:-9999px; margin-top:60px;}
   .gallery {
 				/*background-color: #ccc;*/
 				/*margin: 0 0 30px 60px;*/
@@ -8,6 +6,7 @@
 			}
 			.gallery ul {
 				margin: 0;
+                                margin-left: 50px;
 				padding: 0;
 				list-style: none;
 				display: block;
@@ -16,14 +15,9 @@
 				font-size: 40px;
 				color: #999;
 				text-align: center;
-				/*background-color: #eee;
-				border: 5px solid #999;
-                                height: 50px;
-                                */
-				width: 50px;
 				
 				padding: 0;
-				/*margin: 6px;*/
+				
 				display: block;
 				float: left;
 			}
@@ -71,27 +65,103 @@
       <a href="<%= new_ad_path %>"><span class="post-ad">Post An Ad</span> </a> </div>
   </div>
 
-
-     <div class="gallery-block">
-            <a href="#" class="link-prev">prev</a>
-            <div class="gallery">
-              <ul>
-                <% @properties_for_sale.each do |prty| %>
-                <% if prty.id == 3 %>
-                   <% prty.ads.each do |p| %>
-                      <li><span><img border="none" height="105px" width="150px" alt="Hand bag" src="/assets/rails.png"/></span></li>
-                      <li>
-                      <span class="product-cat"><img src="<%= p.images.first.url(:thumb) %>" alt="Hand bag" border="none" width="150px" height="105px"/>
-                                           </span>
-                      </li>
-                      <li><span><img border="none" height="105px" width="150px" alt="Hand bag" src="/assets/rails.png"/></span></li>
-                   <% end %>
-                <% end %>
-                <% end %>         
-            </ul>
-      </div>
-      <a href="#" class="link-next">next</a>
+<div class="gallery">
+  
+  
+  <div class="carousel slide span95" id="myCarousel">
+<div class="carousel-inner">
+  <div class="item active">
+        <ul class="thumbnails">
+           <%# @properties_for_sale.each do |prty| %>
+          <%# if prty.id == 3 %>
+          <%# prty.ads.each do |p| %>
+            <!--<li class="span2">
+                <div class="thumbnail">
+                    <img src="<%#= p.images.first.url(:thumb) %>" alt="" />
+                </div>
+            </li>-->
+               <%# end %>
+      <%# end %>
+    <%# end %> 
+         
+            <li class="span2">
+                <div class="thumbnail">
+                    <img src="/assets/sample.gif" alt="">
+                </div>
+            </li>
+             <li class="span2">
+                <div class="thumbnail">
+                    <img src="/assets/sample.gif" alt="">
+                </div>
+            </li>
+            <li class="span2">
+                <div class="thumbnail">
+                    <img src="/assets/sample.gif" alt="">
+                </div>
+            </li>
+             <li class="span2">
+                <div class="thumbnail">
+                    <img src="/assets/sample.gif" alt="">
+                </div>
+            </li>
+        </ul>
   </div>
+  <div class="item">
+        <ul class="thumbnails">
+          
+           <li class="span2">
+                <div class="thumbnail">
+                    <img src="/assets/sample.gif" alt="">
+                </div>
+            </li>
+         <li class="span2">
+                <div class="thumbnail">
+                    <img src="/assets/sample.gif" alt="">
+                </div>
+            </li>
+          <li class="span2">
+                <div class="thumbnail">
+                    <img src="/assets/sample.gif" alt="">
+                </div>
+            </li>
+             <li class="span2">
+                <div class="thumbnail">
+                    <img src="/assets/sample.gif" alt="">
+                </div>
+            </li>
+        </ul>
+  </div>
+  <div class="item">
+        <ul class="thumbnails">
+          
+          <li class="span2">
+                <div class="thumbnail">
+                    <img src="/assets/sample.gif" alt="">
+                </div>
+            </li>
+          <li class="span2">
+                <div class="thumbnail">
+                    <img src="/assets/sample.gif" alt="">
+                </div>
+            </li>
+           <li class="span2">
+                <div class="thumbnail">
+                    <img src="/assets/sample.gif" alt="">
+                </div>
+            </li>
+             <li class="span2">
+                <div class="thumbnail">
+                    <img src="/assets/sample.gif" alt="">
+                </div>
+            </li>
+        </ul>
+  </div>
+</div>
+ <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+  <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+</div>
+
+</div>
   <!--<div class="gallery"></div>-->
 
 

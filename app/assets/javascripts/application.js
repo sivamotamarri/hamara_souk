@@ -4,8 +4,8 @@
 // It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
 // the compiled file.
 //
-//= #require jquery
-//= #require jquery_ujs
+//= require jquery-1.7.1
+//= require jquery_ujs
  //= require gmaps4rails/bing.js
 
  //= require gmaps4rails/googlemaps.js
@@ -25,7 +25,11 @@ function toggleChecked(status) {
 }
 
 $(document).ready(function(){
+   
 
+$('.carousel').carousel({
+        interval: 3500
+    });
  //section selection categories
  $("#ad_section_id").live('change', function(event){
         event.preventDefault();
@@ -69,8 +73,9 @@ $(document).ready(function(){
       $.ajax({
         dataType: "script",
         url: "/users/create_watching/"+$(this).attr("id") ,
-        success: function(res){
+        success: function(res){            
             $('.watch').html("Watching");
+            $('.watch').removeClass("watch")
           }
        });
         

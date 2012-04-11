@@ -1,6 +1,21 @@
 
+<style type="text/css">
+  .gmaps4rails_map {
+  width: 658px;
+  height: 348px;
+}
+.map_container{
+  width: 660px;
+}
+
+</style>
 <%= render_breadcrumbs %>
-<div id="<%=params[:id]%>" class="watch" style="cursor: pointer;">Watch</div>
+
+<% if watching?(@ad.id) %>
+<div id="<%=params[:id]%>" style="cursor: pointer;float: right;">Watching</div>
+<% else %>
+<div id="<%=params[:id]%>" class="watch" style="cursor: pointer;float: right;">Watch</div>
+<% end %>
 
 
 <p>Ad details</p>
@@ -34,4 +49,7 @@
   <%= image_tag image.url(:thumb) %>
 <% end %>
 
-<%= gmaps4rails(@json) %>
+
+<div style="width:50px;">
+<%= gmaps("markers" => {"data" => @json}, "map_options" => {"processing" => "json", "auto_adjust" => true, "auto_zoom" => false, "zoom" => 10}) %>
+</div>

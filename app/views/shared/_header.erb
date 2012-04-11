@@ -2,7 +2,19 @@
 
   <span class="login-links">
     <% if user_signed_in? %>
-      <%= link_to "Sign out", destroy_user_session_path %>
+   
+      <ul class="nav nav-pills">
+        <li id="user" class ='dropdown'>
+          <a class="dropdown-toggle" data-toggle="dropdown"  href="#user" ><%=  current_user.first_name %><b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li> <%= link_to("Edit Profile", edit_user_registration_path)%></li>
+            <li><%= link_to("Sign out", destroy_user_session_path) %></li>
+          </ul>
+        </li>  
+      </ul>
+      
+      
+    
     <% else %>
         <%- if devise_mapping.omniauthable? %>
           <a href="<%=  omniauth_authorize_path(:user, :facebook) %>"><img src="/assets/fb.png" alt="Facebook" border="none" /></a>
@@ -15,7 +27,7 @@
       <% end -%>
     <% end %>
   </span>
-  <span class="cities"><a href="#">Cities (INDIA)</a></span>
+  
 </div>
 <div class="header-sec"> <span class="logo"></span> <img src="/assets/post-req.jpg" alt="" border="none" /> <img src="/assets/post-property.jpg" alt="" border="none" /> </div>
 <div class="pri-menu">
