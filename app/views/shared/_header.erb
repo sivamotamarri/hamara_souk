@@ -37,4 +37,4 @@
   <a href="<%=new_ad_path()%>" ><span class="Place-ad">Place an ad</span></a>
 </div>
 <div class="latest-news"><span>JANAPRIYA’S:</span> <a href="#">Hoarding of Splendour County 12 Bungalows in Madhapur, on Nagar Road, Hyderabad..........</a></div>
-<div class="fb-block"><%- if devise_mapping.omniauthable? %> <a href="<%=  omniauth_authorize_path(:user, :facebook) %>"><img src="/assets/fb-connect.jpg" alt="FACEBOOK" border="none" /></a><% end -%></div>
+<% if !user_signed_in? %><div class="fb-block"> <a href="<%=  omniauth_authorize_path(:user, :facebook) %>"><img src="/assets/fb-connect.jpg" alt="FACEBOOK" border="none" /></a></div><% end -%>
