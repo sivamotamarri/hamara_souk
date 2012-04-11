@@ -29,6 +29,18 @@ class User < ActiveRecord::Base
 "G.M/Chief Officer/Proprietor" => "GM"    
   }
   
+  def update_with_password(params={})
+    if params[:password].blank?
+      self.update_without_password(params)
+    elsif !params[:password].blank? || !params[:password_confirmation].blank?
+      self.update_attributes(params)
+    end
+  end
+  
+  def full_name
+    "#{self.first_name.capitalize} #{self.last_name.capitalize}"
+  end
+  
   def self.find_for_facebook_oauth(access_token, action, signed_in_resource=nil)
    
     if action == "facebook"

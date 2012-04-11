@@ -6,14 +6,35 @@
   <div><%= f.label :email %><br />
   <%= f.email_field :email %></div>
 
-  <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-  <%= f.password_field :password %></div>
+  <!--<%#*<div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />%>
+  <%#= f.password_field :password %></div>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+  <%#*<div><%= f.label :password_confirmation %><br />%>
+  <%#= f.password_field :password_confirmation %></div>-->
+<div><%= f.label :first_name %><br />
+  <%= f.text_field :first_name %></div>
+<div><%= f.label :last_name %><br />
+  <%= f.text_field :last_name %></div>
 
-  <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-  <%= f.password_field :current_password %></div>
+<div><%= f.label :gender , "My Mother Calls Me" %><br />
+          
+      <%= f.select(:gender, [['Habibi(M)', 'M'], ['Habibti(F)', 'F']],{:prompt => "- Select One -"}, :class => "select1") %>
+</div>
+<div><%= f.label :dob , "The world became a better place on (DOB)" %><br />
+   
+      <%= f.date_select  :dob, :order => [:day, :month, :year], :start_year => 1921,:prompt => { :day => 'Day', :month => 'Month', :year => 'Year' } , :class => "dd" %>
+</div>
+<div><%= f.label :country , "My Passport tells me I am from" %><br />
+    
+<%= f.country_select(:country, {},{:prompt => "- Select One -"} ,{ :class => "select1"}) %></div>
+<div><%= f.label :professional , "My Company calls me" %><br />
+   
+<%= f.select(:professional, User::PROFESSIONALS,{:prompt => "- Select One -"},{ :class => "select1"}) %>
+</div>
+
+
+  <!--<%#*<div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />%>
+  <%#= f.password_field :current_password %></div>-->
   <%= f.file_field :avatar %>
   <div><%= f.submit "Update" %></div>
 <% end %>

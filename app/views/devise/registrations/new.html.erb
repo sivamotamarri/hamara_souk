@@ -3,7 +3,7 @@
   <div class="switch-acc">(or  <%- if controller_name != 'sessions' %>
       <%= link_to "Sign in", new_session_path(resource_name) %>
     <% end -%> )</div>
-  <p class="fb-register"><a href="#"><img src="/assets/register.png" alt="fb" border="none" /></a></p>
+  <p class="fb-register"><a href="<%=  omniauth_authorize_path(:user, :facebook) %>"><img src="/assets/register.png" alt="fb" border="none" /></a></p>
   <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
 
