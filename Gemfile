@@ -53,7 +53,7 @@ gem 'gmaps4rails'
 
 gem 'coffee-rails', "~> 3.1.0"
 gem 'uglifier'
-#gem 'therubyracer'
+gem 'therubyracer'
 gem 'fastercsv'
 gem 'friendly_id'
 gem 'will_paginate'
