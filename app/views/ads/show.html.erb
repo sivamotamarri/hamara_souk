@@ -1,17 +1,36 @@
 
 <style type="text/css">
   .gmaps4rails_map {
-  width: 658px;
-  height: 348px;
+  width: 414px;
+  height: 296px;
 }
 .map_container{
-  width: 660px;
+  width: 414px;
 }
 
 </style>
 <%= render_breadcrumbs %>
 
-<% if watching?(@ad.id) %>
+<ul class="nav nav-tabs">
+<li class="active"><a href="#photo" data-toggle="tab">Photos</a></li>
+<li><a href="#profile" data-toggle="tab">Map</a></li>   
+</ul>
+<div class="tab-content" style="width: 50%;">
+<div class="tab-pane active" id="photo">
+  <%- @ad.images.each do |image| %>
+  <%= image_tag image.url(:thumb) %>
+<% end %>  
+</div>
+<div class="tab-pane" id="profile">
+
+<%= gmaps("markers" => {"data" => @json}, "map_options" => {"processing" => "json", "auto_adjust" => true, "auto_zoom" => false,"center_longitude" => 180, "zoom" => 15}) %>
+
+</div>
+
+</div>
+
+
+<% if user_signed_in? && watching?(@ad.id) %>
 <div id="<%=params[:id]%>" style="cursor: pointer;float: right;">Watching</div>
 <% else %>
 <div id="<%=params[:id]%>" class="watch" style="cursor: pointer;float: right;">Watch</div>
@@ -45,11 +64,7 @@
 <div><%= label :ad,:street %> :   <%= @ad.street %></div> <br />
 <div><%= label :ad,:city %> :   <%= @ad.city %></div> <br />
 <div><%= label :ad,:country %> :   <%= @ad.country %></div> <br />
-<%- @ad.images.each do |image| %>
-  <%= image_tag image.url(:thumb) %>
-<% end %>
 
 
-<div style="width:50px;">
-<%= gmaps("markers" => {"data" => @json}, "map_options" => {"processing" => "json", "auto_adjust" => true, "auto_zoom" => false, "zoom" => 10}) %>
-</div>
+
+
