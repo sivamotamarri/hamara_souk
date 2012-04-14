@@ -86,9 +86,87 @@ $('.carousel').carousel({
 
 initGallery();
 
+// *** Contact form *** //    
+    $('#contact').on('show', function () {
+        resetContactForm(true);
+    })
+    
+$("#contact-submit").click(function(e){
+        $('#contact').find('.inline-errors').remove();
+        var errors = false;
+        var url = $('#contact').attr('url');
+        var name = $('#contact').find('#name');
+        var email = $('#contact').find('#email');
+        var about = $('#contact').find('#about').val();
+        var comments = $('#contact').find('#comments');
+        if (name.val() === '' || name.val() === undefined) {
+            errors = true;
+            name.after("<p class='inline-errors'>can't be blank</p>");
+        }
+        if (email.val() === '' || email.val() === undefined || !isValidEmail(email.val())) {
+            errors = true;
+            email.after("<p class='inline-errors'>can't be blank or invalid</p>");
+        }
+        if (comments.val() === '' || comments.val() === undefined) {
+            errors = true;
+            comments.after("<p class='inline-errors'>can't be blank</p>");
+        }
+        if (!errors) {
+            $("#contact-submit").hide();
+            $('#contact').find('.loader').show();
+            $.ajax({
+                type: 'POST',
+                url: url,
+                data: {
+                    name: name.val(),
+                    email: email.val(),
+                    about: about,
+                    comments: comments.val()
+                },
+                success: function(data) {
+                    $('#contact').modal('hide');
+                    if (data === 'success') {
+                        $('.notice-area').html("<div class='alert alert-success'>Thanks for your input!</div>")
+                    }
+                    else {
+                        $('.notice-area').html("<div class='alert alert-error'>There was a problem. Please retry later.</div>")
+                    }
+                    setTimeout(hideFlashMessages, 3500);
+                }
+            });
+        }
+    });	
+
 
 });
 
+var isValidEmail = function(email) {
+    var email_regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    return email_regex.test(email);
+}
+
+function hideFlashMessages() {
+    $('.alert').fadeOut(600);
+}
+
+var resetContactForm = function(toggle) {
+    $('#contact').find('.inline-errors').remove();
+    if (toggle) {
+        $("#contact-submit").show();
+        $('#contact').find('.loader').hide();
+    }
+    else {
+        $("#contact-submit").hide();
+        $('#contact').find('.loader').show();
+    }
+    $("#contact-submit").show();
+    $('#contact').find('.loader').hide();
+    if ($('#user_login_status').val() == 'false'){
+        $('#contact').find('#name').val('');
+        $('#contact').find('#email').val('');
+    }
+    $('#contact').find('#comments').val('');
+}
 
 function selectBox(obj,name){    
    $("#select"+name).html(obj.options[obj.selectedIndex].text);     

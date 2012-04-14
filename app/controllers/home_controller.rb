@@ -21,6 +21,15 @@ class HomeController < ApplicationController
   def contact_us
     
   end
+  
+  def contact
+    feedback = ContactMailer.contact_email(params)
+    if feedback.deliver
+      render :text => 'success', :status => 200
+    else
+      render :text => 'failed', :status => 200
+    end
+  end
   # GET /ads/search
   # GET /ads/search.xml
   

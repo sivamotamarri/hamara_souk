@@ -1,0 +1,35 @@
+<div id="contact" class = 'modal hide fade' url = "<%=contact_home_index_url%>" >
+  <div class="modal-header">
+    <h1>Contact HamaraSouk</h1>
+  </div>
+  <div class="signin-popup modal-body">
+
+      <span class = 'label label-important'> Ask us a question or leave feedback about the service</span>
+     
+       <%= form_tag(contact_home_index_path, :id => 'contact-form') do %>
+        <%= hidden_field_tag :user_login_status, user_signed_in? %>
+        <% if user_signed_in? %>
+          <%= hidden_field_tag 'name', current_user.first_name %>
+          <%= hidden_field_tag 'email', current_user.email %>
+        <% else %>
+      <span class="reg-info" style="width:100px; padding-top: 0px;"> <label> Name* </label></span> 
+          <%= text_field_tag 'name' %>   <br/>  
+      <span class="reg-info" style="width:100px; padding-top: 0px;"><label>Email Address *</label></span>
+       <%= text_field_tag 'email' %><br/>
+      <% end %>
+      <span class="reg-info" style="width:100px;  padding-top: 0px;">  <label> This is about</label></span>
+      <span class="reg-info" style="width:358px;"> <%= select_tag 'about', options_for_select(['General Feedback', 'Issues', 'Questions', 'Other']),:class => "select1" %></span><br/>
+      <span class="reg-info" style="width:352px;  padding-top: 0px;">&nbsp;<br/></span>
+       <label>Comments*</label>  
+       <span class="reg-info" style="width:100px;  padding-top: 0px;">
+        <%= text_area_tag 'comments' , {},:rows =>"10", :cols => "50" %> </span>
+      <% end %>
+
+  </div>
+  <div class="modal-footer">
+    <div class="loader pull-right" style = 'display: none;'>
+     <%= image_tag('loader.gif')%></div>
+    <%= link_to('Submit', '#', :id => 'contact-submit', :class => 'btn btn-primary  btn-large')%>
+  </div>
+
+</div>

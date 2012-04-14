@@ -27,7 +27,7 @@
     <span class="reg-info"><label>My Passport tells me I am from </label><%= f.country_select(:country, {},{:prompt => "- Select One -"} ,{ :class => "select1"}) %></span>
     <span class="reg-info"><label>My Company calls me </label><%= f.select(:professional, User::PROFESSIONALS,{:prompt => "- Select One -"},{ :class => "select1"}) %></span>
 
-    <p class="agree">By clicking on Register, you agree to the <span class="tc"><a href="#">HS Terms and Conditions</a></span>.</p>
+    <p class="agree">By clicking on Register, you agree to the <span class="tc"><a href = '#terms_and_cond' data-toggle = 'modal'>HS Terms and Conditions</a></span>.</p>
     <span class="register"><%= f.submit "" %></span>
   <% end %>
 

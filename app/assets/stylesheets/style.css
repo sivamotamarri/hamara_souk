@@ -172,14 +172,15 @@ input.styled3 { display: none; } select.styled3 { position: relative; top:9px; o
 
 /*SIGNIN*/
 .signin-block{ float:left; width:357px;}
-.signin-block h1, .register-block h1{ font-size:20px; font-weight:normal; width:200px; float:left; margin:0px;}
+.signin-popup{ float:left; width:490px;}
+.signin-block h1,.signin-popup h1, .register-block h1{ font-size:20px; font-weight:normal; width:200px; float:left; margin:0px;}
 .switch-acc{ float:right; font-size:14px; padding-top:7px; color:#424241;}
 .switch-acc a, .fg-pass a{ color:#2D95DE; text-decoration:none;}
-.signin-block input{ width:337px; background:url(email-tb.jpg) left top no-repeat; padding:0px 10px; float:left; border:none; height:36px; margin-top:10px; line-height:33px; font-size:14px;}
+.signin-block input , .signin-popup input{ width:337px; background:url(email-tb.jpg) left top no-repeat; padding:0px 10px; float:left; border:none; height:36px; margin-top:10px; line-height:33px; font-size:14px;}
 .rem-me{ float:left; margin-top:20px; width:286px;}
 .rem-me input{ float:left; margin:0px 5px 0px 0px; width:13px; line-height:25px; height:13px; background:none;}
 .fg-pass{ float:left; width:498px; padding-top:20px;}
-.signin-block img, .register-block img{ float:right; margin-top:7px;}
+.signin-block img,.signin-popup img, .register-block img{ float:right; margin-top:7px;}
 .register-block{ width:675px; float:left; padding-top:20px;}
 .fb-register{ width:675px; float:right;}
 .reg-info label{ float:left; width:317px; line-height:40px; font-size:14px;}
@@ -193,3 +194,7 @@ input.styled3 { display: none; } select.styled3 { position: relative; top:9px; o
 .agree input{ float:left; width:13px; height:13px; background:none; margin-right:8px;}
 .tc a{ color:#2D95DE; text-decoration:none;}
 .register input{ width:146px; background:url(register.jpg) left top no-repeat; border:none; height:34px; margin-top:5px; cursor:pointer; float:right;}
+#signin_modal_popup{
+    padding-left: 2px;
+    margin: 27px 73px 10px 60px;
+}

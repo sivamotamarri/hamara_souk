@@ -30,7 +30,7 @@ module ApplicationHelper
     @sections.each do |sec|
       res = res + content_tag(:li , content_tag(:a , sec.name, :href => "/#{sec.slug}"))
     end
-    res = res + content_tag(:li,content_tag(:a ,"Contact Us",:href=> contact_us_path) ,:class => "last")
+    res = res + content_tag(:li,content_tag(:a ,"Contact Us",:href=> '#contact', "data-toggle" => "modal") ,:class => "last")
     res
   end
 
