@@ -59,4 +59,4 @@ gem 'friendly_id'
 gem 'will_paginate'
 
 gem 'mongrel', '1.2.0.pre2'
-gem 'dispatch'
+gem 'dispatcher'
