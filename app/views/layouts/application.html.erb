@@ -3,12 +3,23 @@
   <head>
     <title>WELCOME TO HAMARA SOUK</title>
     <%= stylesheet_link_tag 'bootstrap-min.css' %>
+    <%= stylesheet_link_tag 'datepicker.css' %>
     <%= stylesheet_link_tag "application.css" %>  
+    <%= javascript_include_tag "jquery.js" %>
   <%= javascript_include_tag "application.js" %>
     <%= javascript_include_tag "bootstrap.js" %>
     
+    <%= javascript_include_tag "jquery-ui-1.8.17.custom.js" %>
+    <%#= javascript_include_tag "jquery.carouFredSel-5.5.0.js" %>
+    <%#= javascript_include_tag "jquery.ui.core.js" %>
+    <%= javascript_include_tag "jquery.ui.datepicker.js" %>
+      <%#= javascript_include_tag "jquery.ui.widget.js" %>
     
     <%= csrf_meta_tag %>
+    
+    <script type="text/javascript">var switchTo5x=true;</script>
+<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">stLight.options({publisher: "886d9710-9fae-4033-973d-5b0097bda62e"}); </script>
   </head>
   <body>
     <div id="mainwrapper">

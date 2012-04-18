@@ -4,8 +4,8 @@
 // It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
 // the compiled file.
 //
-//= require jquery-1.7.1
-//= require jquery_ujs
+
+
  //= require gmaps4rails/bing.js
 
  //= require gmaps4rails/googlemaps.js
@@ -15,7 +15,7 @@
  //= require gmaps4rails/openlayers.js
 
 //= require gmaps4rails/all_apis.js
-//= require_tree .
+
 
 
 function toggleChecked(status) {
@@ -26,8 +26,15 @@ function toggleChecked(status) {
 
 $(document).ready(function(){
    
+   
+   
 
-$('.carousel').carousel({
+   
+setTimeout(hideFlashMessages, 3500);
+$('#myCarousel').carousel({
+        interval: 3500
+    });
+    $('#adPhotos').carousel({
         interval: 3500
     });
  //section selection categories

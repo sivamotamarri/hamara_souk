@@ -30,11 +30,15 @@
 </div>
 
 
-<% if user_signed_in? && watching?(@ad.id) %>
-<div id="<%=params[:id]%>" style="cursor: pointer;float: right;">Watching</div>
+<% if user_signed_in? %>
+<% if watching?(@ad.id) %>
+<div id="<%=params[:id]%>" style="cursor: pointer;float: right;" class="btn btn-primary btn-large">Watching</div>
 <% else %>
-<div id="<%=params[:id]%>" class="watch" style="cursor: pointer;float: right;">Watch</div>
+ <div id="<%=params[:id]%>" class="btn btn-primary btn-large watch" style="cursor: pointer;float: right;">Watch</div>
 <% end %>
+ <% else %>
+ <%= link_to "Watch" , '#signin_modal', "data-toggle" => "modal" , :class =>"btn btn-primary btn-large" %> 
+ <% end %>
 
 
 <p>Ad details</p>
@@ -64,6 +68,14 @@
 <div><%= label :ad,:street %> :   <%= @ad.street %></div> <br />
 <div><%= label :ad,:city %> :   <%= @ad.city %></div> <br />
 <div><%= label :ad,:country %> :   <%= @ad.country %></div> <br />
+
+
+<span class='st_facebook_hcount' displayText='Facebook'></span>
+<span class='st_twitter_hcount' displayText='Tweet'></span>
+<span class='st_email_hcount' displayText='Email'></span>
+<span class='st_googleplus_hcount' displayText='Google +1'></span>
+<span class='st_fbsend_hcount' displayText='Facebook Send'></span>
+<span class='st_fblike_hcount' displayText='Facebook Like'></span>
 
 
 

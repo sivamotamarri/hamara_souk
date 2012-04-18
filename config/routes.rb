@@ -34,7 +34,7 @@ HamaraSouk::Application.routes.draw do
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
     # user watchings
-    match 'users/watchings' => 'user_actions#watchings'
+    match 'users/watchings' => 'user_actions#watchings' , :as => :watchings
     match 'users/create_watching/:id' => 'user_actions#create_watching'
     match 'users/unwatch' => 'user_actions#unwatch' , :via => :post
 
