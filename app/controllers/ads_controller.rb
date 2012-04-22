@@ -1,6 +1,6 @@
 class AdsController < ApplicationController
  add_breadcrumb "Home", :root_path
- before_filter :authenticate_user! ,:except => [:show]
+ before_filter :authenticate_user! ,:except => [:show,:new_reply,:reply]
   
   def index
     section = Section.find_by_slug(params[:section])
@@ -105,6 +105,21 @@ class AdsController < ApplicationController
     respond_to do |format|
       format.html { }
       format.xml  { render :xml => @search }
+    end
+  end
+  
+  def new_reply
+    @ad = Ad.find(params[:id])
+    @reply = Reply.new    
+    render :layout => false
+  end
+  
+  def reply
+     @reply = Reply.new(params[:reply])
+    if @reply.save
+      render :text => 'success', :status => 200
+    else
+      render :text => 'failed', :status => 200
     end
   end
 end

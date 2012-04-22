@@ -93,6 +93,70 @@ $('#myCarousel').carousel({
 
 initGallery();
 
+$('#reply').on('show',function(){      
+    var obj =  $(this)
+        $.ajax({
+            type: 'GET',
+            url: $(this).attr('url'),
+            success: function(data) {
+                obj.html(data)
+              replyFormHandler(); // handler
+            }
+        });
+})
+var replyFormHandler =  function(){
+$("#reply-submit").click(function(e){
+        $('#reply').find('.inline-errors').remove();
+        var errors = false;
+        var url = $('#new_reply').attr('action');
+        var name = $('#reply').find('#reply_name');
+        var email = $('#reply').find('#reply_email');
+        var phone = $('#reply').find('#reply_phone');
+        var comments = $('#reply').find('#reply_message');
+        if (name.val() === '' || name.val() === undefined) {
+            errors = true;
+            name.after("<p class='inline-errors'>can't be blank</p>");
+        }
+        if (phone.val() !== '' && !isValidMobile(phone.val())) {           
+	            errors = true;
+	            phone.after("<p class='inline-errors'>can't be invalid</p>");
+	  }
+        if (email.val() === '' || email.val() === undefined || !isValidEmail(email.val())) {
+            errors = true;
+            email.after("<p class='inline-errors'>can't be blank or invalid</p>");
+        }
+        if (comments.val() === '' || comments.val() === undefined) {
+            errors = true;
+            comments.after("<p class='inline-errors'>can't be blank</p>");
+        }
+        if (!errors) {
+            $("#reply-submit").hide();
+            $('#reply').find('.loader').show();
+            $.ajax({
+                type: 'POST',
+                url: url,
+                data: $("#new_reply").serialize(),
+                success: function(data) {
+                    $('#reply').modal('hide');
+                    if (data === 'success') {
+                        $('.notice-area').html("<div class='alert alert-success'>Thanks for your reply!</div>")
+                    }
+                    else {
+                        $('.notice-area').html("<div class='alert alert-error'>There was a problem. Please retry later.</div>")
+                    }
+                    setTimeout(hideFlashMessages, 3500);
+                }
+            });
+        }
+    });	
+}
+
+
+
+
+
+
+
 // *** Contact form *** //    
     $('#contact').on('show', function () {
         resetContactForm(true);
@@ -150,6 +214,11 @@ $("#contact-submit").click(function(e){
 var isValidEmail = function(email) {
     var email_regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
     return email_regex.test(email);
+}
+
+function isValidMobile(phone){
+    var phone_regex = /^[1-9]\d{9}$/;
+    return phone_regex.test(phone.trim());
 }
 
 function hideFlashMessages() {

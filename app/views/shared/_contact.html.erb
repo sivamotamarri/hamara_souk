@@ -20,9 +20,9 @@
       <span class="reg-info" style="width:100px;  padding-top: 0px;">  <label> This is about</label></span>
       <span class="reg-info" style="width:358px;"> <%= select_tag 'about', options_for_select(['General Feedback', 'Issues', 'Questions', 'Other']),:class => "select1" %></span><br/>
       <span class="reg-info" style="width:352px;  padding-top: 0px;">&nbsp;<br/></span>
-       <label>Comments*</label>  
-       <span class="reg-info" style="width:100px;  padding-top: 0px;">
-        <%= text_area_tag 'comments' , {},:rows =>"10", :cols => "50" %> </span>
+       
+       <span class="reg-info" style="width:100px;  padding-top: 0px;"> <label>Comments*</label></span>  
+        <%= text_area_tag 'comments' , {},:rows =>"8", :cols => "50" %> 
       <% end %>
 
   </div>

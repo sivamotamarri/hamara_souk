@@ -40,7 +40,7 @@
  <%= link_to "Watch" , '#signin_modal', "data-toggle" => "modal" , :class =>"btn btn-primary btn-large" %> 
  <% end %>
 
-
+<a href = '#reply' class="btn btn-primary btn-large" data-toggle = "modal">Reply by Email</a>
 <p>Ad details</p>
 <div><%= label :ad,:title %> :   <%= @ad.title %></div> <br />
 <% if @ad.section_id != 4 %>
@@ -79,4 +79,4 @@
 
 
 
-
+<div id="reply" class='modal hide fade' url = "<%=new_reply_ads_url(:id => @ad.slug)%>" ></div>

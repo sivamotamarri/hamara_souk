@@ -10,6 +10,8 @@ HamaraSouk::Application.routes.draw do
     end 
     collection do
       get :search
+      post :reply
+      get :new_reply
     end
   end
   devise_for :users,:controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }

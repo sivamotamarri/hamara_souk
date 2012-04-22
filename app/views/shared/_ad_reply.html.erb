@@ -1,0 +1,38 @@
+
+  <div class="modal-header">
+    <h1>Reply to this ad</h1>
+  </div>
+  <div class="signin-popup modal-body">
+
+      <span class = 'label label-important'> Warning : Never wire money or financial info to a seller on the internet. For your security, <br/> all transactions should be done in person </span>
+     <%=  form_for(@reply, :url => reply_ads_path) do |f| %>
+    
+      <%= f.hidden_field 'ad_id', :value => @ad.id %>
+        <%= hidden_field_tag :user_login_status, user_signed_in? %>
+        <% if user_signed_in? %>
+          <%= f.hidden_field 'name', :value => current_user.first_name %>
+          <%= f.hidden_field 'email', :value => current_user.email %>
+        <% else %>
+      <span class="reg-info" style="width:100px; padding-top: 0px;"> <label> Name* </label></span> 
+          <%= f.text_field 'name' %>
+      <div style="clear: both;">&nbsp;</div>
+      <span class="reg-info" style="width:100px; padding-top: 0px;"><label>Email Address *</label></span>
+       <%= f.text_field 'email' %>
+      <% end %>
+      <div style="clear: both;">&nbsp;</div> 
+      <span class="reg-info" style="width:100px;  padding-top: 0px;">  <label> Phone</label></span>
+      <span class="reg-info" style="width:358px;"><%= f.text_field 'phone' %></span>
+      
+      <div style="clear: both;">&nbsp;</div> 
+      
+     <span class="reg-info" style="width:100px;  padding-top: 0px;"> <label>Message*</label></span>  
+       
+        <%= f.text_area 'message' ,:rows =>"8", :cols => "50" %> 
+      <% end %>
+ 
+  </div>
+  <div class="modal-footer">
+    <div class="loader pull-right" style = 'display: none;'><%= image_tag('loader.gif')%></div>
+    <%= link_to('Reply', '#', :id => 'reply-submit', :class => 'btn btn-primary  btn-large')%>
+  </div>
+

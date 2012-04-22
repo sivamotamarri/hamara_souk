@@ -198,3 +198,12 @@ input.styled3 { display: none; } select.styled3 { position: relative; top:9px; o
     padding-left: 2px;
     margin: 27px 73px 10px 60px;
 }
+
+p.inline-errors {
+    margin-top: 0px!important;
+    font-size: 15px!important;
+    color: #b94a48;
+    display: inline;        
+    margin-left: 22%;
+    vertical-align: top;
+}
