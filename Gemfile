@@ -56,7 +56,7 @@ gem 'uglifier'
 gem 'therubyracer'
 gem 'fastercsv'
 gem 'friendly_id'
-gem 'will_paginate'
+gem 'will_paginate', '3.0.pre2'
 
 #gem 'mongrel', '1.2.0.pre2'
 #gem 'dispatcher'
