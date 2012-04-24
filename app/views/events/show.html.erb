@@ -1,0 +1,21 @@
+
+
+<p>
+  <strong>Title:</strong>
+  <%=h @event.title %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%=h @event.desc %>
+</p>
+<ol>  
+ <%- @event.images.each do |image| %>
+  <li> <%= image_tag image.url(:thumb) %></li>
+<% end %> 
+</ol>
+
+<p>
+  <%= link_to "Edit", edit_event_path(@event) %> |
+  <%= link_to "Destroy", @event, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", events_path %>
+</p>

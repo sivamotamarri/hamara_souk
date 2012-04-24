@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120317165759) do
+ActiveRecord::Schema.define(:version => 20120424153543) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -147,6 +147,24 @@ ActiveRecord::Schema.define(:version => 20120317165759) do
   create_table "cities", :force => true do |t|
     t.string "name"
     t.string "state"
+  end
+
+  create_table "events", :force => true do |t|
+    t.string   "title"
+    t.text     "desc"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "replies", :force => true do |t|
+    t.integer  "ad_id"
+    t.string   "name"
+    t.string   "email"
+    t.string   "phone"
+    t.text     "message"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "sections", :force => true do |t|
