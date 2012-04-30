@@ -1,0 +1,16 @@
+<div class="hero-unit">
+  <h2 class="text-center"> There was a problem processing your request!</h2>
+  <br/><%= image_tag("500error.png" , :width => "600px") %>
+  <br/>
+  <p>
+  <h2 class="text-center"> <small>We have been notified of the problem and we are looking into it. Please
+      <%= link_to('go back', root_url)%> to the home page.
+    </small>
+  </h2>
+</p><br/>
+  <%  if Rails.env.development? %>
+    <h3 class="text-center">
+<%= link_to("Show exception information", '#exception', "data-toggle" => "modal", :class =>'btn btn-info btn-large')%>
+<%= render 'shared/exception' %>
+<% end %>
+</div>
