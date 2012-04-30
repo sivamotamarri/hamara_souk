@@ -18,7 +18,9 @@ HamaraSouk::Application.routes.draw do
   
   ActiveAdmin.routes(self)
 
-  resources :events
+  resources :events do
+    resources :comments
+  end
   devise_for :admin_users, ActiveAdmin::Devise.config
 
   # The priority is based upon order of creation:
@@ -28,6 +30,12 @@ HamaraSouk::Application.routes.draw do
       post 'contact'
     end
   end
+  
+  match "/errors/not_found" => "errors#not_found" , :as => :not_found
+  match "/errors/internal_server_error" =>"errors#internal_server_error" , :as => :internal_server_error
+  match "/errors/method_not_allowed" => "errors#method_not_allowed" , :as => :method_not_allowed
+  match "/errors/unprocessable_entity" => "errors#unprocessable_entity" , :as => :unprocessable_entity
+  match "/errors/access_denied" => "errors#access_denied" , :as => :access_denied
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action

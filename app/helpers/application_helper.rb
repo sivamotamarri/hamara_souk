@@ -46,5 +46,12 @@ module ApplicationHelper
     end
     link_to_function(name, ("add_fields(this, \"#{association}\", \"#{escape_javascript(fields)}\")"))
   end
+  
+  def shortener(url)
+    authorize = UrlShortener::Authorize.new 'hamarasouk', 'R_602bd0d1e35aba4758c58b5a0eb6fffd'
+    client = UrlShortener::Client.new(authorize)
+    shorten = client.shorten(url)
+    shorten.urls
+  end
 
 end

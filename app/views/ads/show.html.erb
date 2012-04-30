@@ -39,11 +39,21 @@
  <% else %>
  <%= link_to "Watch" , '#signin_modal', "data-toggle" => "modal" , :class =>"btn btn-primary btn-large" %> 
  <% end %>
-
+ <div>Short link :  <%= text_field_tag "short_url" , shortener("http://hamarasouk.com:5000"+ad_path(@ad.slug)), :style => "color:red;" %></div>
 <a href = '#reply' class="btn btn-primary btn-large" data-toggle = "modal">Reply by Email</a>
 <p>Ad details</p>
+
 <div><%= label :ad,:title %> :   <%= @ad.title %></div> <br />
-<% if @ad.section_id != 4 %>
+
+<% if @ad.section_id == 1 %>
+  <div class="job_details">
+    <div><%= label :ad,:ad_age , "Age" %> :   <%= @ad.ad_age %></div> <br />
+    <div><%= label :ad,:ad_usage , "Usage" %> :   <%= @ad.ad_usage %></div> <br />
+   <div><%= label :ad,:ad_condition , "Condition" %> :   <%= @ad.ad_condition %></div> <br />
+   <div><%= label :ad,:warranty %> :   <%= @ad.warranty %></div> <br />    
+  </div>
+
+<% elsif @ad.section_id == 2 || @ad.section_id == 3 %>
 <div><%= label :ad,:size %> :   <%= @ad.size %></div> <br />
 <div><%= label :ad,:fee %> :   <%= @ad.fee%></div> <br />
 <div><%= label :ad,:bed_rooms %> :   <%= @ad.bed_rooms %></div> <br />
@@ -58,11 +68,14 @@
 <div><%= label :ad,:desc %> :   <%= @ad.desc %></div> <br />
 
 <div><%= label :ad,:agent_or_landlord %> :   <%= @ad.agent_or_landlord %></div> <br />
-<% else %>
+<%  elsif @ad.section_id == 4 %>
 <div><%= label :ad,:compensation %> :   <%= @ad.compensation %></div> <br />
 <div><%= label :ad,:work_experience %> :   <%= @ad.work_experience%></div> <br />
 <div><%= label :ad,:education_level %> :   <%= @ad.education_level %></div> <br />
 <div><%= label :ad,:commitment %> :   <%= @ad.commitment %></div> <br />
+<div><%= label :ad,:desc %> :   <%= @ad.desc %></div> <br />
+<% else %>
+<div><%= label :ad,:phone_number %> :   <%= @ad.phone_number %></div> <br />
 <div><%= label :ad,:desc %> :   <%= @ad.desc %></div> <br />
 <% end %>
 <div><%= label :ad,:street %> :   <%= @ad.street %></div> <br />

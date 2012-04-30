@@ -12,3 +12,5 @@ Browse results in: <%= render_breadcrumbs %>
 <% @ads.each do |ad| %>
 <%= render :partial => "shared/ad_details" , :locals => {:ad => ad}  %>  
 <% end %>
+<div style="clear: both;"></div>
+<%= will_paginate @ads , :renderer => RemoteLinkRenderer %>
