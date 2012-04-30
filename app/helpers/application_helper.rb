@@ -53,5 +53,13 @@ module ApplicationHelper
     shorten = client.shorten(url)
     shorten.urls
   end
+  
+  def user_display_pic(user, size)
+    if user.avatar_file_name && (user.errors[:avatar_content_type].blank? && user.errors[:avatar_file_size].blank?)
+      image_tag(user.avatar.url, :alt => 'Pic', :size => size)
+    else
+      image_tag('default_profile_pic.gif', :alt => 'Pic', :size => size)
+    end
+  end
 
 end

@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_filter :authenticate_user!
+  
   def index
     @commentable = find_commentable
     @comments = @commentable.comments
@@ -17,7 +19,7 @@ class CommentsController < ApplicationController
     @comment = @commentable.comments.build(params[:comment])
     if @comment.save
       flash[:notice] = "Successfully created comment."
-      redirect_to :id => nil
+      redirect_to event_path(@commentable)
     else
       render :action => 'new'
     end

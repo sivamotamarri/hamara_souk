@@ -17,3 +17,20 @@
 <p>
  <%= render :partial => 'comments/form' %>
 </p>
+
+<div id="comments">
+<% for comment in @comments %>  
+    <div class="comment">
+      <div class="group">
+        <div class="avatar">  
+          <a href="#">
+            <span style="vertical-align: super;"><%= user_display_pic(current_user, '50x50')%></span>
+           </a>  
+        </div>
+        <div class="postedby"><a href="#"><%=  comment.user.full_name %></a> says:
+          <br><span><%=  distance_of_time_in_words_to_now(comment.created_at)%> ago</span></div>
+      </div>
+      <div class="text"><%=simple_format comment.content %></div>
+    </div>
+<% end %>
+</div>

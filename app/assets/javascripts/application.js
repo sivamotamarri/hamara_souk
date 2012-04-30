@@ -38,7 +38,15 @@ function add_fields(link, association, content) {
 
 $(document).ready(function(){
    
-   
+   $('#comment_submit').live('click' , function(){       
+       var errors = true;           
+        var comments = $('#new_comment').find('#comment_content');
+        if (comments.val() === '' || comments.val() === undefined) {
+            errors = false;
+            comments.after("<p class='inline-errors'>can't be blank</p>");
+        }        
+        return errors;
+   });
    
 
    

@@ -1,11 +1,13 @@
 class EventsController < ApplicationController
+  before_filter :authenticate_user!
   def index
     @events = Event.all
   end
   
   def show
     @event = Event.find(params[:id])
-   @commentable = @event
+    @commentable = @event
+    @comments = @commentable.comments
     @comment = Comment.new
   end
   

@@ -13,4 +13,16 @@ ActiveAdmin.register Event do
 
     f.buttons
   end
+  
+  show do |event|
+      attributes_table do
+        row :title
+        row :desc
+        event.images do |f|
+          
+            image_tag f.url(:thumb)
+          
+        end
+      end      
+    end
 end
