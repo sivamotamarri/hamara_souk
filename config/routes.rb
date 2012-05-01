@@ -21,6 +21,8 @@ HamaraSouk::Application.routes.draw do
   resources :events do
     resources :comments
   end
+  
+  
   devise_for :admin_users, ActiveAdmin::Devise.config
 
   # The priority is based upon order of creation:
