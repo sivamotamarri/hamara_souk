@@ -207,3 +207,75 @@ p.inline-errors {
     margin-left: 22%;
     vertical-align: top;
 }
+
+ #profile-content {
+    float: left;
+    margin: 20px 0 0;
+    padding: 0;
+    width: 100%;
+}
+
+#profile-content h3 {
+    border-bottom: 1px solid #CCCCCC;
+    color: #BC0000;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    padding-left: 25px;
+}
+#profile-content .avatar-col {
+    float: left;
+    margin-left: 25px;
+    width: 156px;
+}
+#profile-content .content-col {
+    float: left;
+    margin-left: 15px;
+    width: 775px;
+}
+#profile-content .stats {
+    list-style: none outside none;
+    margin-top: 20px;
+}
+
+#profile-content .stats li.first {
+    padding-left: 0;
+}
+ #profile-content .stats li {
+    border-right: 1px solid #CCCCCC;
+    float: left;
+    height: 90px;
+    
+    text-align: center;
+    width: 104px;
+}
+
+#profile-content .stats #prAds {
+    
+    padding-left: 16px;
+}
+#profile-content .stats .num-ads {
+    font-size: 34px;
+    font-weight: bold;
+}
+#profile-content .stats li span {
+    display: block;
+}
+#profile-content .stats .num-views {
+    font-size: 12px;
+}
+
+#profile-content .prDivider {
+  
+    clear: both;
+    float: left;
+    height: 10px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+#profile-content .usr-info {
+    clear: both;
+    float: left;
+    list-style: none outside none;
+}

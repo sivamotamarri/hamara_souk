@@ -60,13 +60,9 @@
 
     <div>
       <%= f.label :amenities ,"Amenities" %><br />
-
-      <% @amenities.each do |amen| %>
-
-        <input id="ad_amenities" type="checkbox" value=<%=  amen.id %> name="ad[amenities][]"/>
-        <%=f.label :amenities , "#{amen.title}"%>
-
-      <% end %>
+<%= f.select(:amenities, @amenities.collect {|s| [ s.title,s.id ] },{},{ :multiple => true, :size =>5 }) %>
+      
+      
     </div>
   </div>
 

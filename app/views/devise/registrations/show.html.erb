@@ -1,0 +1,69 @@
+<div id="profile-content">
+
+    
+    <h3> <strong><%= @user.full_name %></strong> </h3>
+    
+
+    <div class="avatar-col">
+        <div class="profile-photo"><%=  user_display_pic(@user, "144x144") %></div>
+    </div>
+
+    <div class="content-col">
+        
+     
+        <ul class="stats">
+            <li class="first">                
+                <span id="prAds" class="col-title">My Ads</span>
+                
+                <span class="num-ads"><%= @user.ads.count %></span>
+               
+                
+            </li>
+            
+            <li>                 
+                <span id="prRev" class="col-title">My Reviews</span>                
+                <span class="num-ads">0</span>
+                <span class="num-views">reviews posted</span>
+            </li>
+            
+            <li>                
+                <span id="prSrch" class="col-title">My Searches</span>
+                <span class="num-ads">3</span>
+                <span class="num-views">saved searches</span>
+            </li>
+            <li>                
+                <span id="prWch" class="col-title">My Watchlist</span>
+                <span class="num-ads"><%= @user.watchings.count %></span>
+                
+            </li>
+        </ul>
+        <div class="prDivider">&nbsp;</div>
+        
+        <ul class="usr-info">
+            
+                  
+
+            <li><strong>Name:</strong> <span><%= @user.full_name %></span></li>
+
+            
+          
+            
+
+            
+            <li><strong>My Passport tells me i am from:</strong> <span><%= @user.country %></span></li>
+            
+
+            
+            <li><strong>The world became a better place on (d.o.b):</strong> <span><%= @user.dob.strftime("%d %B , %Y") %></span></li>
+            
+
+            
+
+            
+
+            
+        </ul>
+    </div>
+
+</div>
+

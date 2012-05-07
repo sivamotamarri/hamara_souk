@@ -23,6 +23,7 @@ class AdsController < ApplicationController
   
   
   def new
+    puts current_user.id
     session[:ad_step] = session[:ad_params] = nil
     session[:ad_params] ||= {}
     @ad = Ad.new(session[:ad_params])
@@ -58,7 +59,7 @@ class AdsController < ApplicationController
       if params[:back_button]
         @ad.previous_step
       elsif @ad.last_step?
-        @ad.user_id = current_user
+        @ad.user_id = current_user.id
         @ad.save if @ad.all_valid?
       else
         @ad.next_step
@@ -68,7 +69,7 @@ class AdsController < ApplicationController
     
     if params[:ad] && params[:ad][:images_attributes]
       params[:ad][:images_attributes].each_with_index do |t,i|
-         params[:ad][:images_attributes]["#{i}"][:attachment].tempfile = nil
+         params[:ad][:images_attributes]["#{i}"][:attachment].tempfile = nil if !params[:ad][:images_attributes]["#{i}"].nil?
       end      
     end   
 

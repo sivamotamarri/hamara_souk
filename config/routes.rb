@@ -4,6 +4,8 @@ HamaraSouk::Application.routes.draw do
 #     puts app.assets
 #    mount app.assets => app.config.assets.prefix
 # end
+
+  
   resources :ads do
     member do
       get :selection_cat , :sub_categories
@@ -14,7 +16,7 @@ HamaraSouk::Application.routes.draw do
       get :new_reply
     end
   end
-  devise_for :users,:controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_for :users,:controllers => { :omniauth_callbacks => "users/omniauth_callbacks" , :registrations => "users/registrations" }
   
   ActiveAdmin.routes(self)
 
@@ -49,9 +51,13 @@ HamaraSouk::Application.routes.draw do
     match 'users/watchings' => 'user_actions#watchings' , :as => :watchings
     match 'users/create_watching/:id' => 'user_actions#create_watching'
     match 'users/unwatch' => 'user_actions#unwatch' , :via => :post
-
+   
+    
+  devise_scope :user do
+    match '/profile' => 'users/registrations#show', :as => :profile
+  end
     # user ads
-    match 'users/ads' => 'user_actions#ads'
+    match 'users/ads' => 'user_actions#ads' , :as => :my_ads
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
    match "about" => "home#about" , :as => :about

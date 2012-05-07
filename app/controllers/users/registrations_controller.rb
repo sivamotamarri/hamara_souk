@@ -15,4 +15,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
 #      respond_with_navigational(resource){ render_with_scope :edit }
 #    end
 #  end
+  def show
+    @user = current_user
+  end
+  
 end
