@@ -1,0 +1,42 @@
+<div class="right controls"><%= link_to "Back to Forum List", forums_path %></div>
+<div class="module">
+  <div class="module_header">   
+    <span class="controls right">
+      <%= link_to "New Topic", new_forum_topic_path(@forum) %>
+      <%#= link_to "Edit Forum", edit_forum_path(@forum) %>
+      <%#= link_to "Delete Forum", forum_path(@forum), :confirm => "Are you sure you want to delete this forum?", :method => :delete %>
+    </span>
+  </div>
+  <div>
+    
+    <fieldset id="discuss-list">
+      <legend> <%= @forum.title %></legend>
+     <div id="discuss-header">
+        <div class="col1">Topics</div>
+        <div class="col2_header">Replies</div>
+        <div class="col2_header">Views</div>
+        <div class="col4">Last Reply</div>
+    </div>
+      <div id="discuss-categories">
+  
+      <% @forum.topics.each do |topic| %>
+     <div class="item">
+       
+       <div class="col1">
+          <%= link_to topic.title, topic_path(topic) %><br />
+          <span class="smaller">by <strong><%= topic.user.full_name %></strong> on <%= topic.created_at.strftime("%b %d %Y") %></span>
+          
+       </div>
+        <div class="col2"><%= topic.posts.size - 1 %></div>
+        <div class="col2"><%= topic.hits %></div>
+        <div class="col4">
+          <%= truncate(topic.posts.last.body, :length => 15, :omission => '... (continued)') %><br />
+          <%= time_ago_in_words(topic.posts.last.created_at)%> ago<br/>
+          by <%= topic.posts.last.user.full_name %>
+        </div>
+     </div>
+      <% end %>
+      </div>
+      </fieldset>
+  </div>
+</div>

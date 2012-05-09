@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120430181954) do
+ActiveRecord::Schema.define(:version => 20120509172950) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -94,25 +94,6 @@ ActiveRecord::Schema.define(:version => 20120430181954) do
     t.string   "length"
   end
 
-  add_index "ads", ["ad_age"], :name => "index_ads_on_ad_age", :unique => true
-  add_index "ads", ["ad_condition"], :name => "index_ads_on_ad_condition", :unique => true
-  add_index "ads", ["ad_usage"], :name => "index_ads_on_ad_usage", :unique => true
-  add_index "ads", ["brand"], :name => "index_ads_on_brand", :unique => true
-  add_index "ads", ["category_id"], :name => "index_ads_on_category_id"
-  add_index "ads", ["commitment"], :name => "index_ads_on_commitment", :unique => true
-  add_index "ads", ["company_name"], :name => "index_ads_on_company_name", :unique => true
-  add_index "ads", ["compensation"], :name => "index_ads_on_compensation", :unique => true
-  add_index "ads", ["education_level"], :name => "index_ads_on_education_level", :unique => true
-  add_index "ads", ["length"], :name => "index_ads_on_length", :unique => true
-  add_index "ads", ["listed_by"], :name => "index_ads_on_listed_by", :unique => true
-  add_index "ads", ["section_id"], :name => "index_ads_on_section_id"
-  add_index "ads", ["slug"], :name => "index_ads_on_slug", :unique => true
-  add_index "ads", ["title"], :name => "index_ads_on_title"
-  add_index "ads", ["type"], :name => "index_ads_on_type", :unique => true
-  add_index "ads", ["user_id"], :name => "index_ads_on_user_id"
-  add_index "ads", ["warranty"], :name => "index_ads_on_warranty", :unique => true
-  add_index "ads", ["work_experience"], :name => "index_ads_on_work_experience", :unique => true
-
   create_table "amenities", :force => true do |t|
     t.string   "title"
     t.integer  "section_id"
@@ -166,6 +147,28 @@ ActiveRecord::Schema.define(:version => 20120430181954) do
     t.datetime "updated_at"
   end
 
+  create_table "forums", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.boolean  "state",        :default => true
+    t.integer  "topics_count", :default => 0
+    t.integer  "posts_count",  :default => 0
+    t.integer  "position",     :default => 0
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "slug"
+  end
+
+  create_table "posts", :force => true do |t|
+    t.text     "body"
+    t.integer  "forum_id"
+    t.integer  "topic_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "replies", :force => true do |t|
     t.integer  "ad_id"
     t.string   "name"
@@ -184,6 +187,19 @@ ActiveRecord::Schema.define(:version => 20120430181954) do
   end
 
   add_index "sections", ["slug"], :name => "index_sections_on_slug", :unique => true
+
+  create_table "topics", :force => true do |t|
+    t.string   "title"
+    t.integer  "hits",        :default => 0
+    t.boolean  "sticky",      :default => false
+    t.boolean  "locked",      :default => false
+    t.integer  "posts_count"
+    t.integer  "forum_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "slug"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                                 :default => "",    :null => false
@@ -220,6 +236,8 @@ ActiveRecord::Schema.define(:version => 20120430181954) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.integer  "topics_count",                          :default => 0
+    t.integer  "posts_count",                           :default => 0
   end
 
   add_index "users", ["authentication_token"], :name => "index_users_on_authentication_token", :unique => true

@@ -1,0 +1,38 @@
+<div class="right controls"><%= link_to "New Discussion", new_forum_path %></div>
+
+<fieldset id="discuss-list"> 
+  <legend> Discussions </legend> 
+<% if @forums.size > 0 %>
+   <div id="discuss-header">
+        <div class="col1">Discussion Topics</div>
+        <div class="col2_header">Topics</div>       
+        <div class="col4">Last Topic</div>
+    </div>
+      <div id="discuss-categories">
+ 
+        <% @forums.each do |forum| %>
+        <div class="item">
+       
+       <div class="col1">
+            <%= link_to forum.title, forum_path(forum) %>         
+       </div>
+          <div class="col2"><%= forum.topics.size %></div>        
+          <div class="col4">
+            <% if forum.topics.size > 0 %>
+            last <%= link_to forum.topics.last.title, topic_path(forum) %>   
+              by
+              <%= forum.topics.last.user.full_name %>
+              <%= time_ago_in_words(forum.topics.last.created_at)%> ago<br />              
+            <% else %>
+              No Topics 
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+     
+    </div>
+    <% else %>
+      <div class="module_body">There are currently no forums.</div>
+    <% end %>
+  </fieldset>
+

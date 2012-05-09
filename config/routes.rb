@@ -1,5 +1,12 @@
 HamaraSouk::Application.routes.draw do
   
+ # resources :categories, :except => [:index, :show]
+  resources :forums do
+    resources :topics, :shallow => true, :except => :index do
+      resources :posts, :shallow => true, :except => [:index, :show]
+    end    
+  end
+
 #  if (app = Rails.application).config.assets.compile
 #     puts app.assets
 #    mount app.assets => app.config.assets.prefix

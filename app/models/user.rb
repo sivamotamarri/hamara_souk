@@ -18,6 +18,9 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :avatar, :content_type => %w(image/jpeg image/jpg image/png image/gif), :message => 'must be of type jpeg, png or gif', :if => :photo_attached?
   validates_attachment_size :avatar, :less_than => 3.megabytes, :message => 'cannot be greater than 3 MB', :if => :photo_attached?
 
+  has_many :topics, :dependent => :destroy
+  has_many :posts, :dependent => :destroy
+  has_many :forums, :dependent => :destroy
   @@allow = true
   
   PROFESSIONALS = {

@@ -30,8 +30,12 @@ module ApplicationHelper
     @sections.each do |sec|
       res = res + content_tag(:li , content_tag(:a , sec.name, :href => "/#{sec.slug}"))
     end
-    res = res + content_tag(:li,content_tag(:a ,"Contact Us",:href=> '#contact', "data-toggle" => "modal") ,:class => "last")
-    res
+    if user_signed_in?
+     res = res + content_tag(:li , content_tag(:a, "Discussions", :href => forums_url) ,:class => "last")
+    else
+     res = res + content_tag(:li,content_tag(:a ,"Contact Us",:href=> '#contact', "data-toggle" => "modal") ,:class => "last")
+    end
+     res
   end
   
   
