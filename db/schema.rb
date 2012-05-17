@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120509172950) do
+ActiveRecord::Schema.define(:version => 20120517094116) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -195,6 +195,17 @@ ActiveRecord::Schema.define(:version => 20120509172950) do
     t.string   "email"
     t.string   "phone"
     t.text     "message"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "reports", :force => true do |t|
+    t.integer  "ad_id"
+    t.string   "spam"
+    t.text     "fraud_desc"
+    t.boolean  "miscategorized",     :default => false
+    t.boolean  "repetitive_listing", :default => false
+    t.integer  "reported_by"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

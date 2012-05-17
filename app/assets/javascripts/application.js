@@ -36,8 +36,33 @@ function add_fields(link, association, content) {
 }
 
 
+var reportFormHandler = function(){
+
+    $("#report-fraud").click(function(e){
+        $('#report').find('.inline-errors').remove();
+        var errors = true;
+         var comments = $("#report_fraud_desc")
+        if (comments.val() === '' || comments.val() === undefined) {
+            errors = false;
+            comments.after("<p class='inline-errors'>can't be blank</p>");
+        }       
+        return errors;
+    })
+
+    $("#report-spam").click(function(e){
+        $('#report').find('.inline-errors').remove();
+        var errors = true;           
+                if($("input:checked").val()=== undefined){
+                   errors = false;
+                   $("#report-spam").after("<p class='inline-errors'>Please Check any one of the list</p>");
+                } 
+        
+        return errors;
+    })
+}
+
 $(document).ready(function(){
-   
+   reportFormHandler();
    $('#comment_submit').live('click' , function(){       
        var errors = true;           
         var comments = $('#new_comment').find('#comment_content');
@@ -124,6 +149,8 @@ $('#reply').on('show',function(){
             }
         });
 })
+
+
 var replyFormHandler =  function(){
 $("#reply-submit").click(function(e){
         $('#reply').find('.inline-errors').remove();
@@ -310,3 +337,4 @@ function initGallery() {
 
 
 }
+

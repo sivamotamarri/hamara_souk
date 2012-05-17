@@ -84,7 +84,8 @@ class AdsController < ApplicationController
 
 
   def show   
-      @ad = Ad.find_by_slug(params[:id] || params[:ad])     
+      @ad = Ad.find_by_slug(params[:id] || params[:ad])
+      @report = Report.new
       if !@ad.nil?     
         add_breadcrumb "#{@ad.section.name}", section_ad_path(@ad.section.slug)
         add_breadcrumb "#{@ad.category.name}", category_ad_path(@ad.section.slug,@ad.category.slug)
@@ -113,6 +114,18 @@ class AdsController < ApplicationController
     @ad = Ad.find(params[:id])
     @reply = Reply.new    
     render :layout => false
+  end
+
+  def report
+    @report = Report.new(params[:report])
+    @report.reported_by = current_user.id
+    if @report.save
+      flash[:notice] = "Report Successfully Created."
+      redirect_to ad_path(params[:ad])
+    else
+      flash[:notice] = "Report Unsuccessfull"
+      redirect_to ad_path(params[:ad])
+    end
   end
   
   def reply

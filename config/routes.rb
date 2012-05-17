@@ -20,6 +20,7 @@ HamaraSouk::Application.routes.draw do
     collection do
       get :search
       post :reply
+      post :report
       get :new_reply
     end
   end
