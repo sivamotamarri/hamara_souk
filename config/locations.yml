@@ -1,0 +1,249 @@
+Andhra Pradesh:
+  locations: ['Anantapur',
+  'Guntakal',
+  'Guntur',
+  'Hyderabad / Secunderabad',
+  'Kakinada',
+  'Kurnool',
+  'Nellore',
+  'Nizamabad',
+  'Rajahmundry',
+  'Tirupati',
+  'Vijayawada',
+  'Visakhapatnam',
+  'Warangal',
+  'Andhra Pradesh - Other'
+  ]
+Arunachal Pradesh:
+  locations: ['Itanagar',
+  'Arunachal Pradesh - Other'
+  ]
+Assam:
+  locations: ['Guwahati',
+  'Silchar',
+  'Assam - Other'
+  ]
+Bihar:
+  locations: ['Bhagalpur',
+  'Patna',
+  'Bihar - Other'
+  ]
+Chhattisgarh:
+  locations: ['Bhillai',
+  'Bilaspur',
+  'Raipur',
+  'Chhattisgarh - Other'
+  ]
+Goa:
+  locations: ['Panjim / Panaji',
+  'Vasco Da Gama',
+  'Goa - Other'
+  ]
+Gujarat:
+  locations: ['Ahmedabad',
+  'Anand',
+  'Ankleshwar',
+  'Bharuch',
+  'Bhavnagar',
+  'Bhuj',
+  'Gandhinagar',
+  'Gir',
+  'Jamnagar',
+  'Kandla',
+  'Porbandar',
+  'Rajkot',
+  'Surat',
+  'Vadodara / Baroda',
+  'Valsad',
+  'Vapi',
+  'Gujarat - Other'
+  ]
+Haryana:
+  locations: ['Ambala',
+  'Chandigarh',
+  'Faridabad',
+  'Gurgaon',
+  'Hisar',
+  'Karnal',
+  'Kurukshetra',
+  'Panipat',
+  'Rohtak',
+  'Haryana - Other']
+Himachal Pradesh:
+  locations: ['Dalhousie',
+  'Dharmasala',
+  'Kulu/Manali',
+  'Shimla',
+  'Himachal Pradesh - Other'
+  ]
+Jammu & Kashmir:
+  locations: ['Jammu',
+  'Srinagar',
+  'Jammu and Kashmir - Other'
+  ]
+Jharkhand:
+  locations: ['Bokaro',
+  'Dhanbad',
+  'Jamshedpur',
+  'Ranchi',
+  'Jharkhand - Other'
+  ]
+Karnataka:
+  locations: ['Bengaluru / Bangalore',
+  'Belgaum',
+  'Bellary',
+  'Bidar',
+  'Dharwad',
+  'Gulbarga',
+  'Hubli',
+  'Kolar',
+  'Mangalore',
+  'Mysoru / Mysore',
+  'Karnataka - Other'
+  ]
+Kerala:
+  locations: ['Calicut',
+  'Cochin',
+  'Ernakulam',
+  'Kannur',
+  'Kochi',
+  'Kollam',
+  'Kottayam',
+  'Kozhikode',
+  'Palakkad',
+  'Palghat',
+  'Thrissur',
+  'Trivandrum',
+  'Kerala - Other'
+  ]
+Madhya Pradesh:
+  locations: ['Bhopal',
+  'Gwalior',
+  'Indore',
+  'Jabalpur',
+  'Ujjain',
+  'Madhya Pradesh - Other'
+  ]
+Maharashtra:
+  locations: ['Ahmednagar',
+  'Aurangabad',
+  'Jalgaon',
+  'Kolhapur',
+  'Mumbai',
+  'Mumbai Suburbs',
+  'Nagpur',
+  'Nasik',
+  'Navi Mumbai',
+  'Pune',
+  'Solapur',
+  'Maharashtra - Other'
+  ]
+Manipur:
+  locations: ['Imphal',
+  'Manipur - Other'
+  ]
+Meghalaya:
+  locations: ['Shillong',
+  'Meghalaya - Other'
+  ]
+Mizoram:
+  locations: ['Aizawal',
+  'Mizoram - Other'
+  ]
+Nagaland:
+  locations: ['Dimapur',
+  'Nagaland - Other'
+  ]
+Orissa:
+  locations: ['Bhubaneshwar',
+  'Cuttack',
+  'Paradeep',
+  'Puri',
+  'Rourkela',
+  'Orissa - Other'
+  ]
+Punjab:
+  locations: ['Amritsar',
+  'Bathinda',
+  'Chandigarh',
+  'Jalandhar',
+  'Ludhiana',
+  'Mohali',
+  'Pathankot',
+  'Patiala',
+  'Punjab - Other'
+  ]
+Rajasthan:
+  locations: ['Ajmer',
+  'Jaipur',
+  'Jaisalmer',
+  'Jodhpur',
+  'Kota',
+  'Udaipur',
+  'Rajasthan - Other'
+  ]
+Sikkim:
+  locations: ['Gangtok',
+  'Sikkim - Other'
+  ]
+Tamil Nadu:
+  locations: ['Chennai',
+  'Coimbatore',
+  'Cuddalore',
+  'Erode',
+  'Hosur',
+  'Madurai',
+  'Nagercoil',
+  'Ooty',
+  'Salem',
+  'Thanjavur',
+  'Tirunalveli',
+  'Trichy',
+  'Tuticorin',
+  'Vellore',
+  'Tamil Nadu - Other'
+  ]
+Tripura:
+  locations: ['Agartala',
+  'Tripura - Other'
+  ]
+Union Territories:
+  locations: ['Chandigarh',
+  'Dadra & Nagar Haveli - Silvassa',
+  'Daman & Diu',
+  'Delhi',
+  'Pondicherry',
+  'Union Territories - Other']
+Uttar Pradesh:
+  locations: ['Agra',
+  'Aligarh',
+  'Allahabad',
+  'Bareilly',
+  'Faizabad',
+  'Ghaziabad',
+  'Gorakhpur',
+  'Kanpur',
+  'Lucknow',
+  'Mathura',
+  'Meerut',
+  'Moradabad',
+  'Noida',
+  'Varanasi / Banaras',
+  'Uttar Pradesh - Other'
+  ]
+Uttaranchal:
+  locations: ['Dehradun',
+  'Roorkee',
+  'Uttaranchal - Other'
+  ]
+West Bengal:
+  locations: ['Asansol',
+  'Durgapur',
+  'Haldia',
+  'Kharagpur',
+  'Kolkata',
+  'Siliguri',
+  'West Bengal - Other'
+  ]
+Other:
+  locations: ['Other']

@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -42,8 +43,8 @@ ActiveRecord::Schema.define(:version => 20120509172950) do
     t.datetime "updated_at"
   end
 
-  add_index "admin_users", ["email"], :name => "index_admin_users_on_email", :unique => true
-  add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
+  add_index "admin_users", ["email"], :name => "index_admin_users_on_email"
+  add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token"
 
   create_table "ads", :force => true do |t|
     t.string   "title"
@@ -94,6 +95,25 @@ ActiveRecord::Schema.define(:version => 20120509172950) do
     t.string   "length"
   end
 
+  add_index "ads", ["ad_age"], :name => "index_ads_on_ad_age"
+  add_index "ads", ["ad_condition"], :name => "index_ads_on_ad_condition"
+  add_index "ads", ["ad_usage"], :name => "index_ads_on_ad_usage"
+  add_index "ads", ["brand"], :name => "index_ads_on_brand"
+  add_index "ads", ["category_id"], :name => "index_ads_on_category_id"
+  add_index "ads", ["commitment"], :name => "index_ads_on_commitment"
+  add_index "ads", ["company_name"], :name => "index_ads_on_company_name"
+  add_index "ads", ["compensation"], :name => "index_ads_on_compensation"
+  add_index "ads", ["education_level"], :name => "index_ads_on_education_level"
+  add_index "ads", ["length"], :name => "index_ads_on_length"
+  add_index "ads", ["listed_by"], :name => "index_ads_on_listed_by"
+  add_index "ads", ["section_id"], :name => "index_ads_on_section_id"
+  add_index "ads", ["slug"], :name => "index_ads_on_slug"
+  add_index "ads", ["title"], :name => "index_ads_on_title"
+  add_index "ads", ["type"], :name => "index_ads_on_type"
+  add_index "ads", ["user_id"], :name => "index_ads_on_user_id"
+  add_index "ads", ["warranty"], :name => "index_ads_on_warranty"
+  add_index "ads", ["work_experience"], :name => "index_ads_on_work_experience"
+
   create_table "amenities", :force => true do |t|
     t.string   "title"
     t.integer  "section_id"
@@ -123,7 +143,7 @@ ActiveRecord::Schema.define(:version => 20120509172950) do
     t.string   "slug"
   end
 
-  add_index "categories", ["slug"], :name => "index_categories_on_slug", :unique => true
+  add_index "categories", ["slug"], :name => "index_categories_on_slug"
 
   create_table "cities", :force => true do |t|
     t.string "name"
@@ -186,7 +206,7 @@ ActiveRecord::Schema.define(:version => 20120509172950) do
     t.string   "slug"
   end
 
-  add_index "sections", ["slug"], :name => "index_sections_on_slug", :unique => true
+  add_index "sections", ["slug"], :name => "index_sections_on_slug"
 
   create_table "topics", :force => true do |t|
     t.string   "title"
@@ -240,11 +260,11 @@ ActiveRecord::Schema.define(:version => 20120509172950) do
     t.integer  "posts_count",                           :default => 0
   end
 
-  add_index "users", ["authentication_token"], :name => "index_users_on_authentication_token", :unique => true
-  add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
-  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
-  add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
-  add_index "users", ["unlock_token"], :name => "index_users_on_unlock_token", :unique => true
+  add_index "users", ["authentication_token"], :name => "index_users_on_authentication_token"
+  add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token"
+  add_index "users", ["email"], :name => "index_users_on_email"
+  add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token"
+  add_index "users", ["unlock_token"], :name => "index_users_on_unlock_token"
 
   create_table "watchings", :force => true do |t|
     t.integer  "user_id"

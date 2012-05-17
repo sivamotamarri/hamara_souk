@@ -14,19 +14,19 @@ class AddColumnsToAds < ActiveRecord::Migration
     add_column :ads, :type , :string
     add_column :ads, :length , :string
     
-    add_index :ads ,:listed_by , :unique => true
-    add_index :ads ,:ad_condition , :unique => true
-    add_index :ads ,:compensation , :unique => true
-    add_index :ads, :ad_usage , :unique => true
-    add_index :ads,:company_name , :unique => true
-    add_index :ads,:ad_age , :unique => true   
-    add_index :ads,:work_experience , :unique => true
-    add_index :ads,:education_level, :unique => true
-    add_index :ads,:commitment, :unique => true
-    add_index :ads,:brand , :unique => true
-    add_index :ads,:warranty, :unique => true
-    add_index :ads, :type , :unique => true
-    add_index :ads, :length, :unique => true
+    add_index :ads ,:listed_by
+    add_index :ads ,:ad_condition
+    add_index :ads ,:compensation
+    add_index :ads, :ad_usage 
+    add_index :ads,:company_name
+    add_index :ads,:ad_age    
+    add_index :ads,:work_experience
+    add_index :ads,:education_level
+    add_index :ads,:commitment
+    add_index :ads,:brand 
+    add_index :ads,:warranty
+    add_index :ads, :type 
+    add_index :ads, :length
   end
   
   def self.down
