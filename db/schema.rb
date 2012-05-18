@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120517094116) do
+ActiveRecord::Schema.define(:version => 20120518061106) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(:version => 20120517094116) do
     t.integer  "sub_category_id"
     t.decimal  "price",                  :precision => 10, :scale => 0
     t.string   "property_refer"
-    t.integer  "phone_number"
+    t.integer  "mobile_number"
     t.text     "desc"
     t.string   "full_name"
     t.string   "company_name"
