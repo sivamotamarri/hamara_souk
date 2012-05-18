@@ -1,0 +1,32 @@
+
+<fieldset id="reviews-recent">
+<legend>Most Recent Reviews</legend>
+
+<div class="fieldset-content">
+  <% if !@reviews.blank? %>
+  <% @reviews.each do |review| %>
+  <div class="item">
+    <a href="#" class="avatar"><%= user_display_pic(review.user, "50x50") %></a>
+    <div class="item-title">
+      <h3><a href="<%= review_path(review.ad.slug) %>"><%= review.ad.title %></a></h3>
+      <p><strong><a href="#"><%= review.user.full_name %></a></strong> says:<br/><%= time_ago_in_words(review.created_at)%> ago</p>
+    </div>
+    <div class="item-rating">
+         <% 5.times do |rate| %>
+          <input name="rate<%=review.id%>" type="radio" class="star" disabled="disabled" <% if review.rating == rate+1 %> checked="checked" <% end %> />
+        <% end %>
+     <span></span>
+    </div>
+    <div class="item-review">
+  	   <%= review.desc %>
+    </div>
+  </div>
+  <% end %>
+  <% else %>
+  <div class="item"><p>No Reviews Yet</p></div>
+  <% end %>
+</div>
+
+</fieldset>
+
+ <%= will_paginate @reviews , :renderer => RemoteLinkRenderer %>

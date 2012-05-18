@@ -41,7 +41,11 @@
  <% end %>
  <div>Short link :  <%= text_field_tag "short_url" , shortener("http://hamarasouk.com:5000"+ad_path(@ad.slug)), :style => "color:red;" %></div>
 <a href = '#reply' class="btn btn-primary btn-medium" data-toggle = "modal">Reply by Email</a>
-<% if user_signed_in? %><a href = '#report' class="btn btn-primary btn-medium" data-toggle = "modal">Report Ad</a><% end %>
+<% if user_signed_in? %>
+<a href = '#report' class="btn btn-primary btn-medium" data-toggle = "modal">Report Ad</a>
+<a href = '#review' data-toggle = "modal" class="btn btn-primary btn-medium" >Write a Review</a>
+
+<% end %>
 
 <p>Ad details</p>
 
@@ -105,99 +109,5 @@
 <div id="reply" class='modal hide fade' url = "<%=new_reply_ads_url(:id => @ad.slug)%>" ></div>
 
 
-<div id="report" class = 'modal hide fade' url = "<%=contact_home_index_url%>" >
-  <div class="modal-header">
-    <h1>Report this Listing</h1>
-  </div>
-  <div class="modal-body">
-
-    <span class = 'label label-important'> <%= @ad.title %> </span>
-
-
-    <div class="accordion" id="accordion2">
-      <div class="accordion-group">
-        <div class="accordion-heading">
-          <span class="accordion-toggle" data-parent="#accordion2" data-toggle="collapse" href="#reportSpam">
-            <h3>Spam</h3>
-          </span>
-        </div>
-        <div class="accordion-body collapse in" id="reportSpam">
-          <div class="accordion-inner">
-            <%= form_for(@report, :url => report_ads_path(:ad => @ad.slug), :id => "spamReport") do |f| %>
-               <%= f.hidden_field :ad_id , :value => @ad.id  %>
-              <div>
-                <p>What kind of Spam is this?</p>
-               
-                <div class="category"><input name="report[spam]" value="Commercial" id="report_spam_commercial" type="radio"/><label for="commercial">Commercial</label></div>
-                <div class="category"><input name="report[spam]" value="Offensive" id="report_spam_offensive" type="radio"/><label for="offensive">Offensive</label></div>
-                <div class="category"><input name="report[spam]" value="Irrelevant" id="report_spam_irrelevant" type="radio"/><label for="irrelevant">Irrelevant</label></div>
-                <div class="category"><input name="report[spam]" value="Other" id="report_spam_other" type="radio"/><label for="other">Other</label></div>
-                <%= f.submit "Report Spam" ,:class=>"btn btn-primary btn-medium" , :id => 'report-spam' %>
-              </div>              
-            <% end %>
-          </div>
-        </div>
-      </div>
-      <div class="accordion-group">
-        <div class="accordion-heading">
-          <span class="accordion-toggle" data-parent="#accordion2" data-toggle="collapse" href="#reportFraud">
-            <h3>Fraud</h3>
-          </span>
-        </div>
-        <div class="accordion-body collapse" id="reportFraud">
-          <div class="accordion-inner">
-            <p>Please tell us why you believe this is fraud:</p>
-            <%= form_for(@report, :url =>report_ads_path(:ad => @ad.slug)) do |f| %>
-              <div>
-                <%= f.hidden_field :ad_id , :value => @ad.id  %>
-                <%= f.text_area :fraud_desc , :rows => "5" , :cols => "35"  %>
-              </div>
-              <%= f.submit "Report Fraud" ,:class=>"btn btn-primary btn-medium" , :id => 'report-fraud' %>
-            <% end %>
-          </div>
-        </div>
-      </div>
-      <div class="accordion-group">
-        <div class="accordion-heading">
-          <span class="accordion-toggle" data-parent="#accordion2" data-toggle="collapse" href="#reportMiscategorized">
-            <h3>Miscategorized</h3>
-          </span>
-        </div>
-        <div class="accordion-body collapse" id="reportMiscategorized">
-          <div class="accordion-inner">
-            <p>This Ad will be reviewed and recategorized accordingly:</p>
-            <%= form_for(@report, :url => report_ads_path(:ad => @ad.slug)) do |f| %>
-              <div>
-                <%= f.hidden_field :ad_id , :value => @ad.id  %>
-                <%= f.hidden_field :miscategorized , :value => true  %>
-              </div>
-              <%= f.submit "Report Miscategorized" ,:class=>"btn btn-primary btn-medium" %>
-            <% end %>
-          </div>
-        </div>
-      </div>
-      <div class="accordion-group">
-        <div class="accordion-heading">
-          <span class="accordion-toggle" data-parent="#accordion2" data-toggle="collapse" href="#reportRepetitive">
-            <h3>Repetitive Listing</h3>
-          </span>
-        </div>
-        <div class="accordion-body collapse" id="reportRepetitive">
-          <div class="accordion-inner">
-            <p>You have chosen to Report this as a repetitive listing:</p>
-            <%= form_for(@report, :url => report_ads_path(:ad => @ad.slug)) do |f| %>
-              <div>
-                <%= f.hidden_field :ad_id , :value => @ad.id  %>
-                <%= f.hidden_field :repetitive_listing , :value => true  %>
-              </div>
-              <%= f.submit "Report Repetitive"  ,:class=>"btn btn-primary btn-medium"%>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="modal-footer">
-    <div class="loader pull-right" style = 'display: none;'><%= image_tag('loader.gif')%></div>    
-  </div>
-</div>
+<%= render "shared/report"  %>
+<%= render "shared/review"  %>

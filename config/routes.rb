@@ -11,7 +11,7 @@ HamaraSouk::Application.routes.draw do
 #     puts app.assets
 #    mount app.assets => app.config.assets.prefix
 # end
-
+resources :reviews
   
   resources :ads do
     member do

@@ -17,6 +17,7 @@ class Ad < ActiveRecord::Base
   accepts_nested_attributes_for :images
 
   has_many :reports
+  has_many :reviews
   
   NUMBER = ['1','2','3','4','5','6','7','8','9','10','11','12+']
   

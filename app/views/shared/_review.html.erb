@@ -1,0 +1,28 @@
+<div id="review" class = 'modal hide fade' >
+  <div class="modal-header">
+    <h1>Write a Review</h1>
+  </div>
+  <div class="modal-body">
+
+    <span class = 'label label-important'> By Clicking Post Review Button, you are agree the terms and conditions to the HamaraSouk</span>
+    <%= form_for @review do |f| %>
+      <%= f.hidden_field :ad_id , :value => @ad.id %>
+      <%= f.hidden_field :user_id , :value => current_user.id  %>
+      <%= hidden_field_tag :ad , @ad.slug %>
+
+
+      <div><%= f.label :desc ,"Enter your review below" %><br />
+        <%= f.text_area :desc, :rows => 10, :cols => 40 %></div>
+      <div id="review_rating_block">
+        <%= f.label :rating , "Select your rating:" %>
+        <% 5.times do |rate| %>
+          <%= f.radio_button :rating , rate+1,{:class => "star"} %>
+        <% end %>
+      </div>
+      <div><br/>
+        <%= f.submit "Post Review" , :class=> "btn btn-primary btn-medium" , :id => "post_review" %>
+      </div>
+    <% end %>
+    <div class="modal-footer"></div>
+  </div>
+</div>

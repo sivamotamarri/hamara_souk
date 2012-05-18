@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120518061106) do
+ActiveRecord::Schema.define(:version => 20120518065409) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -206,6 +206,19 @@ ActiveRecord::Schema.define(:version => 20120518061106) do
     t.boolean  "miscategorized",     :default => false
     t.boolean  "repetitive_listing", :default => false
     t.integer  "reported_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "reviews", :force => true do |t|
+    t.integer  "ad_id"
+    t.integer  "user_id"
+    t.text     "desc"
+    t.integer  "rating"
+    t.integer  "pricing"
+    t.string   "delivery",       :default => "Dont know"
+    t.string   "outdoor_dining", :default => "Dont know"
+    t.string   "take_out",       :default => "Dont know"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

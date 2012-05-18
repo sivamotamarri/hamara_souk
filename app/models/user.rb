@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   
   has_many :ads
   has_many :watchings
+  has_many :reviews
   has_attached_file :avatar, 
                     :styles => { :medium => "300x300>",
                                  :thumb => "100x100>" }

@@ -461,3 +461,65 @@ legend {
   padding-left: 5px;
   padding-right: 5px;
 }
+
+/* reviews */
+#reviews-recent {
+    clear: both;
+}
+#reviews-recent .fieldset-content {
+    margin: 4px 12px 12px;
+    width: 700px;
+}
+
+#reviews-recent .item {
+    border-bottom: 1px solid #CACACA;
+    clear: both;
+    float: left;
+    margin-bottom: 18px;
+    padding-bottom: 18px;
+    width: 100%;
+    word-wrap: break-word;
+}
+#reviews-recent a.avatar {
+    float: left;
+    margin-right: 10px;
+}
+#reviews-recent a.avatar img {
+    height: 50px;
+    width: 50px;
+}
+#reviews-recent .item-title {
+    float: left;
+}
+#reviews-recent .item-title h3 {
+    color: #BC0000;
+    font-size: 18px;
+    margin-bottom: 8px;
+    margin-top: 0;
+}
+
+#reviews-recent .item-title h3 a {
+    color: #BC0000;
+}
+
+#reviews-recent .item-title p {
+    color: #666666;
+    font-size: 11px;
+    margin: 0;
+}
+#reviews-recent .item-rating {
+    color: #BC0000;
+    float: right;
+    font-size: 11px;    
+    width: 200px;
+}
+
+#reviews-recent .item-review {
+    clear: both;
+    color: #333333;
+    line-height: 16px;
+    padding-top: 8px;
+}
+legend span {
+    color: #BC0000;
+}

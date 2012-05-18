@@ -61,14 +61,35 @@ var reportFormHandler = function(){
     })
 }
 
+var reviewFormHandler = function(){
+
+    $("#post_review").click(function(e){
+        $('#review').find('.inline-errors').remove();
+        var errors = true;
+         var comments = $("#review_desc")
+        if (comments.val() === '' || comments.val() === undefined) {
+            errors = false;
+            comments.after("<p class='inline-errors'>can't be blank</p>");
+        }
+        if($("#review_rating_block input:checked").val()=== undefined){
+                   errors = false;
+              $("#review_rating_block").after("<p class='inline-errors'>Rating can't be blank</p>");
+         }
+        return errors;
+    })
+}
+                
+
+
 $(document).ready(function(){
    reportFormHandler();
+   reviewFormHandler();
    $('#comment_submit').live('click' , function(){       
        var errors = true;           
         var comments = $('#new_comment').find('#comment_content');
         if (comments.val() === '' || comments.val() === undefined) {
             errors = false;
-            comments.after("<p class='inline-errors'>can't be blank</p>");
+            comments.after("<p class='inline-errors'>Review can't be blank</p>");
         }        
         return errors;
    });
