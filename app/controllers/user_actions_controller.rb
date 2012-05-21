@@ -24,4 +24,8 @@ class UserActionsController < ApplicationController
   def ads
     @ads = current_user.ads
   end
+
+  def reviews
+    @reviews = current_user.reviews.order('created_at DESC').paginate(:page => params[:page], :per_page => 10)
+  end
 end

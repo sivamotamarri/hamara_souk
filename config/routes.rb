@@ -66,6 +66,7 @@ resources :reviews
   end
     # user ads
     match 'users/ads' => 'user_actions#ads' , :as => :my_ads
+    match 'users/reviews' => 'user_actions#reviews' , :as => :my_reviews
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
    match "about" => "home#about" , :as => :about
