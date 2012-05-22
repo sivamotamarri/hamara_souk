@@ -15,7 +15,7 @@ resources :reviews
   
   resources :ads do
     member do
-      get :selection_cat , :sub_categories
+      get :selection_cat , :sub_categories , :gmaps
     end 
     collection do
       get :search

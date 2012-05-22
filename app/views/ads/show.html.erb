@@ -31,7 +31,6 @@
   <div id="featured-listings" style="border:none;">
   <div id="gallery">
     <ul>
-
       <%- @ad.images.each_with_index do |image,i| %>
           <li <% if i > 0  %> style="display:none;" <%  end %> >
             <div class="thumb">
@@ -44,10 +43,7 @@
   </div>
   </div>
 </div>
-<div class="tab-pane" id="profile">
-
-<%= gmaps("markers" => {"data" => @json}, "map_options" => {"processing" => "json", "auto_adjust" => true, "auto_zoom" => false,"center_longitude" => 180, "zoom" => 15}) %>
-
+<div class="tab-pane" id="profile" data-id ="<%= @ad.slug %>">
 </div>
 
 </div>

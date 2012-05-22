@@ -155,7 +155,14 @@ $('#myCarousel').carousel({
   });
 
 
- 
+ $('a[data-toggle="tab"]').on('show',function (e) {    
+ if($(this).attr("href") == "#profile"){
+    $.ajax({
+        dataType: "script",
+        url: "/ads/"+$("#profile").attr('data-id')+"/gmaps" 
+       });
+ }     
+ });
 
 initGallery();
 
