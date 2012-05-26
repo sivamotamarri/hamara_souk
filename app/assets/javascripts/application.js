@@ -157,6 +157,7 @@ $('#myCarousel').carousel({
 
  $('a[data-toggle="tab"]').on('show',function (e) {    
  if($(this).attr("href") == "#profile"){
+     $('#profile').html('<div style="width: 414px;height: 296px;" ><img src="/assets/lightbox-ico-loading.gif"  alt="spinner" style="margin-top: 100px;margin-left: 150px;" /></div>');
     $.ajax({
         dataType: "script",
         url: "/ads/"+$("#profile").attr('data-id')+"/gmaps" 
