@@ -1,0 +1,18 @@
+<div class="job_details">
+  <div><%= f.label :ad_age , "Age"%><br />
+    <%= f.select(:ad_age, Ad::PRODUCT_AGE.collect {|s,v| [ v,s ] },{:prompt => "- Select One -"}) %></div>
+  <div><%= f.label :ad_usage , "Usage" %><br />
+    <%= f.select(:ad_usage, Ad::USAGE.collect {|s,v| [ v,s ] },{:prompt => "- Select One -"}) %></div>
+  <div><%= f.label :ad_condition , "Condition"%><br />
+    <%= f.select(:ad_condition, Ad::AD_CONDITION.collect {|s,v| [ v,s ] },{:prompt => "- Select One -"}) %></div>
+  <div><%= f.label :warranty %><br />
+    <%= f.select(:warranty, {'Yes' => 'Yes', 'No' => 'No','Does not apply' => 'Does not apply'},{:prompt => "- Select One -"}) %></div>
+</div>
+<h3>Description</h3>
+<div>
+  <%= f.label :price %><br />  <%= f.text_field :price %>
+</div>
+<div>
+  <%= f.label :mobile_number ,"Mobile Number" %><br />
+  <%= f.text_field :mobile_number %><%= f.label :mobile_number ,"(optional)" %>
+</div>

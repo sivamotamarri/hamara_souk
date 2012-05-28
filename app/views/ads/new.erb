@@ -1,4 +1,6 @@
-<h1>Ad</h1>
+<h1>Ad Creation</h1>
+
+
 
 <%= form_for(@ad, :url => ads_path,:html => {:multipart => true}) do |f| %>
 <% if @ad.errors.any? %>
@@ -15,10 +17,7 @@
 
 <%= render "#{@ad.current_step}_step", :f => f %>
   <br/>
-  <div>
-  <%= f.submit "Next" %>
-  <!--<p><%#= f.submit "Back", :name => "back_button" unless @ad.first_step? %></p>-->
-</div>
+  <div> <%= f.submit "Next" %> </div>
 <% end %>
 
 

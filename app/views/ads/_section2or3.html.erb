@@ -1,0 +1,55 @@
+<div id="details">
+
+  <div><%= f.label :size %><br />
+    <%= f.text_field :size %></div>
+
+  <div><%= f.label :fee , "Total Closine Fee" %><br />
+    <%= f.text_field :fee %></div>
+  <div><%= f.label :bed_rooms %><br />
+    <%= f.select(:bed_rooms, Ad::NUMBER.collect {|s| [ s ] },{:prompt => "- Select One -"}) %></div>
+
+  <div><%= f.label :bath_rooms %><br />
+    <%= f.select(:bath_rooms, Ad::NUMBER.collect {|s| [ s ] },{:prompt => "- Select One -"}) %></div>
+
+
+  <div><%= f.label :developer , "Develper"%><br />
+    <%= f.text_field :developer %></div>
+
+  <div><%= f.label :ready_date, "Date (Ready By)" %><br/>
+
+    <%= f.text_field :ready_date %>
+  </div>
+  <div><%= f.label :annual_comm_fee ,"Annual Community Fee" %><br />
+    <%= f.text_field :annual_comm_fee %></div>
+
+  <div>
+    <%= f.label :amenities ,"Amenities" %><br />
+    <%= f.select(:amenities, @amenities.collect {|s| [ s.title,s.id ] },{},{ :multiple => true, :size =>5 }) %>
+  </div>
+</div>
+<h1>Lister Details</h1>
+
+<div style="width:90%">
+  <div style="width:50%; float: left;">
+    <%= f.radio_button :agent_or_landlord , :value => 1 %><%=f.label :agent_or_landlord , "I'm an Agent"%>
+  </div>
+  <div style="width:50%;float: left;">
+    <%= f.radio_button :agent_or_landlord , :value => 0 %><%=f.label :agent_or_landlord , "I'm a Landlord"%>
+  </div>
+</div>
+
+<h1>Description</h1>
+<div style="width:90%">
+<div>
+  <%= f.label :price %><br />  <%= f.text_field :price %><%= f.label :price ,"AED" %>
+</div>
+<div>
+  <%= f.label :property_refer %> <%= f.text_field :property_refer  %><%= f.label :property_refer  ,"(optional)" %>
+</div>
+<div>
+  <%= f.label :mobile_number ,"Mobile Number" %><br />
+  <%= f.text_field :mobile_number %><%= f.label :mobile_number ,"(optional)" %>
+</div>
+</div>
+
+
