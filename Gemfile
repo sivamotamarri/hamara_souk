@@ -14,9 +14,14 @@ gem 'rails', '3.1.0'
 group :development, :test do
   #gem 'sqlite3'
   gem 'letter_opener'
-  gem 'mysql'
-  gem "bcrypt-ruby", :require => "bcrypt"
+  #gem 'mysql'  
 end
+
+group :mysql do
+  gem 'mysql', '2.8.1'
+end
+
+gem "bcrypt-ruby", :require => "bcrypt"
 # Use unicorn as the web server
 # gem 'unicorn'
 
