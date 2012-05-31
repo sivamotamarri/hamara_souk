@@ -113,7 +113,7 @@ class AdsController < ApplicationController
   
   def search
     @search = Ad.search(params[:search])
-    @ads = @search.all
+    @ads = @search.paginate(:page => params[:page], :per_page => 1)
     respond_to do |format|
       format.html { }
       format.xml  { render :xml => @search }
