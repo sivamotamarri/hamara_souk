@@ -1,6 +1,6 @@
 class AdsController < ApplicationController
  add_breadcrumb "Home", :root_path
- before_filter :authenticate_user! ,:except => [:show,:new_reply,:reply,:gmaps]
+ before_filter :authenticate_user! ,:except => [:show,:new_reply,:reply,:gmaps,:search]
   
   def index
     section = Section.find_by_slug(params[:section])
