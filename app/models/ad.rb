@@ -60,10 +60,11 @@ AD_CONDITION = {"Perfect inside and out" => "Perfect inside and out",
 
   validates :section_id,:category_id, :presence => true , :if => lambda { |o| o.current_step == "categories" }
   validates :section_id,:category_id, :presence => true , :if => lambda { |o| o.current_step == "categories" }
-  validates :title , :ad_age, :ad_usage ,:ad_condition, :warranty , :price,:desc, :presence => true , :if => lambda { |o| o.current_step == "details"  && o.section_id == 1 }
-  validates :title , :size , :fee ,:bed_rooms, :bath_rooms , :developer ,:ready_date, :annual_comm_fee, :amenities, :price , :desc , :presence => true , :if => lambda { |o| ((o.section_id == 2 || o.section_id == 3) && o.current_step == "details" ) }
-  validates :title , :compensation, :work_experience ,:education_level, :commitment , :desc, :presence => true , :if => lambda { |o| o.current_step == "details"  && o.section_id == 4 }
-  validates :title , :desc, :presence => true , :if => lambda { |o| o.current_step == "details"  && o.section_id == 1 }
+
+  validates :title, :desc, :presence => true  , :if => lambda { |o| o.current_step == "details"}
+  validates :ad_age, :ad_usage ,:ad_condition, :warranty , :price, :presence => true , :if => lambda { |o| o.current_step == "details"  && o.section_id == 1 }
+  validates :size , :fee ,:bed_rooms, :bath_rooms , :developer ,:ready_date, :annual_comm_fee, :amenities, :price , :presence => true , :if => lambda { |o| ((o.section_id == 2 || o.section_id == 3) && o.current_step == "details" ) }
+  validates :compensation, :work_experience ,:education_level, :commitment, :presence => true , :if => lambda { |o| o.current_step == "details"  && o.section_id == 4 }
   validates :street , :city, :country, :presence => true , :if => lambda { |o| o.current_step == "find_on_map" }
   validates :price,:fee,:size, :annual_comm_fee , :numericality => true , :allow_nil => true
   validates :mobile_number , :format => { :with => /^[1-9]\d{9}$/, :allow_blank => true, :message => "is not a valid Mobile Number"}

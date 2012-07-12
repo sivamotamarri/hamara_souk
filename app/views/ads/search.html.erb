@@ -1,3 +1,10 @@
+<% if !@ads.blank? %>
 <% @ads.each do |ad| %>
  <%= render :partial => "shared/ad_details" , :locals => {:ad => ad}  %>  
+<% end %>
+<br/>
+<div style="clear: both;"></div>
+<%= will_paginate @ads , :renderer => RemoteLinkRenderer %>
+<% else %>
+<p> no ads</p>
 <% end %>

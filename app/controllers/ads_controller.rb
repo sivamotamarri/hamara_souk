@@ -1,6 +1,8 @@
 class AdsController < ApplicationController
- add_breadcrumb "Home", :root_path 
- before_filter :authenticate_user! ,:except => [:show,:new_reply,:reply,:gmaps]
+
+ add_breadcrumb "Home", :root_path
+ before_filter :authenticate_user! ,:except => [:show,:new_reply,:reply,:gmaps,:search]
+
   
   def index
     section = Section.find_by_slug(params[:section])
@@ -113,7 +115,7 @@ class AdsController < ApplicationController
   
   def search
     @search = Ad.search(params[:search])
-    @ads = @search.all
+    @ads = @search.paginate(:page => params[:page], :per_page => 1)
     respond_to do |format|
       format.html { }
       format.xml  { render :xml => @search }

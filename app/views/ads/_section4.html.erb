@@ -1,0 +1,15 @@
+<div class="job_details">
+  <div><%= f.label :compensation , "Comprensation in lacks"%><br />
+    <%= f.text_field :compensation %></div>
+  <div><%= f.label :work_experience %><br />
+    <%= f.select(:work_experience, Ad::WORK_EXPERIENCE.collect {|s,v| [ v,s ] },{:prompt => "- Select One -"}) %></div>
+  <div><%= f.label :education_level %><br />
+    <%= f.select(:education_level, Ad::EDUCATION_LEVEL.collect {|s,v| [ v,s ] },{:prompt => "- Select One -"}) %></div>
+  <div><%= f.label :commitment %><br />
+    <%= f.select(:commitment, {'Full Time' => 'FT', 'Part Time' => 'PT'},{:prompt => "- Select One -"}) %></div>
+</div>
+<h3>Description</h3>
+<div>
+  <%= f.label :mobile_number ,"Mobile Number" %><br />
+  <%= f.text_field :mobile_number %><%= f.label :mobile_number ,"(optional)" %>
+</div>
