@@ -1,5 +1,5 @@
 class AdsController < ApplicationController
- add_breadcrumb "Home", :root_path
+ add_breadcrumb "Home", :root_path 
  before_filter :authenticate_user! ,:except => [:show,:new_reply,:reply,:gmaps]
   
   def index

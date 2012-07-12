@@ -1,21 +1,60 @@
 <% if @categories && @ads %>
-<%= render_breadcrumbs %>
-
-
-<div id="show">
-  <ul style="list-style-type: disc; padding-left: 25px">
+<div class="product-search-result-block">
+   <div class="listing-results-block">
+            <div class="listing-header">              
+            
+              <span class="view-info">
+              <label>View as: </label>
+              <a href="#">List</a> | <a href="#" class="active">Map</a></span>
+              <span class="save-ser">Save Search</span>
+              <span class="sort-info">
+              <label class="nothing">Sort by: </label>
+              <span class="label-info"> <span class="selected4" id="select6">All Cities</span>
+              <select class="styled4" name="6">
+                <option value="8" selected="selected4">Hyderabad</option>
+                <option value="6">Visakapatnam</option>
+                <option value="7">Vijayawada</option>
+                <option value="9">Tirupathi</option>
+                <option value="10">Karnool</option>
+                <option value="10">Warangal</option>
+                <option value="10">Kakinada</option>
+                <option value="10">Rajamundry</option>
+              </select>
+              </span></span>
+            
+            </div>
+    </div>
+   
+   <div class="result-info">
+     
+      <div class="result-list">
+              <div class="glossymenu">
+                <div class="t-block"> <span class="re-block">
+                  <label class="lab2">Browsed Results In:</label>
+<%= render_breadcrumbs :separator => "" %>
+                   </span> <a class="menuitem submenuheader" href="#">&nbsp;</a>
+                  <div class="submenu">
+                    <div class="browsed-result-block">
+                      <ul>
     <% @categories.each do |cat| %>
-    <li><%= cat.name %></li>
+    <li><a href="#"><%= cat.name %></a></li>
     <% end %>    
   </ul>  
 </div>
+                    <span class="view-all"><a href="#">View All</a></span> </div>
+                </div>
+              </div>
+       </div>
+
+
 
 <% @ads.each do |ad| %>
 <%= render :partial => "shared/ad_details" , :locals => {:ad => ad}  %>  
 <% end %>
-<br/>
-<div style="clear: both;"></div>
-<%= will_paginate @ads , :renderer => RemoteLinkRenderer %>
+</div>
+  <%= will_paginate @ads , :renderer => RemoteLinkRenderer %>
+  <span class="list-foot"></span> </div>
+
 <% else %>
-<p> no ads</p>
+<div class="product-search-result-block"><div class="listing-results-block"> no ads</div></div>
 <% end %> 

@@ -17,7 +17,7 @@ class SectionsController < ApplicationController
       add_breadcrumb "#{category.name}", category_ad_path
     end
     @sub_cat = Category.child_cat(category.id)
-    @ads = category.ads.paginate(:page => params[:page], :per_page => 1)
+    @ads = category.ads.paginate(:page => params[:page], :per_page => 3)
   end
   
   

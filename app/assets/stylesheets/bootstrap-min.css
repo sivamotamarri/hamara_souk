@@ -520,7 +520,7 @@ textarea {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 label {
-  display: block;
+  /* display: block; */
   margin-bottom: 5px;
   color: #333333;
 }
@@ -2767,8 +2767,14 @@ input[type="submit"].btn.btn-mini {
   color: #333333;
 }
 .pagination {
-    height: 40px;
-    margin: 20px 0;
+/*    height: 40px;
+    margin: 20px 0;*/
+    
+    clear: both;
+    margin: 0 auto 20px;
+    padding-bottom: 5px;
+    padding-top: 25px;
+    text-align: center;
 }
 .pagination ul, #pagination ul {
     display: inline-block;
