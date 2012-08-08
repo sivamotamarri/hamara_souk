@@ -11,45 +11,27 @@
         <%= f.select(:section_id_equals, Section.all.collect {|p| [ p.name, p.id ] }, {:prompt => "All of Hamara Souk"},{:class => "styled3" ,  :onchange => "selectBox(this,this.id)" }) %>
       </span>
     </div>
+    
     <span class="bdr1"></span>
           <div class="inter-block">
-            <h2>Price (RS)</h2>
-            <input name="" type="text" />
-            <input name="" type="text" />
+            <h2>Price (RS)</h2>  
+    <%= f.text_field :price_gte, :size => 8  ,  :placeholder =>"Price from" %>
+
+    <%= f.text_field :price_lte, :size => 8 , :placeholder =>"Price to"  %>
           </div>
+
+
           <div class="inter-block">
-            <h2>Year (Min/Max)</h2>
-            <select name="">
-            </select>
-            <select name="">
-            </select>
-          </div>
-    <!--<div class="activity-info">      
-      <span class="label-info"> <span class="selected3" id="selectsearch_section_id_equals"> > All Categories</span>
-        <%#= f.select(:category_id_equals, Section.all.collect {|p| [ p.name, p.id ] }, {:prompt => "All of Hamara Souk"},{:class => "styled3" ,  :onchange => "selectBox(this,this.id)" }) %>
-      </span>
-    </div>-->
+            <h2>Bedrooms (Min/Max)</h2>
+
+              <%= f.select(:bath_rooms_gte, Ad::NUMBER.collect {|s| [ s ] },{:prompt => "Select One"}) %>
+           
+            <%= f.select(:bath_rooms_lte, Ad::NUMBER.collect {|s| [ s ] },{:prompt => "Select One"}) %>
+          
+          </div>    
     <h2>Keywords</h2>
-     <%= f.text_field :title_contains %>
+     <%= f.text_field :tags_contains %>
     <span><input name="" type="submit" value="" /></span>
     <% end %>
-  </div>
-  <%#*<div class="left-info-block"> <span class="left-info-title">Quick Links</span> <span class="left-info-mid">%>
-      <%#*<ul>%>
-        <%#*<li><a href="#">Sell</a></li>%>
-        <%#*<li><a href="#"> Rent</a></li>%>
-        <%#*<li><a href="#"> Place an Ad</a></li>%>
-        <%#*<li>%>  
-    <%# if !user_signed_in? %>        
-        <%#= link_to "Register", new_registration_path(resource_name) %>   
-    <%# end %>
-        <%#*</li>%>
-        <%#*<li><a href="#">New features</a></li>%>
-      <%#*</ul>%>
-    <%#*</span>%> 
-  <%#*</div>%>
-  <%#*<div class="left-info-block"> <span class="left-info-title">Testimonials</span> <span class="left-info-mid"> <span class="quote-l"> </span> This ia a dummy text wide search allows you to easily and quickly travel throughout the country on your computer to take advantage <img src="/assets/quote-right.png" alt="" border="none" /> <span class="user"><a href="#">Pirujan sahed</a></span> </span> </div>%>
-  <%#*<div class="left-info-block"> <span class="left-info-title">Buy Safely</span> <span class="left-info-mid">%>
-      <%#*<p>Deals Transactions are at your own risk. Better transact face to face before the Transaction</p>%>
-    <%#*</span> </div>%>
+  </div>  
 </div>
