@@ -239,40 +239,70 @@ $("#reply-submit").click(function(e){
     })
     
 $("#contact-submit").click(function(e){
+
         $('#contact').find('.inline-errors').remove();
         var errors = false;
-        var url = $('#contact').attr('url');
-        var name = $('#contact').find('#name');
-        var email = $('#contact').find('#email');
-        var about = $('#contact').find('#about').val();
-        var comments = $('#contact').find('#comments');
+        var city = $('#city');
+        var state = $('#state');
+        var country = $('#country');
+	var mobile = $('#mobile');
+        var name = $('#contact-form').find('#name');
+        var email = $('#contact-form').find('#email');
+        var about = $('#contact-form').find('#about');
+        var comments = $('#contact-form').find('#comments');
+       if (about.val() === '' || about.val() === undefined) {
+            errors = true;
+            about.after("<span class='inline-errors'>can't be blank</span>");
+        }
         if (name.val() === '' || name.val() === undefined) {
             errors = true;
-            name.after("<p class='inline-errors'>can't be blank</p>");
+            name.after("<span class='inline-errors'>can't be blank</span>");
+        }
+       if (city.val() === '' || city.val() === undefined) {
+            errors = true;
+            city.after("<span class='inline-errors'>can't be blank</span>");
+        }  
+        if (state.val() === '' || state.val() === undefined) {
+            errors = true;
+            state.after("<span class='inline-errors'>can't be blank</span>");
+        }
+       if (country.val() === '' || country.val() === undefined) {
+            errors = true;
+            country.after("<span class='inline-errors'>can't be blank</span>");
+        }
+       if (mobile.val() === '' || mobile.val() === undefined || !isValidMobile(mobile.val())) {
+            errors = true;
+            mobile.after("<span class='inline-errors'>can't be blank or invalid</span>");
         }
         if (email.val() === '' || email.val() === undefined || !isValidEmail(email.val())) {
             errors = true;
-            email.after("<p class='inline-errors'>can't be blank or invalid</p>");
+            email.after("<span class='inline-errors'>can't be blank or invalid</span>");
         }
         if (comments.val() === '' || comments.val() === undefined) {
             errors = true;
-            comments.after("<p class='inline-errors'>can't be blank</p>");
+            comments.after("<div class='inline-errors' style='padding: 8px 8px 8px 192px !important;'>can't be blank</div>");
         }
+        
         if (!errors) {
             $("#contact-submit").hide();
             $('#contact').find('.loader').show();
             $.ajax({
                 type: 'POST',
-                url: url,
+                url: $('#contact-form').attr('action'),
                 data: {
                     name: name.val(),
                     email: email.val(),
-                    about: about,
-                    comments: comments.val()
+                    about: about.val(),
+                    comments: comments.val(),
+	            city: city.val(),
+		    state: state.val(),
+		    country: country.val(),
+		    mobile: mobile.val()
                 },
                 success: function(data) {
-                    $('#contact').modal('hide');
+                    //$('#contact').modal('hide');
                     if (data === 'success') {
+			resetContactForm(true);	
                         $('.notice-area').html("<div class='alert alert-success'>Thanks for your input!</div>")
                     }
                     else {
@@ -302,7 +332,7 @@ function hideFlashMessages() {
 }
 
 var resetContactForm = function(toggle) {
-    $('#contact').find('.inline-errors').remove();
+    $('#contact-form').find('.inline-errors').remove();
     if (toggle) {
         $("#contact-submit").show();
         $('#contact').find('.loader').hide();
@@ -317,6 +347,14 @@ var resetContactForm = function(toggle) {
         $('#contact').find('#name').val('');
         $('#contact').find('#email').val('');
     }
+    $('#contact').find('#comments').val('');
+    $('#contact').find('#city').val('');
+    $('#contact').find('#state').val('');
+    $('#contact').find('#country').val('');
+    $('#contact').find('#mobile').val('');
+    $('#contact').find('#name').val('');
+    $('#contact').find('#email').val('');
+    $('#contact').find('#about').val('');
     $('#contact').find('#comments').val('');
 }
 

@@ -70,8 +70,9 @@ resources :reviews
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
    match "about" => "home#about" , :as => :about
+   match "advertising" => "home#advertising" , :as => :advertising
    match "termsandcond" => "home#termsandcond" , :as => :termsandcond
-   match "contact-us" => "home#contact_us" , :as => :contact_us
+   match "contact_us" => "home#contact_us" , :as => :contact_us
    
    match ':section/:category/:sub_categories' => 'ads#index' , :as => :sub_cat_ad  
    match ':section/:category' => 'sections#details' , :as => :category_ad    

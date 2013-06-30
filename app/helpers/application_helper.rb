@@ -28,13 +28,13 @@ module ApplicationHelper
     @sections = Section.all
     res = content_tag(:li,content_tag(:a ,"",:href=> "/") ,:class => "home-tab")
     @sections.each do |sec|
-      res = res + content_tag(:li , content_tag(:a , sec.name, :href => "/#{sec.slug}"))
+      res = res + content_tag(:li , content_tag(:a , sec.name, :href => "/#{sec.slug}", :rel=> sec.slug))
     end
-    if user_signed_in?
-     res = res + content_tag(:li , content_tag(:a, "Discussions", :href => forums_url) ,:class => "last")
-    else
-     res = res + content_tag(:li,content_tag(:a ,"Contact Us",:href=> '#contact', "data-toggle" => "modal") ,:class => "last")
-    end
+   # if user_signed_in?
+    # res = res + content_tag(:li , content_tag(:a, "Discussions", :href => forums_url) ,:class => "last")
+    #else
+    # res = res + content_tag(:li,content_tag(:a ,"Contact Us",:href=> '#contact', "data-toggle" => "modal") ,:class => "last")
+    #end
      res
   end
   

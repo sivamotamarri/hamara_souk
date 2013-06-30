@@ -3,10 +3,10 @@
     <% if !user_signed_in? %>        
         <%= link_to "Register", new_registration_path(resource_name) %>   | 
     <% end %>
-    <a href="#">Advertise</a> | 
-    <a href = '#terms_and_cond' data-toggle = 'modal'>Terms & Conditions </a>| 
-    <a href = '#contact' data-toggle = "modal">Contact Us</a> | 
+    <a href="<%= advertising_path %>">Advertise</a> | 
+    <a href ="<%= termsandcond_path %>">Terms & Conditions </a>| 
+    <a href = '<%= contact_us_path %>'>Contact Us</a> | 
     <a href="#">Sitemap</a>
   </span>
-  <span class="cp">All rights reserved @ 2012<label>www.hamarasouk.com</label></span>
+  <span class="cp">All rights reserved @ 2013<label>www.hamarasouk.com</label></span>
 </div>

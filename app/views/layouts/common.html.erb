@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WELCOME TO HAMARA SOUK</title>
+    <%= stylesheet_link_tag 'bootstrap-min.css' %>
+    <%= stylesheet_link_tag 'jquery.ui.datepicker.css' %>
+    <%= stylesheet_link_tag "application.css" %>
+    <%= stylesheet_link_tag "jquery.rating.css" %> 
+    <%= stylesheet_link_tag "jquery.lightbox-0.5.css" %>
+    <%= stylesheet_link_tag "style.css" %>
+   <%= stylesheet_link_tag "dropdown.css" %>
+<%= stylesheet_link_tag "common.css" %>
+ <%= javascript_include_tag "jquery.js" %>
+    <%= javascript_include_tag "application.js"  %>
+    <%= javascript_include_tag "bootstrap.js"  %>
+
+    <%= javascript_include_tag "jquery-ui-1.8.17.custom.js" %>
+    
+    <%= javascript_include_tag "jquery.rating.js" %>
+    <%= javascript_include_tag "jquery.ui.datepicker.js" %>
+      <%= javascript_include_tag "jquery.lightbox-0.5.min.js" %>
+    <%= javascript_include_tag "ddaccordion.js" %>
+    <%= javascript_include_tag "scrolling_images.js" %>
+
+<%= javascript_include_tag "dropdowntabs.js" %>
+
+  <%= csrf_meta_tag %>
+
+    <script type="text/javascript" src="//maps.google.com/maps/api/js?v=3.5&sensor=false&libraries=geometry"></script>
+<script type="text/javascript" src="//google-maps-utility-library-v3.googlecode.com/svn/tags/infobox/1.1.9/src/infobox_packed.js"></script>
+<script type="text/javascript" src="//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.5/src/markerclusterer_packed.js"></script>
+<script type="text/javascript" src="//google-maps-utility-library-v3.googlecode.com/svn/trunk/richmarker/src/richmarker-compiled.js"></script>
+    
+    <script type="text/javascript">var switchTo5x=true;</script>
+<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">stLight.options({publisher: "886d9710-9fae-4033-973d-5b0097bda62e"}); </script>
+
+</head>
+<body>
+<div id="mainwrapper">
+  <div id="maincontainer">
+    <%= render :partial => "shared/header" %> 
+     <%= yield %>
+
+    <%= render :partial => "shared/footer" %>
+  </div>
+</div>
+<%#= render('shared/contact')%> 
+</body>
+</html>

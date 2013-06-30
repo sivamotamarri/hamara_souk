@@ -1,0 +1,55 @@
+
+/* mine */
+#featured-listings{width:428px; float:left; margin:10px 0 0 0px; overflow:hidden;border:2px solid #cee1ef; }
+#featured-listings #featured-header{background-color:#ebf2f8; float:left; height:26px; line-height:30px; padding:0 10px; width:420px; border-bottom:1px solid #cee1ef;}
+#featured-listings #featured-header p{margin:0px; float:left;}
+
+
+#featured-listings #featured-content {clear:both; border-top:none; width:426px;overflow:hidden; height:217px;}
+#featured-listings .item {float:left; padding:10px 12px; height:218px; width:400px;}
+ #featured-listings .thumb {position:relative; float:left; margin-bottom:6px;}
+ #featured-listings .thumb img{ border:1px solid #CACACA; float:left; height:106px; margin-right:6px; margin-top:4px; padding:2px; width:160px;}
+ #featured-listings .thumb .image-count{background-color:#333;bottom:0;color:white;font-size:10px;left:0; bottom:0; margin-left:5px; margin-bottom:5px; padding:2px 5px;position:absolute;}
+ #featured-listings .title{font-size:10px; color:#666; margin:0px; font-weight:bold; height:11px; overflow:hidden;}
+ #featured-listings h3{margin:0 0 0 0; font-size:15px; background-image:none; padding-left:0px}
+ #featured-listings h3 a{color:#333;}
+ #featured-listings .price{margin:0 0 4px 0; font-weight:normal; font-size:15px; color:#bc0000;}
+ #featured-listings .date{font-size:12px; margin:0px;}
+#featured-listings .breadcrumbs{font-size:12px; font-weight:bold; margin:0px;}
+  #featured-listings .description {
+    color: #666666;
+    float: left;
+    margin: 6px 0 0 6px;
+    width: 192px;
+}
+#featured-listings .description ul, #featured-listings .descriptionjob ul{clear:both; margin:8px 16px; padding:0px; float:left;}
+#featured-listings .description li, #featured-listings .descriptionjob li{list-style-type: circle; margin-bottom:2px;}
+ #featured-listings .location{clear:both; float:left; margin-left:2px; margin-top:0px; color:#666; background-image:none; padding-left:0px; width:400px;}
+#results-list #featured-listings .description{float:left; margin:6px 0 0 0; width:190px;}
+ #results-list #featured-listings .price{margin:0 0 4px 0; font-weight:normal; font-size:15px; color:#bc0000; float:none;}
+ #results-top #featured-listings .description{float:left; margin:6px 0px 0px 6px; width:192px; color:#666;}
+ #results-top #featured-listings .descriptionjob{float:left; margin:6px 0px 0px 16px; clear:both;}
+
+
+
+
+.search-block span input{  
+    background:url(search-btn.jpg) left top no-repeat; 
+    width:102px !important; 
+    float:right !important; 
+    height:34px !important; 
+    margin:10px 9px 0px 0px !important; 
+    cursor:pointer; 
+    border:none;
+}
+
+.inline-errors{
+color:red;
+float:left;
+padding: 8px 8px 8px 5px !important;
+width: 200px;
+}
+/* mine */
+
+
+

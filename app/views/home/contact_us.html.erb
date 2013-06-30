@@ -1,2 +1,51 @@
+<div class="content-sec" id="contact">
+      <h5>Contact HAMARASOUK</h5>
+      <p><strong>Please fill the below form and send to us. We will get back you  as soon as possible.</strong></p>
+      <div class="contact-block">
+      <%= form_tag(contact_home_index_path, :id => 'contact-form') do %>
+<%= hidden_field_tag :user_login_status, user_signed_in? %>
+      <span class="reg-info">
+        <label><span class="red">* </span>Select Subject:</label>
+       <%= select_tag 'about', options_for_select(['Need help with a technical problem', 'Report Copyright Infringement', 'Report Spam/Abuse/Fraud', 'Advertising on Dubizzle','My property listing account','My Autos listing account','Feedback / suggestions','Other / General business inquiry']),:prompt=>"Please choose a subject",:class => "select1" %>
 
-<%= "Contact Us" %>
+        </span> 
+      <span class="reg-info">
+        <label><span class="red">* </span>Full Name:</label>
+        <%= text_field_tag 'name' %><br/>
+        </span> <span class="reg-info">
+        <label><span class="red">* </span>Mobile Number: </label>
+        <%= text_field_tag 'mobile' %><br/>
+        </span> <span class="reg-info">
+        <label><span class="red">* </span>Email: </label>
+        <%= text_field_tag 'email' %><br/>
+        </span> <span class="reg-info">
+        <label><span class="red">* </span>City: </label>
+        <%= text_field_tag 'city' %><br/>
+        </span> <span class="reg-info">
+        <label><span class="red">* </span>State:</label>
+ <%= text_field_tag 'state' %><br/>
+        </span> <span class="reg-info">
+        <label><span class="red">* </span>Country: </label>
+        <%= text_field_tag 'country' %><br/>
+        </select>
+        </span> <span class="reg-info">
+        <label><span class="red">* </span>Message </label>
+        <%= text_area_tag 'comments' %> <br/>
+        </span> 
+      <!--<span class="reg-info">
+        <label><span class="red">* </span>Verify</label>
+        <img src="images/captcha.jpg.jpg" class="capta" alt="" border="none" /> </span> <span class="reg-info">
+        <label class="capta-title"><span class="red">* </span>Please enter the text exactly as it appears. Consider upper and lower case:</label>
+        <input name="" class="catpa-info" type="text"  value=""  />
+        </span> -->
+
+      <span class="reg-info contact-info">
+        <input type="button" name="" value="Reset">
+       
+        <input type="button" id = 'contact-submit' value="Sumbmit">
+<div class="loader pull-right" style = 'display: none;'>
+     <%= image_tag('loader.gif')%></div>
+        </span>
+<% end %>
+ </div>
+    </div>
