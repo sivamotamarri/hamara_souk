@@ -89,7 +89,7 @@ a, a:hover{ color:#cc0f16; text-decoration:none;}
 .quote-l{ background:url(quote-left.png) left top no-repeat; width:9px; height:9px; float:left; margin-right:3px;}
 .user a{ color:#9d2729; font-size:13px; text-decoration:underline; float:left; text-align:right; width:211px; padding:16px 7px 0px 0px;}
 .left-info-mid p{ color:#a5a5a5; text-align:left; font-size:14px; font-weight:bold; line-height:20px; padding:6px 0px;}
-.ht-600{ height:600px;}
+/*.ht-600{ height:600px;}*/
 .ht-248{ height:248px;}
 .ht-336{ height:336px;}
 
@@ -541,3 +541,4 @@ ul.msnf-forms-steps li.msnf-form-step-4 a:before {
 .back-top{ width:100%; float:right; text-align:right; font-weight:bold; font-size:10px;}
 .back-top a{ background:url(back-to-top1.png) left top no-repeat; padding-left:25px; padding:1px 5px 5px 20px ;}
 .advt-info p{ border-bottom:1px dotted #c5888a; margin-bottom:8px;}
+.red{ color:#ff6600;}
