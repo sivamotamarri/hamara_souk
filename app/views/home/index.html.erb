@@ -1,180 +1,135 @@
 <style type="text/css">
-  .gallery {
-				/*background-color: #ccc;*/
+.gallery {
+/*background-color: #ccc;*/
 				/*margin: 0 0 30px 60px;*/
 				
 			}
-			.gallery ul {
-				margin: 0;
-                                margin-left: 50px;
-				padding: 0;
-				list-style: none;
-				display: block;
-			}
-			.gallery li {
-				font-size: 40px;
-				color: #999;
-				text-align: center;
-				
-				padding: 0;
-				
-				display: block;
-				float: left;
-			}
-			.gallery.responsive {
-				width: auto;
-				margin-left: 0;
-			}
+.gallery ul {
+	margin: 0;
+	margin-left: 50px;
+	padding: 0;
+	list-style: none;
+	display: block;
+}
+.gallery li {
+	font-size: 40px;
+	color: #999;
+	text-align: center;
+	padding: 0;
+	display: block;
+	float: left;
+}
+.gallery.responsive {
+	width: auto;
+	margin-left: 0;
+}
 </style>
-  <div class="ad-list-info">
-    <div class="ad-list-block mr-29 ht-600"> 
-      <span class="ad-title classifieds">Motors</span>
-      <ul>
-        <% @motors.each do |cat| %>
-        <li><a href="/<%=cat.section.slug%>/<%=cat.slug%>"><%= cat.name %></a> <span>(<%=  ads_count(cat.section_id,cat.id) %>)</span></li>
-        <% end %>
-      </ul>
-      <a href="<%= new_ad_path %>"><span class="post-ad">Post An Ad</span> </a>
-   </div>
-  <div class="ad-list-info">
-    <div class="ad-list-block mr-29 ht-600"> 
-      <span class="ad-title classifieds">Classifieds</span>
-      <ul>
-        <% @classifieds.each do |cat| %>
-        <li><a href="/<%=cat.section.slug%>/<%=cat.slug%>"><%= cat.name %></a> <span>(<%=  ads_count(cat.section_id,cat.id) %>)</span></li>
-        <% end %>
-      </ul>
-      <a href="<%= new_ad_path %>"><span class="post-ad">Post An Ad</span> </a>
-   </div>
-    <div class="ad-list-block mr-29 ht-600"> <span class="ad-title pro-f-rent">Property for Sale</span>
-      <ul>
-        <% @properties_for_sale.each do |cat| %>
-        <li><a href="/<%=cat.section.slug%>/<%=cat.slug%>"><%= cat.name %></a> <span>(<%=  ads_count(cat.section_id,cat.id) %>)</span></li>
-        <% end %>
-      </ul>
-     <a href="<%= new_ad_path %>"><span class="post-ad">Post An Ad</span> </a> </div>
-    <div class="ad-list-block"> <span class="ad-title jobs ht-248">Job Vacancies</span>
-      <ul>
-        <% @jobs.each do |cat| %>
-        <li><a href="/<%=cat.section.slug%>/<%=cat.slug%>"><%= cat.name %></a> <span>(<%=  ads_count(cat.section_id,cat.id) %>)</span></li>
-        <% end %>        
-      </ul>
-      <a href="<%= new_ad_path %>"><span class="post-ad">Post An Ad</span> </a> </div>
-    <div class="ad-list-block mr-29"> <span class="ad-title pro-f-rent ht-336">Property for Rent</span>
-      <ul>
-         <% @properties_for_rent.each do |cat| %>
-        <li><a href="/<%=cat.section.slug%>/<%=cat.slug%>"><%= cat.name %></a> <span>(<%=  ads_count(cat.section_id,cat.id) %>)</span></li>
-        <% end %>       
-      </ul>
-      <a href="<%= new_ad_path %>"><span class="post-ad">Post An Ad</span> </a></div>
-    <div class="ad-list-block "> <span class="ad-title commu ht-336">Community</span>
-      <ul>
-        <% @communities.each do |cat| %>
-        <li><a href="/<%=cat.section.slug%>/<%=cat.slug%>"><%= cat.name %></a> <span>(<%=  ads_count(cat.section_id,cat.id) %>)</span></li>
-        <% end %>        
-      </ul>
-      <a href="<%= new_ad_path %>"><span class="post-ad">Post An Ad</span> </a> </div>
-  </div>
+<div class="ad-list-info">
+<div class="ad-list-block mr-29 ht-600"> <span class="ad-title classifieds">Motors</span>
+  <ul>
+    <% @motors.each do |cat| %>
+    <li><a href="/<%=cat.section.slug%>/<%=cat.slug%>"><%= cat.name %></a> <span>(<%=  ads_count(cat.section_id,cat.id) %>)</span></li>
+    <% end %>
+  </ul>
+  <a href="<%= new_ad_path %>"><span class="post-ad">Post An Ad</span> </a> </div>
 <br/>
 <div class="gallery">
-  
-  
   <div class="carousel slide span95" id="myCarousel">
-<div class="carousel-inner">
-  <div class="item active">
+    <div class="carousel-inner">
+      <div class="item active">
         <ul class="thumbnails">
-           <%# @properties_for_sale.each do |prty| %>
-          <%# if prty.id == 3 %>
-          <%# prty.ads.each do |p| %>
-            <!--<li class="span2">
+          <%# @properties_for_sale.each do |prty| %> <%# if prty.id == 3 %> <%# prty.ads.each do |p| %> 
+          <!--<li class="span2">
                 <div class="thumbnail">
                     <img src="<%#= p.images.first.url(:thumb) %>" alt="" />
                 </div>
-            </li>-->
-               <%# end %>
-      <%# end %>
-    <%# end %> 
-         
-            <li class="span2">
-                <div class="thumbnail">
-                    <img src="/assets/sample.gif" alt="">
-                </div>
-            </li>
-             <li class="span2">
-                <div class="thumbnail">
-                    <img src="/assets/sample.gif" alt="">
-                </div>
-            </li>
-            <li class="span2">
-                <div class="thumbnail">
-                    <img src="/assets/sample.gif" alt="">
-                </div>
-            </li>
-             <li class="span2">
-                <div class="thumbnail">
-                    <img src="/assets/sample.gif" alt="">
-                </div>
-            </li>
+            </li>--> 
+          <%# end %> <%# end %> <%# end %>
+          <li class="span2">
+            <div class="thumbnail"> <img src="/assets/sample.gif" alt=""> </div>
+          </li>
+          <li class="span2">
+            <div class="thumbnail"> <img src="/assets/sample.gif" alt=""> </div>
+          </li>
+          <li class="span2">
+            <div class="thumbnail"> <img src="/assets/sample.gif" alt=""> </div>
+          </li>
+          <li class="span2">
+            <div class="thumbnail"> <img src="/assets/sample.gif" alt=""> </div>
+          </li>
         </ul>
-  </div>
-  <div class="item">
+      </div>
+      <div class="item">
         <ul class="thumbnails">
-          
-           <li class="span2">
-                <div class="thumbnail">
-                    <img src="/assets/sample.gif" alt="">
-                </div>
-            </li>
-         <li class="span2">
-                <div class="thumbnail">
-                    <img src="/assets/sample.gif" alt="">
-                </div>
-            </li>
           <li class="span2">
-                <div class="thumbnail">
-                    <img src="/assets/sample.gif" alt="">
-                </div>
-            </li>
-             <li class="span2">
-                <div class="thumbnail">
-                    <img src="/assets/sample.gif" alt="">
-                </div>
-            </li>
+            <div class="thumbnail"> <img src="/assets/sample.gif" alt=""> </div>
+          </li>
+          <li class="span2">
+            <div class="thumbnail"> <img src="/assets/sample.gif" alt=""> </div>
+          </li>
+          <li class="span2">
+            <div class="thumbnail"> <img src="/assets/sample.gif" alt=""> </div>
+          </li>
+          <li class="span2">
+            <div class="thumbnail"> <img src="/assets/sample.gif" alt=""> </div>
+          </li>
         </ul>
-  </div>
-  <div class="item">
+      </div>
+      <div class="item">
         <ul class="thumbnails">
-          
           <li class="span2">
-                <div class="thumbnail">
-                    <img src="/assets/sample.gif" alt="">
-                </div>
-            </li>
+            <div class="thumbnail"> <img src="/assets/sample.gif" alt=""> </div>
+          </li>
           <li class="span2">
-                <div class="thumbnail">
-                    <img src="/assets/sample.gif" alt="">
-                </div>
-            </li>
-           <li class="span2">
-                <div class="thumbnail">
-                    <img src="/assets/sample.gif" alt="">
-                </div>
-            </li>
-             <li class="span2">
-                <div class="thumbnail">
-                    <img src="/assets/sample.gif" alt="">
-                </div>
-            </li>
+            <div class="thumbnail"> <img src="/assets/sample.gif" alt=""> </div>
+          </li>
+          <li class="span2">
+            <div class="thumbnail"> <img src="/assets/sample.gif" alt=""> </div>
+          </li>
+          <li class="span2">
+            <div class="thumbnail"> <img src="/assets/sample.gif" alt=""> </div>
+          </li>
         </ul>
-  </div>
+      </div>
+    </div>
+    <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a> <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a> </div>
 </div>
- <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-  <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+<div class="ad-list-info">
+  <div class="ad-list-block mr-29 ht-600"> <span class="ad-title classifieds">Classifieds</span>
+    <ul>
+      <% @classifieds.each do |cat| %>
+      <li><a href="/<%=cat.section.slug%>/<%=cat.slug%>"><%= cat.name %></a> <span>(<%=  ads_count(cat.section_id,cat.id) %>)</span></li>
+      <% end %>
+    </ul>
+    <a href="<%= new_ad_path %>"><span class="post-ad">Post An Ad</span> </a> </div>
+  <div class="ad-list-block mr-29 ht-600"> <span class="ad-title pro-f-rent">Property for Sale</span>
+    <ul>
+      <% @properties_for_sale.each do |cat| %>
+      <li><a href="/<%=cat.section.slug%>/<%=cat.slug%>"><%= cat.name %></a> <span>(<%=  ads_count(cat.section_id,cat.id) %>)</span></li>
+      <% end %>
+    </ul>
+    <a href="<%= new_ad_path %>"><span class="post-ad">Post An Ad</span> </a> </div>
+  <div class="ad-list-block"> <span class="ad-title jobs ht-248">Job Vacancies</span>
+    <ul>
+      <% @jobs.each do |cat| %>
+      <li><a href="/<%=cat.section.slug%>/<%=cat.slug%>"><%= cat.name %></a> <span>(<%=  ads_count(cat.section_id,cat.id) %>)</span></li>
+      <% end %>
+    </ul>
+    <a href="<%= new_ad_path %>"><span class="post-ad">Post An Ad</span> </a> </div>
+  <div class="ad-list-block mr-29"> <span class="ad-title pro-f-rent ht-336">Property for Rent</span>
+    <ul>
+      <% @properties_for_rent.each do |cat| %>
+      <li><a href="/<%=cat.section.slug%>/<%=cat.slug%>"><%= cat.name %></a> <span>(<%=  ads_count(cat.section_id,cat.id) %>)</span></li>
+      <% end %>
+    </ul>
+    <a href="<%= new_ad_path %>"><span class="post-ad">Post An Ad</span> </a></div>
+  <div class="ad-list-block "> <span class="ad-title commu ht-336">Community</span>
+    <ul>
+      <% @communities.each do |cat| %>
+      <li><a href="/<%=cat.section.slug%>/<%=cat.slug%>"><%= cat.name %></a> <span>(<%=  ads_count(cat.section_id,cat.id) %>)</span></li>
+      <% end %>
+    </ul>
+    <a href="<%= new_ad_path %>"><span class="post-ad">Post An Ad</span> </a> </div>
 </div>
-
-</div>
-  <!--<div class="gallery"></div>-->
-
-
-
+<!--<div class="gallery"></div>--> 
 
