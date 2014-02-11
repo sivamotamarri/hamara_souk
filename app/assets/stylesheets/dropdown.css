@@ -29,7 +29,8 @@ ul li {padding:0px; margin:0px; list-style:none;} a {text-decoration:none; outli
 .pri-menu .navigation ul li {font-size:15px; float:left; background:url(pri-menu-divider.png) no-repeat right; padding:0px 1px 0px 0px;}
 .pri-menu .navigation ul li a {color:#fff; padding:11px 20px 11px 20px; display:block; height:36px; line-height:33px;}
 .pri-menu .navigation ul li a:hover {background:url(nav_hover.jpg) repeat-x; padding:11px 20px 11px 20px; display:block; height:36px;}
-.pri-menu .navigation ul li.home-tab{ background:url(home-icon.png) left top no-repeat; padding:0px ; margin:17px 10px 0px 10px; float:left; width:44px; height:29px; cursor:pointer;}
+.pri-menu .navigation ul li.home-tab{ background:url(home-icon.png) left top no-repeat; padding:0px ; margin:9px 10px 0px 10px; float:left; width:44px; height:29px; cursor:pointer;}
 .pri-menu .navigation ul li.home-tab a:hover{ background:none !important; width:44px; height:29px;}
-.dropmenudiv{ top:179px !important;}
+.dropmenudiv{ top:194px !important;}
+.pri-menu .navigation ul li:last-child{ background:none !important;}
 

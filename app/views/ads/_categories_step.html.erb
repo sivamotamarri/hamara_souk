@@ -1,10 +1,10 @@
 <h2>Choose Categories</h2>
-<div>
+<div class="size-info">
 <%=f.label :section_id , "Select a Section" %><br/>
 <%= f.select(:section_id, Section.all.collect {|s| [ s.name, s.id ] },{:prompt => "- Select One -"}) %>
 </div>
 <div style="display: none;" id="cat_section">
- <div>
+ <div class="size-info">
   <%=f.label :category_id , "Select a Category" %><br/>
   <span id="categories_list" >
 

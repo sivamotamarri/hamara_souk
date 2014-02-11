@@ -1,13 +1,14 @@
 <div class="progress progress-striped  active"> <div class="bar"   style="width: 60%;"></div></div>
 
 <p>Find a Location</p>
-<div><%= f.label :street %><br />
-<%= f.text_field :street %></div>
+<div class="add-info">
+<div class="size-info"><%= f.label :street %></br>
+<%= f.text_field :street %></div></div>
 
-<div><%= f.label :city %><br/>
+<div class="size-info"><%= f.label :city %></br>
 <%= f.select(:city, City.all.collect {|s| [ s.name, s.name ] },{:prompt => "- Select One -"}) %>
 </div>
-<div>
+<div class="size-info">
 <%= f.hidden_field :country, :value => "India" %>
 
 </div>

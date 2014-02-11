@@ -12,7 +12,7 @@
 <h1>Details</h1>
 
 
-<div><%= f.label :title %><br />
+<div class="title-info"><%= f.label :title %>
   <%= f.text_field :title %></div>
 
 <% if @ad.section_id == 1 %>
@@ -22,12 +22,12 @@
 <% elsif @ad.section_id == 4 %>
   <%= render "section4", :f => f %>
 <% elsif @ad.section_id == 5 %>
-  <div>
-    <%= f.label :mobile_number ,"Mobile Number" %><br />
+  <div class="discrip-info">
+    <%= f.label :mobile_number ,"Mobile Num" %>
     <%= f.text_field :mobile_number %><%= f.label :mobile_number ,"(optional)" %>
   </div>
 <% end %>
-<div>
-  <%= f.label :desc ,"Description" %><br />
+<div class="discrip-info">
+  <%= f.label :desc ,"Description" %>
   <%= f.text_area :desc, :rows => 10, :cols => 40 %>
 </div>

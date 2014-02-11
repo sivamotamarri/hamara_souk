@@ -1,55 +1,60 @@
 <div id="details">
-
-  <div><%= f.label :size %><br />
+<div class="add-info">
+  <div class="size-info"><%= f.label :size %>
     <%= f.text_field :size %></div>
 
-  <div><%= f.label :fee , "Total Closine Fee" %><br />
+  <div class="size-info"><%= f.label :fee , "Total Closine Fee" %>
     <%= f.text_field :fee %></div>
-  <div><%= f.label :bed_rooms %><br />
+  <div class="size-info"><%= f.label :bed_rooms %>
     <%= f.select(:bed_rooms, Ad::NUMBER.collect {|s| [ s ] },{:prompt => "- Select One -"}) %></div>
 
-  <div><%= f.label :bath_rooms %><br />
+  <div class="size-info"><%= f.label :bath_rooms %>
     <%= f.select(:bath_rooms, Ad::NUMBER.collect {|s| [ s ] },{:prompt => "- Select One -"}) %></div>
 
 
-  <div><%= f.label :developer , "Develper"%><br />
+  <div class="size-info"><%= f.label :developer , "Develper"%>
     <%= f.text_field :developer %></div>
 
-  <div><%= f.label :ready_date, "Date (Ready By)" %><br/>
+  <div class="size-info"><%= f.label :ready_date, "Date (Ready By)" %>
 
     <%= f.text_field :ready_date %>
   </div>
-  <div><%= f.label :annual_comm_fee ,"Annual Community Fee" %><br />
+  <div class="size-info"><%= f.label :annual_comm_fee ,"Annual Community Fee" %>
     <%= f.text_field :annual_comm_fee %></div>
 
-  <div>
-    <%= f.label :amenities ,"Amenities" %><br />
+  <div class="size-info">
+    <%= f.label :amenities ,"Amenities" %>
     <%= f.select(:amenities, @amenities.collect {|s| [ s.title,s.id ] },{},{ :multiple => true, :size =>5 }) %>
   </div>
 </div>
-<h1>Lister Details</h1>
+<h1 style=" width:100%; float:left;">Lister Details</h1>
 
-<div style="width:90%">
-  <div style="width:50%; float: left;">
+<div class="size-info">
+  <div class="radio-info">
     <%= f.radio_button :agent_or_landlord , :value => 1 %><%=f.label :agent_or_landlord , "I'm an Agent"%>
   </div>
-  <div style="width:50%;float: left;">
+  <div class="radio-info">
     <%= f.radio_button :agent_or_landlord , :value => 0 %><%=f.label :agent_or_landlord , "I'm a Landlord"%>
   </div>
 </div>
+<p style="height:10px; float:left; width:100%;">&nbsp;</p>
+<h1 style=" width:100%; float:left;">Description</h1>
 
-<h1>Description</h1>
-<div style="width:90%">
+<div  class="size-info">
+<div class="discrip-info">
 <div>
-  <%= f.label :price %><br />  <%= f.text_field :price %><%= f.label :price ,"AED" %>
+  <%= f.label :price %><%= f.text_field :price %> <%= f.label :price , "AED" %>
 </div>
 <div>
-  <%= f.label :property_refer %> <%= f.text_field :property_refer  %><%= f.label :property_refer  ,"(optional)" %>
-</div>
-<div>
-  <%= f.label :mobile_number ,"Mobile Number" %><br />
-  <%= f.text_field :mobile_number %><%= f.label :mobile_number ,"(optional)" %>
+  <%= f.label :property_refer %> <%= f.text_field :property_refer  %><%= f.label :property_refer  , "(optional)" %>
 </div>
 </div>
 
-
+<div class="add-info">
+<div class="size-info">
+  <%= f.label :mobile_number ,"Mobile Num" %>
+  <span style="float:left !important;"><%= f.text_field :mobile_number %></span><%= f.label :mobile_number , "(optional)" %>
+</div>
+</div>
+</div>
+</div>
