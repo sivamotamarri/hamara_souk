@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.0'
+gem 'rails', '3.2.17'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -14,11 +14,11 @@ gem 'rails', '3.1.0'
 group :development, :test do
   #gem 'sqlite3'
   gem 'letter_opener'
-  #gem 'mysql'  
+  #gem 'mysql'
 end
 
 group :mysql do
-  gem 'mysql', '2.8.1'
+  gem 'mysql2' #, '2.8.1'
 end
 
 gem "bcrypt-ruby", :require => "bcrypt"
@@ -46,22 +46,22 @@ gem "bcrypt-ruby", :require => "bcrypt"
 # end
 gem 'activeadmin'
 gem 'sass-rails'
-gem 'meta_search',    '>= 1.1.0.pre'
+#gem 'meta_search'
 
 #gem "sprockets_rails3_backport"
 
 gem "omniauth-facebook"
 gem 'faraday'
 gem "breadcrumbs_on_rails"
-gem "paperclip", "~> 2.0"
+gem "paperclip" #{}, "~> 2.0"
 gem 'gmaps4rails'
 
-gem 'coffee-rails', "~> 3.1.0"
+gem 'coffee-rails' #, "~> 3.1.0"
 gem 'uglifier'
 gem 'therubyracer'
 gem 'fastercsv'
-gem 'friendly_id'
-gem 'will_paginate', '3.0.pre2'
+gem 'friendly_id', "~> 3.3.0"
+gem 'will_paginate' #, '3.0.pre2'
 gem 'url_shortener'
 #gem 'mongrel', '1.2.0.pre2'
 #gem 'dispatcher'
